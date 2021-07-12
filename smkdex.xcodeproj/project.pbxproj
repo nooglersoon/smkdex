@@ -14,6 +14,7 @@
 		014AC24C269A07A600705994 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 014AC24B269A07A600705994 /* Preview Assets.xcassets */; };
 		014AC257269A07A600705994 /* smkdexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC256269A07A600705994 /* smkdexTests.swift */; };
 		014AC262269A07A600705994 /* smkdexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC261269A07A600705994 /* smkdexUITests.swift */; };
+		A0492BC2269C4C45005DB413 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0492BC1269C4C45005DB413 /* AudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		014AC25D269A07A600705994 /* smkdexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = smkdexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		014AC261269A07A600705994 /* smkdexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smkdexUITests.swift; sourceTree = "<group>"; };
 		014AC263269A07A600705994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0492BC1269C4C45005DB413 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				014AC248269A07A600705994 /* Assets.xcassets */,
 				014AC24D269A07A600705994 /* Info.plist */,
 				014AC24A269A07A600705994 /* Preview Content */,
+				A0492BC1269C4C45005DB413 /* AudioPlayer.swift */,
 			);
 			path = smkdex;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				014AC245269A07A400705994 /* ContentView.swift in Sources */,
 				014AC243269A07A400705994 /* AppDelegate.swift in Sources */,
 				014AC247269A07A400705994 /* Experience.rcproject in Sources */,
+				A0492BC2269C4C45005DB413 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
