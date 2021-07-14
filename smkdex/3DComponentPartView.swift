@@ -14,11 +14,6 @@ struct _DComponentPartView: View {
     }
 }
 
-struct _DComponentPartView_Previews: PreviewProvider {
-    static var previews: some View {
-        _DComponentPartView()
-    }
-}
 
 //Home View
 
@@ -94,4 +89,11 @@ struct Model : Identifiable{
     var name : String
     var modelName : String
     var details : String
+}
+
+
+struct _DComponentPartView_Previews: PreviewProvider {
+    static var previews: some View {
+        _DComponentPartView()
+    }
 }
