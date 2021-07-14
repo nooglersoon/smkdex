@@ -15,6 +15,7 @@
 		014AC24C269A07A600705994 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 014AC24B269A07A600705994 /* Preview Assets.xcassets */; };
 		014AC257269A07A600705994 /* smkdexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC256269A07A600705994 /* smkdexTests.swift */; };
 		014AC262269A07A600705994 /* smkdexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC261269A07A600705994 /* smkdexUITests.swift */; };
+		01D317FA269F0043007C0331 /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D317F9269F0043007C0331 /* ComponentView.swift */; };
 		A0492BC2269C4C45005DB413 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0492BC1269C4C45005DB413 /* AudioPlayer.swift */; };
 		A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */; };
 		A0B8291D269EDCD6001914EF /* Assembly klakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A0B8291C269EDCD6001914EF /* Assembly klakson.usdz */; };
@@ -52,6 +53,7 @@
 		014AC25D269A07A600705994 /* smkdexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = smkdexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		014AC261269A07A600705994 /* smkdexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smkdexUITests.swift; sourceTree = "<group>"; };
 		014AC263269A07A600705994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01D317F9269F0043007C0331 /* ComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
 		A0492BC1269C4C45005DB413 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DComponentPartView.swift; sourceTree = "<group>"; };
 		A0B8291C269EDCD6001914EF /* Assembly klakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Assembly klakson.usdz"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				A0492BC1269C4C45005DB413 /* AudioPlayer.swift */,
 				0139936D269ED5290016A8C2 /* Launch Screen.storyboard */,
 				A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */,
+				01D317F9269F0043007C0331 /* ComponentView.swift */,
 			);
 			path = smkdex;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			files = (
 				014AC245269A07A400705994 /* ContentView.swift in Sources */,
 				A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */,
+				01D317FA269F0043007C0331 /* ComponentView.swift in Sources */,
 				014AC243269A07A400705994 /* AppDelegate.swift in Sources */,
 				014AC247269A07A400705994 /* Experience.rcproject in Sources */,
 				A0492BC2269C4C45005DB413 /* AudioPlayer.swift in Sources */,
