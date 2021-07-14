@@ -21,7 +21,8 @@ struct Home : View {
     
     @State var models = [
     Model(id: 0, name: "Klakson", modelName: "Assembly klakson.usdz", details: "blabla"),
-    Model(id: 0, name: "no", modelName: "Assembly klakson.usdz", details: "blabla")
+    Model(id: 0, name: "Accu", modelName: "ACCU_Battery_car.usdz", details: "blabla"),
+        Model(id: 0, name: "Fuse", modelName: "Fuse.usdz", details: "Rangga ceunah")
     ]
     
     @State var index = 0
