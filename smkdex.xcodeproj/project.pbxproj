@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0139936E269ED5290016A8C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0139936D269ED5290016A8C2 /* Launch Screen.storyboard */; };
 		014AC243269A07A400705994 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC242269A07A400705994 /* AppDelegate.swift */; };
 		014AC245269A07A400705994 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC244269A07A400705994 /* ContentView.swift */; };
 		014AC247269A07A400705994 /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 014AC246269A07A400705994 /* Experience.rcproject */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0139936D269ED5290016A8C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		014AC23F269A07A400705994 /* smkdex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smkdex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		014AC242269A07A400705994 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		014AC244269A07A400705994 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				014AC24D269A07A600705994 /* Info.plist */,
 				014AC24A269A07A600705994 /* Preview Content */,
 				A0492BC1269C4C45005DB413 /* AudioPlayer.swift */,
+				0139936D269ED5290016A8C2 /* Launch Screen.storyboard */,
 			);
 			path = smkdex;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0139936E269ED5290016A8C2 /* Launch Screen.storyboard in Resources */,
 				014AC24C269A07A600705994 /* Preview Assets.xcassets in Resources */,
 				014AC249269A07A600705994 /* Assets.xcassets in Resources */,
 			);
