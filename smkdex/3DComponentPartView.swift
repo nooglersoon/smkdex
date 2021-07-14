@@ -25,7 +25,8 @@ struct _DComponentPartView_Previews: PreviewProvider {
 struct Home : View {
     
     @State var models = [
-    Model(id: 0, name: "Klakson", modelName: "Assembly klakson.usdz", details: "blabla")
+    Model(id: 0, name: "Klakson", modelName: "Assembly klakson.usdz", details: "blabla"),
+    Model(id: 0, name: "no", modelName: "Assembly klakson.usdz", details: "blabla")
     ]
     
     @State var index = 0
@@ -33,9 +34,9 @@ struct Home : View {
     var body: some View{
         VStack{
             
-            (SceneView(scene: SCNScene(named: models[index].modelName), options: [.autoenablesDefaultLighting.allowsCameraControl])
+            SceneView(scene: SCNScene(named: models[index].modelName), options: [.autoenablesDefaultLighting,.allowsCameraControl])
                 
-                .frame(width: UIScreen.main.bounds.width , height: UIScreen.main.bounds.height/2,)
+                .frame(width: UIScreen.main.bounds.width , height: UIScreen.main.bounds.height/2)
             ZStack{
                 HStack{
                     Button(action: {
@@ -75,8 +76,8 @@ struct Home : View {
             
                 VStack (alignment: .leading, spacing: 15, content: {
                     Text("About")
-                .font(.tittle2)
-                .fontWeight(.bold)
+                        .font(.title2)
+                        .fontWeight(.bold)
                 
                 Text(models[index].details)
                 })
