@@ -15,12 +15,13 @@
 		014AC24C269A07A600705994 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 014AC24B269A07A600705994 /* Preview Assets.xcassets */; };
 		014AC257269A07A600705994 /* smkdexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC256269A07A600705994 /* smkdexTests.swift */; };
 		014AC262269A07A600705994 /* smkdexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC261269A07A600705994 /* smkdexUITests.swift */; };
-		01B6687B269F3B2100FAE621 /* ACCU_Battery_car.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 01B6687A269F3B2100FAE621 /* ACCU_Battery_car.usdz */; };
+		01B6687B269F3B2100FAE621 /* Accu.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 01B6687A269F3B2100FAE621 /* Accu.usdz */; };
 		01B6687D269F3C0C00FAE621 /* Fuse.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 01B6687C269F3C0C00FAE621 /* Fuse.usdz */; };
+		01B6687F269FFF4E00FAE621 /* StoryTellingPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B6687E269FFF4E00FAE621 /* StoryTellingPartView.swift */; };
 		01D317FA269F0043007C0331 /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D317F9269F0043007C0331 /* ComponentView.swift */; };
 		A0492BC2269C4C45005DB413 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0492BC1269C4C45005DB413 /* AudioPlayer.swift */; };
 		A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */; };
-		A0B8291D269EDCD6001914EF /* Assembly klakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A0B8291C269EDCD6001914EF /* Assembly klakson.usdz */; };
+		A0B8291D269EDCD6001914EF /* Klakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A0B8291C269EDCD6001914EF /* Klakson.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +56,13 @@
 		014AC25D269A07A600705994 /* smkdexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = smkdexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		014AC261269A07A600705994 /* smkdexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smkdexUITests.swift; sourceTree = "<group>"; };
 		014AC263269A07A600705994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01B6687A269F3B2100FAE621 /* ACCU_Battery_car.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = ACCU_Battery_car.usdz; sourceTree = "<group>"; };
+		01B6687A269F3B2100FAE621 /* Accu.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Accu.usdz; sourceTree = "<group>"; };
 		01B6687C269F3C0C00FAE621 /* Fuse.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Fuse.usdz; sourceTree = "<group>"; };
+		01B6687E269FFF4E00FAE621 /* StoryTellingPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTellingPartView.swift; sourceTree = "<group>"; };
 		01D317F9269F0043007C0331 /* ComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
 		A0492BC1269C4C45005DB413 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DComponentPartView.swift; sourceTree = "<group>"; };
-		A0B8291C269EDCD6001914EF /* Assembly klakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Assembly klakson.usdz"; sourceTree = "<group>"; };
+		A0B8291C269EDCD6001914EF /* Klakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Klakson.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				0139936D269ED5290016A8C2 /* Launch Screen.storyboard */,
 				A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */,
 				01D317F9269F0043007C0331 /* ComponentView.swift */,
+				01B6687E269FFF4E00FAE621 /* StoryTellingPartView.swift */,
 			);
 			path = smkdex;
 			sourceTree = "<group>";
@@ -155,9 +158,9 @@
 		A0B8291E269EDD08001914EF /* 3D Part */ = {
 			isa = PBXGroup;
 			children = (
-				01B6687A269F3B2100FAE621 /* ACCU_Battery_car.usdz */,
+				01B6687A269F3B2100FAE621 /* Accu.usdz */,
 				01B6687C269F3C0C00FAE621 /* Fuse.usdz */,
-				A0B8291C269EDCD6001914EF /* Assembly klakson.usdz */,
+				A0B8291C269EDCD6001914EF /* Klakson.usdz */,
 			);
 			path = "3D Part";
 			sourceTree = "<group>";
@@ -266,8 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				01B6687D269F3C0C00FAE621 /* Fuse.usdz in Resources */,
-				A0B8291D269EDCD6001914EF /* Assembly klakson.usdz in Resources */,
-				01B6687B269F3B2100FAE621 /* ACCU_Battery_car.usdz in Resources */,
+				A0B8291D269EDCD6001914EF /* Klakson.usdz in Resources */,
+				01B6687B269F3B2100FAE621 /* Accu.usdz in Resources */,
 				0139936E269ED5290016A8C2 /* Launch Screen.storyboard in Resources */,
 				014AC24C269A07A600705994 /* Preview Assets.xcassets in Resources */,
 				014AC249269A07A600705994 /* Assets.xcassets in Resources */,
@@ -301,6 +304,7 @@
 				014AC243269A07A400705994 /* AppDelegate.swift in Sources */,
 				014AC247269A07A400705994 /* Experience.rcproject in Sources */,
 				A0492BC2269C4C45005DB413 /* AudioPlayer.swift in Sources */,
+				01B6687F269FFF4E00FAE621 /* StoryTellingPartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

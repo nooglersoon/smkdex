@@ -7,55 +7,100 @@
 
 import SwiftUI
 
+enum MenuView: String, Identifiable {
+    
+    case part,electricalCircuit,troubleshoot
+    
+    var id: String {
+        
+        return self.rawValue
+        
+    }
+}
+
 struct ComponentView: View {
+    
+    @State private var isPresented = false
+    @State private var activeMenuView: MenuView? = nil
+    
     var body: some View {
         
-        VStack(alignment: .center) {
+        NavigationView {
             
-            VStack {
-                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
+            VStack(alignment: .center) {
+                
+                VStack {
+                    VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
+                        
+                        Image(systemName: "headphones")
+                            .resizable()
+                            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Text("Motorcycle Horn")
+                            .font(.system(size: 30))
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    }
                     
-                    Image(systemName: "headphones")
-                        .resizable()
-                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    Text("Motorcycle Horn")
-                        .font(.system(size: 30))
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.")
+                        
+                        .multilineTextAlignment(.center)
+                        .font(.callout)
+                        .padding(30)
+                }
+                .padding(.top, 50)
+                
+                Spacer()
+                
+                HStack {
+                    
+                    ComponentButtonView(isPresented: $isPresented, actionView: {
+                        self.activeMenuView = .part
+                        print("hehe")
+                    }, menu: "Part", menuLogo: "shippingbox.fill")
+                    
+                    ComponentButtonView(isPresented: $isPresented, actionView: {
+                        self.activeMenuView = .electricalCircuit
+                    }, menu: "Electrical Circuit", menuLogo: "lasso")
+                    
+                    ComponentButtonView(isPresented: $isPresented, actionView: {
+                        print("Tapped")
+                    }, menu: "Troubleshoot", menuLogo: "gearshape.fill")
+                    
+                }.fullScreenCover(item: $activeMenuView) { activeMenuView in
+                    
+                    switch activeMenuView {
+                    
+                    case .part:
+                        _DComponentPartView()
+                    
+                    case .electricalCircuit:
+                        StoryTellingPartView()
+                    
+                    case .troubleshoot:
+                        Text("No View Available")
+                    }
+                    
                 }
                 
-                Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.")
-                    
-                    .multilineTextAlignment(.center)
-                    .font(.callout)
-                    .padding(30)
             }
-            .padding(.top, 50)
+            .padding(30)
             
-            Spacer()
-            
-            HStack {
-                
-                ComponentButtonView(menu: "Part", menuLogo: "shippingbox.fill")
-                ComponentButtonView(menu: "Electrical Circuit", menuLogo: "lasso")
-                ComponentButtonView(menu: "Troubleshoot", menuLogo: "gearshape.fill")
-                
-            }
+            .navigationBarHidden(true)
             
         }
-        .padding(30)
     }
 }
 
 
 struct ComponentButtonView: View {
     
+    @Binding var isPresented: Bool
+    
+    let actionView: () -> Void
     let menu: String
     let menuLogo: String
     var body: some View {
         
-        Button(action: {
-            print("\(menu) is selected")
-        }, label: {
+        Button(action: actionView, label: {
             
             ZStack {
                 
