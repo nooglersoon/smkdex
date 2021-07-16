@@ -9,9 +9,6 @@ import SwiftUI
 import SceneKit
 
 struct _DComponentPartView: View {
-    
-    
-    
     var body: some View {
         Home()
     }
@@ -25,8 +22,8 @@ struct Home : View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var models = [
-    Model(id: 0, name: "Klakson", modelName: "Assembly klakson.usdz", details: "blabla"),
-    Model(id: 0, name: "Accu", modelName: "ACCU_Battery_car.usdz", details: "blabla"),
+    Model(id: 0, name: "Klakson", modelName: "Klakson.usdz", details: "blabla"),
+    Model(id: 0, name: "Accu", modelName: "Accu.usdz", details: "blabla"),
         Model(id: 0, name: "Fuse", modelName: "Fuse.usdz", details: "Rangga ceunah")
     ]
     

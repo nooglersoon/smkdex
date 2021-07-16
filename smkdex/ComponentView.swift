@@ -24,8 +24,6 @@ struct ComponentView: View {
     @State private var activeMenuView: MenuView? = nil
     
     var body: some View {
-        
-        NavigationView {
             
             VStack(alignment: .center) {
                 
@@ -87,7 +85,6 @@ struct ComponentView: View {
             .navigationBarHidden(true)
             
         }
-    }
 }
 
 

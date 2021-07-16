@@ -50,8 +50,8 @@ struct StoryTellingPartView: View {
                 Spacer()
                 
             })
-            .padding(.top, 50)
-            .padding(.horizontal, 30)
+            .padding(.top, 30)
+            .padding(.horizontal, 25)
             
         }
         
@@ -69,7 +69,7 @@ struct ARActionButton: View {
             Image(systemName: buttonLabel)
                 .resizable()
                 .frame(width: 45, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .foregroundColor(Color(.systemGray))
+                .foregroundColor(Color(.white))
                 .opacity(0.4)
         })
         
@@ -103,5 +103,6 @@ struct ARViewContainer: UIViewRepresentable {
 struct StoryTellingPartView_Previews: PreviewProvider {
     static var previews: some View {
         StoryTellingPartView()
+            .preferredColorScheme(.dark)
     }
 }
