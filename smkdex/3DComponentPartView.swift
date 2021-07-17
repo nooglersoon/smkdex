@@ -9,9 +9,6 @@ import SwiftUI
 import SceneKit
 
 struct _DComponentPartView: View {
-    
-    
-    
     var body: some View {
         Home()
     }
@@ -25,9 +22,11 @@ struct Home : View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var models = [
-    Model(id: 0, name: "Klakson", modelName: "Assembly klakson.usdz", details: "blabla"),
-    Model(id: 0, name: "Accu", modelName: "ACCU_Battery_car.usdz", details: "blabla"),
-        Model(id: 0, name: "Fuse", modelName: "Fuse.usdz", details: "Rangga ceunah")
+    Model(id: 0, name: "Klakson", modelName: "Klakson.usdz", details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."),
+    Model(id: 0, name: "Tombol Klakson", modelName: "TombolKlakson.usdz", details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."),
+    Model(id: 0, name: "Aki", modelName: "Aki.usdz", details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."),
+    Model(id: 0, name: "Fuse", modelName: "Fuse.usdz", details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."),
+        Model(id: 0, name: "Kunci Kontak", modelName: "KunciKontak.usdz", details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.")
     ]
     
     @State var index = 0
@@ -70,10 +69,10 @@ struct Home : View {
                         .disabled(index == models.count - 1 ? true : false)
                     }
                     Text(models[index].name)
-                        .font(.system(size: 45, weight: .bold))
+                        .font(.system(size: 30, weight: .bold))
                 }
                 .foregroundColor(.black)
-                .padding(.horizontal)
+                .padding(.horizontal, 30)
                 .padding(.vertical,30)
                 
                 //Details
@@ -85,7 +84,7 @@ struct Home : View {
                     
                     Text(models[index].details)
                     })
-                .padding(.horizontal)
+                .padding(.horizontal, 30)
                 Spacer(minLength: 0)
             }
          

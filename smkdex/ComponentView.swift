@@ -24,17 +24,16 @@ struct ComponentView: View {
     @State private var activeMenuView: MenuView? = nil
     
     var body: some View {
-        
-        NavigationView {
             
             VStack(alignment: .center) {
                 
                 VStack {
                     VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
                         
-                        Image(systemName: "headphones")
+                        Image(uiImage: UIImage(named: "Klakson") ?? #imageLiteral(resourceName: "imagePlaceHolder"))
                             .resizable()
-                            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         Text("Motorcycle Horn")
                             .font(.system(size: 30))
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -64,6 +63,9 @@ struct ComponentView: View {
                     ComponentButtonView(isPresented: $isPresented, actionView: {
                         print("Tapped")
                     }, menu: "Troubleshoot", menuLogo: "gearshape.fill")
+                    .disabled(true)
+                    .overlay(Color(.white).opacity(0.4))
+                    
                     
                 }.fullScreenCover(item: $activeMenuView) { activeMenuView in
                     
@@ -83,11 +85,7 @@ struct ComponentView: View {
                 
             }
             .padding(30)
-            
-            .navigationBarHidden(true)
-            
         }
-    }
 }
 
 
@@ -110,17 +108,17 @@ struct ComponentButtonView: View {
                 VStack(alignment:.center, spacing: 10){
                     Image(systemName: "\(menuLogo)")
                         .resizable()
-                        .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 30, height: 30, alignment: .center)
                         .foregroundColor(.white)
                         .padding(.top,10)
                     Text("\(menu)")
                         .font(.system(size: 15))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
-                        .frame(width: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 100, alignment: .center)
                     
                 }
-                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
                 
             }
             
