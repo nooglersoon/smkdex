@@ -12,50 +12,65 @@ struct MainMenuView: View {
     @State private var search: String = ""
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16){
-            VStack{
-                HStack{
-                    Text("Welcome Back!")
-                        .font(.title)
-                        .fontWeight(.bold)
+        NavigationView {
+            VStack(alignment: .leading, spacing: 20){
+                VStack(alignment: .center, spacing: 30){
                     Spacer()
-                    Image(uiImage: #imageLiteral(resourceName: "imagePlaceHolder"))
-                    Spacer()
+                    HStack{
+                        Text("Welcome Back!")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Spacer()
+                        Image(uiImage: #imageLiteral(resourceName: "imagePlaceHolder"))
+                        Spacer()
+                    }
+                    HStack{
+                        Image(systemName: "magnifyingglass")
+                        TextField("What do you want to learn?", text: $search)
+                    }
+                    .padding()
+                    .background(Color(.secondarySystemFill))
+                    .cornerRadius(20.0)
+                }
+                .frame(height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(radius: 20, corners: [.bottomLeft, .bottomRight]
+                )
+                
+                VStack(alignment: .leading, spacing:30){
+                    
+                    Text("Motorcycles Electricity")
+                        .font(.title3)
+                        .bold()
+                        .padding(.horizontal, 20)
+                    ScrollView(.horizontal, showsIndicators: false){
+                            HStack (spacing: 20){
+                                NavigationLink(destination: ComponentView()){
+                                    
+                                    PartsCardView(partImage: "Klakson", partName: "Klakson", partDesc: "A horn is a sound making device that can be equiped to a motorcycle")
+                                        .padding(.leading, 20)
+                                    
+                                    
+//                                    PartsCardView(partImage: nil, partName: "Coming Soon", partDesc: "-")
+//                                        .disabled(true)
+                                    
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            }
+                        }
+                    
                     
                 }
-                HStack{
-                    Image(systemName: "magnifyingglass")
-                    TextField("What do you want to learn?", text: $search)
-                }
-                .padding()
-                .background(Color(.secondarySystemFill))
-                .cornerRadius(20.0)
-            }
-            .padding()
-            .background(Color(.systemGray6))
-            .cornerRadius(radius: 20, corners: [.bottomLeft, .bottomRight]
-            )
-            VStack(alignment: .leading){
+                .padding(.vertical, 10)
                 
-                Text("Motorcycles Electricity")
-                    .font(.title2)
-                ScrollView(.horizontal){
-                    HStack{
-                        PartsCardView()
-                        PartsCardView()
-                        PartsCardView()
-
-                }
-
-                }
+                
                 Spacer()
-                
+            
             }
-            .padding()
-            Spacer()
-        
-        
-        }.background(Color(.cyan))
+    //        .background(Color(.cyan))
+            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        }
     }
     
 }
@@ -96,18 +111,30 @@ extension View {
 
 //Card view carousel
 struct PartsCardView: View {
+    
+    let partImage: String
+    let partName: String
+    let partDesc: String
+    
     var body: some View {
-        VStack(alignment: .leading){
-            Image(uiImage: #imageLiteral(resourceName: "imagePlaceHolder"))
-            Text("Motorcycle Horn")
+        
+        VStack(alignment: .leading, spacing: 10){
+            Image(uiImage: UIImage(named: partImage) ?? #imageLiteral(resourceName: "imagePlaceHolder"))
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            Text(partName)
                 .font(.subheadline)
-            Text("A horn is a sound making device that can be equiped to a motorcycle")
+                .bold()
+            Text(partDesc)
                 .font(.caption)
         }
-        .frame(width:120
-        )
+        .frame(width:150, height: 150)
         .padding()
         .background(Color(.systemGray6))
         .cornerRadius(20)
+        
     }
+    
 }
+

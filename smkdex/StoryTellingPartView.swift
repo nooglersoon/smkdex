@@ -69,8 +69,8 @@ struct ARActionButton: View {
             Image(systemName: buttonLabel)
                 .resizable()
                 .frame(width: 45, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .foregroundColor(Color(.white))
-                .opacity(0.4)
+                .foregroundColor(Color(.gray))
+                .opacity(0.15)
         })
         
     }
@@ -86,9 +86,23 @@ struct ARViewContainer: UIViewRepresentable {
         
         // Load the "Box" scene from the "Experience" Reality File
         let boxAnchor = try! Experience.loadBox()
-        
+
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)
+        
+        if let entity = try? Entity.loadAnchor(
+          named: "Klakson"
+        ){
+        
+        entity.anchoring = AnchoringComponent(
+          .plane(
+            .horizontal, classification: .floor, minimumBounds: [1, 1]
+          )
+        )
+        
+        arView.scene.anchors.append(entity)
+        
+        }
         
         return arView
         
