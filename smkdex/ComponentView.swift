@@ -20,6 +20,7 @@ enum MenuView: String, Identifiable {
 
 struct ComponentView: View {
     
+    var component: Component
     @State private var isPresented = false
     @State private var activeMenuView: MenuView? = nil
     
@@ -30,16 +31,16 @@ struct ComponentView: View {
                 VStack {
                     VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
                         
-                        Image(uiImage: UIImage(named: "Klakson") ?? #imageLiteral(resourceName: "imagePlaceHolder"))
+                        Image(uiImage: UIImage(named: component.visual) ?? #imageLiteral(resourceName: "imagePlaceHolder"))
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        Text("Motorcycle Horn")
+                        Text(component.nama)
                             .font(.system(size: 30))
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     }
                     
-                    Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.")
+                    Text(component.longDesc)
                         
                         .multilineTextAlignment(.center)
                         .font(.callout)
@@ -53,7 +54,6 @@ struct ComponentView: View {
                     
                     ComponentButtonView(isPresented: $isPresented, actionView: {
                         self.activeMenuView = .part
-                        print("hehe")
                     }, menu: "Part", menuLogo: "shippingbox.fill")
                     
                     ComponentButtonView(isPresented: $isPresented, actionView: {
@@ -72,7 +72,7 @@ struct ComponentView: View {
                     switch activeMenuView {
                     
                     case .part:
-                        _DComponentPartView()
+                        _DComponentPartView(parts: component.parts)
                     
                     case .electricalCircuit:
                         StoryTellingPartView()
@@ -130,6 +130,6 @@ struct ComponentButtonView: View {
 
 struct ComponentView_Previews: PreviewProvider {
     static var previews: some View {
-        ComponentView()
+        ComponentView(component: Models().allComponent[0])
     }
 }

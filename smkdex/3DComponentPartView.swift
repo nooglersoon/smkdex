@@ -8,18 +8,14 @@
 import SwiftUI
 import SceneKit
 
-struct _DComponentPartView: View {
-    var body: some View {
-        Home()
-    }
-}
-
 
 //Home View
 
-struct Home : View {
+struct _DComponentPartView : View {
     
     @Environment(\.presentationMode) var presentationMode
+    
+    var parts: [Part]
     
     @State var models = [
     Model(id: 0, name: "Klakson", modelName: "Klakson.usdz", details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."),
@@ -37,7 +33,7 @@ struct Home : View {
             
             VStack{
                 
-                SceneView(scene: SCNScene(named: models[index].modelName), options: [.autoenablesDefaultLighting,.allowsCameraControl])
+                SceneView(scene: SCNScene(named: "\(parts[index].visual).usdz"), options: [.autoenablesDefaultLighting,.allowsCameraControl])
                     
                     .frame(width: UIScreen.main.bounds.width , height: 250)
                     .padding(.top, 100)
@@ -69,7 +65,7 @@ struct Home : View {
                         })
                         .disabled(index == models.count - 1 ? true : false)
                     }
-                    Text(models[index].name)
+                    Text(parts[index].nama)
                         .font(.system(size: 30, weight: .bold))
                 }
                 .foregroundColor(.black)
@@ -83,7 +79,7 @@ struct Home : View {
                             .font(.title2)
                             .fontWeight(.bold)
                     
-                    Text(models[index].details)
+                        Text(parts[index].fungsi)
                     })
                 .padding(.horizontal, 30)
                 Spacer(minLength: 0)
@@ -125,6 +121,6 @@ struct Model : Identifiable{
 
 struct _DComponentPartView_Previews: PreviewProvider {
     static var previews: some View {
-        _DComponentPartView()
+        _DComponentPartView(parts: Models().allComponent[0].parts)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Part: Identifiable {
+struct Part: Identifiable {
     
     let id = UUID()
     let nama: String
@@ -23,7 +23,7 @@ class Part: Identifiable {
     
 }
 
-class Component: Identifiable {
+struct Component: Identifiable {
     
     let id = UUID()
     let nama: String

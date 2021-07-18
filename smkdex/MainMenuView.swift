@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainMenuView: View {
     
+    var components = Models().allComponent
     @State private var search: String = ""
     
     var body: some View {
@@ -40,27 +41,20 @@ struct MainMenuView: View {
                 
                 VStack(alignment: .leading, spacing:30){
                     
-                    Text("Motorcycles Electricity")
+                    Text(Categories.electricity.label)
                         .font(.title3)
                         .bold()
                         .padding(.horizontal, 20)
-                    ScrollView(.horizontal, showsIndicators: false){
+                    ScrollView(.vertical, showsIndicators: false){
                             VStack (spacing: 20){
-                                NavigationLink(destination: ComponentView()){
+                                NavigationLink(destination: ComponentView(component: components[0])){
                                     
-                                    PartsCardView(partImage: "Klakson", partName: "Klakson", partDesc: "A horn is a sound making device that can be equiped to a motorcycle")
-                                        .padding(.leading, 20)
-                                    
-                                    
-//                                    PartsCardView(partImage: nil, partName: "Coming Soon", partDesc: "-")
-//                                        .disabled(true)
-                                    
+                                    PartsCardView(partImage: components[0].nama, partName: components[0].visual, partDesc: components[0].shortDesc)
+                                        .padding(.horizontal, 20)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
                         }
-                    
-                    
                 }
                 .padding(.vertical, 10)
                 
@@ -133,7 +127,7 @@ struct PartsCardView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 102, height: 102, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
-        .frame(width:320, height: 150)
+        .frame(height: 150)
         .padding()
         .background(Color(.systemGray6))
         .cornerRadius(20)
