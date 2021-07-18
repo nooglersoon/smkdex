@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 struct Part: Identifiable {
     
@@ -46,7 +47,7 @@ struct Component: Identifiable {
     
 }
 
-struct Models {
+struct Components {
     
     var allComponent = [Component]()
     
@@ -88,5 +89,12 @@ enum Categories: CaseIterable {
         }
         
     }
+    
+}
+
+
+class ComponentManager: ObservableObject {
+    
+    @Published var selectedComponent: Int?
     
 }

@@ -17,14 +17,6 @@ struct _DComponentPartView : View {
     
     var parts: [Part]
     
-    @State var models = [
-    Model(id: 0, name: "Klakson", modelName: "Klakson.usdz", details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."),
-    Model(id: 0, name: "Tombol Klakson", modelName: "TombolKlakson.usdz", details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."),
-    Model(id: 0, name: "Aki", modelName: "Aki.usdz", details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."),
-    Model(id: 0, name: "Fuse", modelName: "Fuse.usdz", details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."),
-        Model(id: 0, name: "Kunci Kontak", modelName: "KunciKontak.usdz", details: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.")
-    ]
-    
     @State var index = 0
     
     var body: some View{
@@ -54,16 +46,16 @@ struct _DComponentPartView : View {
                         Spacer(minLength: 0)
                         Button(action: {
                             withAnimation{
-                                if index < models.count {
+                                if index < parts.count {
                                     index += 1
                                 }
                             }
                         }, label: {
                             Image(systemName: "chevron.right")
                                 .font(.system(size: 35, weight: .bold))
-                                .opacity(index == models.count - 1 ? 0.3 : 1)
+                                .opacity(index == parts.count - 1 ? 0.3 : 1)
                         })
-                        .disabled(index == models.count - 1 ? true : false)
+                        .disabled(index == parts.count - 1 ? true : false)
                     }
                     Text(parts[index].nama)
                         .font(.system(size: 30, weight: .bold))
@@ -105,22 +97,12 @@ struct _DComponentPartView : View {
             
         }
         .edgesIgnoringSafeArea(.top)
-        
+        .navigationBarTitle("3D View Part", displayMode: .inline)
     }
 }
 
-//Data Model
-
-struct Model : Identifiable{
-    var id : Int
-    var name : String
-    var modelName : String
-    var details : String
-}
-
-
 struct _DComponentPartView_Previews: PreviewProvider {
     static var previews: some View {
-        _DComponentPartView(parts: Models().allComponent[0].parts)
+        _DComponentPartView(parts: Components().allComponent[0].parts)
     }
 }

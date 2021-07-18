@@ -9,7 +9,7 @@ import SwiftUI
 
 enum MenuView: String, Identifiable {
     
-    case part,electricalCircuit,troubleshoot
+    case part,simulation,troubleshoot
     
     var id: String {
         
@@ -20,109 +20,99 @@ enum MenuView: String, Identifiable {
 
 struct ComponentView: View {
     
+    @State private var activeMenu: MenuView? = nil
     var component: Component
-    @State private var isPresented = false
-    @State private var activeMenuView: MenuView? = nil
-    
     var body: some View {
+        
+        VStack(alignment: .center) {
             
-            VStack(alignment: .center) {
-                
-                VStack {
-                    VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
-                        
-                        Image(uiImage: UIImage(named: component.visual) ?? #imageLiteral(resourceName: "imagePlaceHolder"))
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        Text(component.nama)
-                            .font(.system(size: 30))
-                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    }
+            VStack {
+                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
                     
-                    Text(component.longDesc)
-                        
-                        .multilineTextAlignment(.center)
-                        .font(.callout)
-                        .padding(30)
+                    Image(uiImage: UIImage(named: component.visual) ?? #imageLiteral(resourceName: "imagePlaceHolder"))
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
-                .padding(.top, 50)
                 
-                Spacer()
-                
-                HStack {
-                    
-                    ComponentButtonView(isPresented: $isPresented, actionView: {
-                        self.activeMenuView = .part
-                    }, menu: "Part", menuLogo: "shippingbox.fill")
-                    
-                    ComponentButtonView(isPresented: $isPresented, actionView: {
-                        self.activeMenuView = .electricalCircuit
-                    }, menu: "Electrical Circuit", menuLogo: "lasso")
-                    
-                    ComponentButtonView(isPresented: $isPresented, actionView: {
-                        print("Tapped")
-                    }, menu: "Troubleshoot", menuLogo: "gearshape.fill")
-                    .disabled(true)
-                    .overlay(Color(.white).opacity(0.4))
-                    
-                    
-                }.fullScreenCover(item: $activeMenuView) { activeMenuView in
-                    
-                    switch activeMenuView {
-                    
-                    case .part:
-                        _DComponentPartView(parts: component.parts)
-                    
-                    case .electricalCircuit:
-                        StoryTellingPartView()
-                    
-                    case .troubleshoot:
-                        Text("No View Available")
+                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 40){
+                    HStack(alignment: .center, spacing: nil){
+                        Text("Deskripsi Rangkaian")
+                            .font(.system(size: 15))
+                            .bold()
+                        Spacer()
+                        Text("AR • 3D •")
+                            .font(.system(size: 15))
+                            .bold()
+                        Image(systemName: "line.3.crossed.swirl.circle")
+                            .font(.system(size: 15, weight: .bold))
                     }
-                    
+                    Text(component.longDesc)
+                        .multilineTextAlignment(.leading)
+                        .font(.body)
+                }
+                .padding(.top, 30)
+            }
+            .padding(.top, 50)
+            
+            Spacer()
+            
+            HStack {
+                
+                NavigationLink(destination: _DComponentPartView(parts: component.parts)) {
+                    ComponentMenuView(menu: "Part", menuLogo: "shippingbox.fill")
+                }
+                
+                NavigationLink(destination: SimulationView(component: component)) {
+                    ComponentMenuView(menu: "Simulation", menuLogo: "wrench.fill")
+                }
+                
+                NavigationLink(destination: TroubleshootingView(component: component)){
+                    ComponentMenuView(menu: "Troubleshoot", menuLogo: "wrench.and.screwdriver.fill")
                 }
                 
             }
-            .padding(30)
+            
+            
+            
+            
         }
+        .navigationBarTitle(component.nama, displayMode: .inline)
+        .padding(30)
+    }
 }
 
-
-struct ComponentButtonView: View {
+struct ComponentMenuView: View {
     
-    @Binding var isPresented: Bool
-    
-    let actionView: () -> Void
+    // let action: () -> Void
     let menu: String
     let menuLogo: String
     var body: some View {
         
-        Button(action: actionView, label: {
+        ZStack {
             
-            ZStack {
-                
-                RoundedRectangle(cornerRadius: 20)
-                    .frame(width: 110, height: 110, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                
-                VStack(alignment:.center, spacing: 10){
-                    Image(systemName: "\(menuLogo)")
-                        .resizable()
-                        .frame(width: 30, height: 30, alignment: .center)
-                        .foregroundColor(.white)
-                        .padding(.top,10)
-                    Text("\(menu)")
-                        .font(.system(size: 15))
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .frame(width: 100, alignment: .center)
-                    
-                }
-                .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
+            RoundedRectangle(cornerRadius: 20)
+                .frame(width: 110, height: 110, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            
+            VStack(alignment:.center, spacing: 10){
+                Image(systemName: "\(menuLogo)")
+                    .resizable()
+                    .frame(width: 30, height: 30, alignment: .center)
+                    .foregroundColor(.white)
+                    .padding(.top,10)
+                Text("\(menu)")
+                    .font(.system(size: 15))
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 100, alignment: .center)
                 
             }
+            .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
             
-        })
+        }
+        
+        
+        
         
     }
     
@@ -130,6 +120,6 @@ struct ComponentButtonView: View {
 
 struct ComponentView_Previews: PreviewProvider {
     static var previews: some View {
-        ComponentView(component: Models().allComponent[0])
+        ComponentView(component: Components().allComponent[0])
     }
 }

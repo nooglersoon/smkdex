@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainMenuView: View {
     
-    var components = Models().allComponent
+    var components = Components().allComponent
     @State private var search: String = ""
     
     var body: some View {
@@ -18,11 +18,9 @@ struct MainMenuView: View {
                 VStack(alignment: .center, spacing: 30){
                     Spacer()
                     HStack{
-                        Text("Welcome Back!")
+                        Text("SMKDEX")
                             .font(.title)
                             .fontWeight(.bold)
-                        Spacer()
-                        Image(uiImage: #imageLiteral(resourceName: "imagePlaceHolder"))
                         Spacer()
                     }
                     HStack{
@@ -41,7 +39,7 @@ struct MainMenuView: View {
                 
                 VStack(alignment: .leading, spacing:30){
                     
-                    Text(Categories.electricity.label)
+                    Text("Motorcycle Parts")
                         .font(.title3)
                         .bold()
                         .padding(.horizontal, 20)
@@ -49,7 +47,7 @@ struct MainMenuView: View {
                             VStack (spacing: 20){
                                 NavigationLink(destination: ComponentView(component: components[0])){
                                     
-                                    PartsCardView(partImage: components[0].nama, partName: components[0].visual, partDesc: components[0].shortDesc)
+                                    PartsCardView(partImage: components[0].visual, partName: components[0].nama, partDesc: components[0].shortDesc)
                                         .padding(.horizontal, 20)
                                 }
                                 .buttonStyle(PlainButtonStyle())
@@ -62,7 +60,6 @@ struct MainMenuView: View {
                 Spacer()
             
             }
-    //        .background(Color(.cyan))
             .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         }
     }
@@ -116,7 +113,7 @@ struct PartsCardView: View {
             
             VStack(alignment: .leading, spacing: 20){
                 Text(partName)
-                    .font(.subheadline)
+                    .font(.headline)
                     .bold()
                 Text(partDesc)
                     .font(.caption)
@@ -127,7 +124,7 @@ struct PartsCardView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 102, height: 102, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
-        .frame(height: 150)
+        .frame(width: .infinity, height: 100)
         .padding()
         .background(Color(.systemGray6))
         .cornerRadius(20)
