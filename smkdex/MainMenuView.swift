@@ -45,7 +45,7 @@ struct MainMenuView: View {
                         .bold()
                         .padding(.horizontal, 20)
                     ScrollView(.horizontal, showsIndicators: false){
-                            HStack (spacing: 20){
+                            VStack (spacing: 20){
                                 NavigationLink(destination: ComponentView()){
                                     
                                     PartsCardView(partImage: "Klakson", partName: "Klakson", partDesc: "A horn is a sound making device that can be equiped to a motorcycle")
