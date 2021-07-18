@@ -118,18 +118,22 @@ struct PartsCardView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 10){
+        HStack{
+            
+            VStack(alignment: .leading, spacing: 20){
+                Text(partName)
+                    .font(.subheadline)
+                    .bold()
+                Text(partDesc)
+                    .font(.caption)
+            }
+            
             Image(uiImage: UIImage(named: partImage) ?? #imageLiteral(resourceName: "imagePlaceHolder"))
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            Text(partName)
-                .font(.subheadline)
-                .bold()
-            Text(partDesc)
-                .font(.caption)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 102, height: 102, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
-        .frame(width:150, height: 150)
+        .frame(width:320, height: 150)
         .padding()
         .background(Color(.systemGray6))
         .cornerRadius(20)
