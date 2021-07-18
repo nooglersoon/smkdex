@@ -39,7 +39,8 @@ struct Home : View {
                 
                 SceneView(scene: SCNScene(named: models[index].modelName), options: [.autoenablesDefaultLighting,.allowsCameraControl])
                     
-                    .frame(width: UIScreen.main.bounds.width , height: UIScreen.main.bounds.height/2)
+                    .frame(width: UIScreen.main.bounds.width , height: 250)
+                    .padding(.top, 100)
                 ZStack{
                     HStack{
                         Button(action: {
@@ -107,6 +108,7 @@ struct Home : View {
             .padding(.horizontal, 30)
             
         }
+        .edgesIgnoringSafeArea(.top)
         
     }
 }
