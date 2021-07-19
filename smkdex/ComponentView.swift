@@ -72,13 +72,10 @@ struct ComponentView: View {
                 }
                 
             }
-            
-            
-            
-            
         }
         .navigationBarTitle(component.nama, displayMode: .inline)
         .padding(30)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

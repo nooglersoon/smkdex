@@ -124,7 +124,7 @@ struct PartsCardView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 102, height: 102, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
-        .frame(width: .infinity, height: 100)
+        .frame(height: 100)
         .padding()
         .background(Color(.systemGray6))
         .cornerRadius(20)
