@@ -33,9 +33,9 @@ struct SimulationView: View {
                     .multilineTextAlignment(.leading)
                     .font(.body)
                 
-                Image(uiImage: UIImage(named: "testpic")!)
+                Image(uiImage: UIImage(named: "rangkaianKlakson")!)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
                     .frame(height: 200)
                     .cornerRadius(20)
                 
