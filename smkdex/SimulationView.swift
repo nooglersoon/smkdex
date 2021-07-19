@@ -18,6 +18,13 @@ struct SimulationView: View {
         VStack {
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 40){
+                
+                Image(uiImage: UIImage(named: "rangkaianKlakson")!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 200)
+                    .cornerRadius(20)
+                
                 HStack(alignment: .center, spacing: nil){
                     Text("Deskripsi Rangkaian")
                         .font(.system(size: 15))
@@ -33,11 +40,7 @@ struct SimulationView: View {
                     .multilineTextAlignment(.leading)
                     .font(.body)
                 
-                Image(uiImage: UIImage(named: "rangkaianKlakson")!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 200)
-                    .cornerRadius(20)
+                
                 
                 Spacer()
                 
