@@ -67,11 +67,20 @@ struct _DComponentPartView : View {
                 //Details
                 
                     VStack (alignment: .leading, spacing: 15, content: {
-                        Text("About")
-                            .font(.title2)
-                            .fontWeight(.bold)
+                        HStack(alignment: .center, spacing: nil){
+                            Text("Deskripsi Rangkaian")
+                                .font(.system(size: 15))
+                                .bold()
+                            Spacer()
+                            Text("AR • 3D •")
+                                .font(.system(size: 15))
+                                .bold()
+                            Image(systemName: "line.3.crossed.swirl.circle")
+                                .font(.system(size: 15, weight: .bold))
+                        }
                     
                         Text(parts[index].fungsi)
+                            .font(.system(size: 15))
                     })
                 .padding(.horizontal, 30)
                 Spacer(minLength: 0)

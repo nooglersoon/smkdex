@@ -7,6 +7,8 @@
 
 import SwiftUI
 import RealityKit
+import ARKit
+import AVFoundation
 
 struct SimulationView: View {
     
@@ -58,7 +60,7 @@ struct SimulationView: View {
         .navigationBarTitle("Rangkaian Kelistrikan", displayMode: .inline)
         
     }
-   
+    
 }
 
 struct ARButtonView: View {
@@ -88,6 +90,12 @@ struct ARSimulationView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @State private var soundIsPlayed = true
+    @State private var speakingIsPlayed = false
+    @State private var infoIsShowed = false
+    
+    let synthesizer = AVSpeechSynthesizer()
+    let utterance = AVSpeechUtterance(string: "Ini adalah simulasi rangkaian kelistrikan untuk komponen klakson. Rangkaian ini terdiri dari aki, main fuse, kunci kontak, tombol klakson dan klakson. Semua komponen dapat dihubungan menggunakan kabel secara seri dengan aki sumber tegangan nya. Pada bagian bawah terdapat cetakan biru yang menunjukan bagaimana setiap komponen terhubung untuk membunyikan klakson. Untuk bentuk nyata dari setiap komponennya, terletak tepat diatas masing-masing simbol.")
+    
     
     var body: some View {
         
@@ -96,11 +104,20 @@ struct ARSimulationView: View {
             ARViewContainer().edgesIgnoringSafeArea(.all)
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-               
+                
                 HStack(alignment: .top) {
                     
-                    ARActionButton(buttonLabel: "chevron.down.circle.fill", action:{
+                    Button(action: {
                         presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        RoundedRectangle(cornerRadius: 15)
+                            .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(Color(.gray))
+                            .opacity(0.4)
+                            .overlay(Image(systemName: "arrow.turn.left.down")
+                                        .font(.system(size: 20)
+                                                .bold())
+                                        .foregroundColor(.white))
                     })
                     
                     Spacer()
@@ -108,39 +125,81 @@ struct ARSimulationView: View {
                     VStack(alignment: .trailing, spacing: 20){
                         
                         Button(action: {
-                            print("Reset Tapped")
+                            speakingIsPlayed ? stopSound() : playSound()
                         }, label: {
                             RoundedRectangle(cornerRadius: 15)
                                 .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(Color(.gray))
-                                .opacity(0.15)
-                                .overlay(Text("Reset")
+                                .opacity(0.4)
+                                .overlay(Text(speakingIsPlayed ? "Berhenti":"Mulai")
                                             .foregroundColor(.white))
                         })
                         .padding(.bottom, 25)
                         
                         ARActionButton(buttonLabel: "info.circle.fill", action: {
-                            print("tapped")
+                            infoIsShowed.toggle()
+                            showInfo()
                         })
                         
                         ARActionButton(buttonLabel:
-                             soundIsPlayed ? "speaker.wave.2.circle.fill" : "speaker.slash.circle.fill", action: {
-                                soundIsPlayed.toggle()
-                        })
+                                        soundIsPlayed ? "speaker.wave.2.circle.fill" : "speaker.slash.circle.fill", action: {
+                                            soundIsPlayed.toggle()
+                                        })
                         
                     }
                 }
                 
                 Spacer()
                 
+                if infoIsShowed {
+                    
+                    SimulationInfoView()
+                    
+                }
+                
             })
             .padding(.top, 30)
             .padding(.horizontal, 25)
             
         }
+        .onAppear(perform: {
+            infoIsShowed = true
+            showInfo()
+            
+        })
+        .onDisappear(perform: {
+            if soundIsPlayed {stopSound()}
+        })
+        
+        
         
     }
     
+    func playSound(){
+        
+        speakingIsPlayed = true
+        utterance.voice = AVSpeechSynthesisVoice(language: "id-ID")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+        
+    }
+    
+    func stopSound(){
+        
+        speakingIsPlayed = false
+        synthesizer.stopSpeaking(at: .immediate)
+        
+    }
+    
+    func showInfo(){
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+7.5) {
+            
+            infoIsShowed = false
+            
+        }
+        
+    }
     
 }
 
@@ -171,8 +230,13 @@ struct ARViewContainer: UIViewRepresentable {
         let arView = ARView(frame: .zero)
         
         // Load the "Box" scene from the "Experience" Reality File
-        let boxAnchor = try! Experience.loadBox()
-
+        let boxAnchor = try! SimulasiKlaksonAR.loadScene()
+        arView.addCoaching()
+        
+        let config = ARWorldTrackingConfiguration()
+        config.planeDetection = .horizontal
+        //arView.session.run(config, options: [])
+        
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)
         
@@ -185,9 +249,61 @@ struct ARViewContainer: UIViewRepresentable {
 }
 
 
+struct SimulationInfoView: View {
+    
+    var body: some View {
+        
+        ZStack {
+            
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(.white)
+                .frame(height: 180, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .shadow(color: Color(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.2)), radius: 5, x: 3, y: 3)
+            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20, content: {
+                Text("Selamat Datang di \nSimulasi Rangkaian Kelistrikan ⚡️")
+                    .bold()
+                    .multilineTextAlignment(.center)
+                Text("Dekatkan iPhone mu dengan object, lalu tekan mulai untuk mendengarkan materi dan visualisasi menggunakan AR!")
+                    .font(.caption)
+                    .multilineTextAlignment(.center)
+            })
+        }
+        .padding()
+        
+    }
+    
+}
+
 
 struct StoryTellingPartView_Previews: PreviewProvider {
     static var previews: some View {
         SimulationView(component: Components().allComponent[0])
+    }
+}
+
+struct ARViewContainer_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        
+        ARSimulationView()
+        
+    }
+    
+}
+
+extension ARView: ARCoachingOverlayViewDelegate {
+    func addCoaching() {
+        
+        let coachingOverlay = ARCoachingOverlayView()
+        coachingOverlay.delegate = self
+        //coachingOverlay.session = self.session
+        coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        coachingOverlay.goal = .anyPlane
+        self.addSubview(coachingOverlay)
+    }
+    
+    public func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
+        //Ready to add entities next?
     }
 }
