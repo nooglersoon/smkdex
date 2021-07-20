@@ -214,8 +214,8 @@ struct ARActionButton: View {
             Image(systemName: buttonLabel)
                 .resizable()
                 .frame(width: 45, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .foregroundColor(Color(.gray))
-                .opacity(0.15)
+                .foregroundColor(.white)
+                .shadow(color: Color(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.2)), radius: 5, x: 3, y: 3)
         })
         
     }
@@ -235,7 +235,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = .horizontal
-        //arView.session.run(config, options: [])
+        arView.session.run(config, options: [])
         
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)
@@ -266,6 +266,7 @@ struct SimulationInfoView: View {
                 Text("Dekatkan iPhone mu dengan object, lalu tekan mulai untuk mendengarkan materi dan visualisasi menggunakan AR!")
                     .font(.caption)
                     .multilineTextAlignment(.center)
+                    .padding()
             })
         }
         .padding()
@@ -296,7 +297,7 @@ extension ARView: ARCoachingOverlayViewDelegate {
         
         let coachingOverlay = ARCoachingOverlayView()
         coachingOverlay.delegate = self
-        //coachingOverlay.session = self.session
+        coachingOverlay.session = self.session
         coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         coachingOverlay.goal = .anyPlane
