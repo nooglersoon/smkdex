@@ -13,6 +13,8 @@ import AVFoundation
 struct SimulationView: View {
     
     @State private var isARPresented = false
+    @State private var isImageViewPresented = false
+    
     let component: Component
     
     var body: some View {
@@ -26,6 +28,15 @@ struct SimulationView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 200)
                     .cornerRadius(20)
+                    .onTapGesture {
+                        isImageViewPresented.toggle()
+                    }
+                    .fullScreenCover(isPresented: $isImageViewPresented){
+                        ImageViewer(image: "rangkaianKlakson")
+                    }
+                
+                    
+                    
                 
                 HStack(alignment: .center, spacing: nil){
                     Text("Deskripsi Rangkaian")
@@ -58,6 +69,63 @@ struct SimulationView: View {
         }
         .padding()
         .navigationBarTitle("Rangkaian Kelistrikan", displayMode: .inline)
+        
+        
+    }
+    
+}
+
+struct ImageViewer: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+   
+    @State private var currentScale: CGFloat = 0
+    @State private var finalScale: CGFloat = 1
+    
+    let image: String
+    
+    var body: some View {
+        
+        ZStack{
+            
+            Color(.systemBackground)
+            Image(image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .scaleEffect(currentScale+finalScale)
+                .gesture(MagnificationGesture()
+                            .onChanged({ newScale in
+                                currentScale = newScale
+                            })
+                            .onEnded({ scale in
+                                currentScale = 0
+                            })
+                )
+            
+            VStack{
+                
+                HStack{
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    } , label: {
+                        Image(systemName: "xmark.circle")
+                            .font(.system(size: 40))
+                            .foregroundColor(Color(.systemGray))
+                    })
+                    
+                }
+                
+                Spacer()
+                
+            }
+            .padding()
+            
+        }
+        .padding()
+        
         
     }
     
@@ -256,7 +324,7 @@ struct SimulationInfoView: View {
         ZStack {
             
             RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(.white)
+                .foregroundColor(Color(.systemBackground))
                 .frame(height: 180, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .shadow(color: Color(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.2)), radius: 5, x: 3, y: 3)
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20, content: {
@@ -286,8 +354,9 @@ struct ARViewContainer_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        ARSimulationView()
-        
+        ImageViewer(image: "rangkaianKlakson")
+            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+
     }
     
 }

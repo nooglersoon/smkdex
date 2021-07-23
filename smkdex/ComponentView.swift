@@ -29,13 +29,22 @@ struct ComponentView: View {
             VStack {
                 VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
                     
-                    Image(uiImage: UIImage(named: component.visual) ?? #imageLiteral(resourceName: "imagePlaceHolder"))
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    ZStack {
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(Color(.systemGray).opacity(0.2))
+                            .frame( height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        
+                        Image(uiImage: UIImage(named: component.visual) ?? #imageLiteral(resourceName: "imagePlaceHolder"))
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        
+                    }
                 }
+                .frame(height: UIScreen.main.bounds.height/4, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
-                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 40){
+                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 8){
                     HStack(alignment: .center, spacing: nil){
                         Text("Deskripsi Rangkaian")
                             .font(.system(size: 15))
@@ -90,6 +99,7 @@ struct ComponentMenuView: View {
             
             RoundedRectangle(cornerRadius: 20)
                 .frame(width: 110, height: 110, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .foregroundColor(Color(.systemOrange))
             
             VStack(alignment:.center, spacing: 10){
                 Image(systemName: "\(menuLogo)")
@@ -118,5 +128,6 @@ struct ComponentMenuView: View {
 struct ComponentView_Previews: PreviewProvider {
     static var previews: some View {
         ComponentView(component: Components().allComponent[0])
+            .preferredColorScheme(.dark)
     }
 }
