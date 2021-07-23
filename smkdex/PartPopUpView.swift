@@ -12,6 +12,7 @@ import SceneKit
 
 struct PartPopUpView : View {
     @State var part: String
+    @State var nameds: String
     
     func generateScene(named: String) -> SCNScene{
         let scene = SCNScene(named: "\(named).usdz")
@@ -59,6 +60,10 @@ struct PartPopUpView : View {
         case "Fuse":
             scene!.rootNode.scale = SCNVector3(x: 0.5, y: 0.5, z: 0.5)
             scene!.rootNode.position = SCNVector3(x: 0, y: 5.5, z: 0)
+        case "TombolKlakson":
+        scene!.rootNode.scale = SCNVector3(x: 0.4, y: 0.4, z: 0.4)
+            scene!.rootNode.position = SCNVector3(x: 4, y: 8.5, z: 0)
+        
         default:
             break
         }
@@ -76,7 +81,7 @@ struct PartPopUpView : View {
     var body: some View{
         
         VStack(alignment: .leading, spacing: 15, content: {
-            SceneView(scene: generateScene(named: "Aki"), options: [.autoenablesDefaultLighting,.allowsCameraControl])
+            SceneView(scene: generateScene(named: "\(nameds)"), options: [.autoenablesDefaultLighting,.allowsCameraControl])
                 
                 
                 
@@ -90,7 +95,7 @@ struct PartPopUpView : View {
 
 struct PartPopUpView_Previews: PreviewProvider {
     static var previews: some View {
-        PopUpView(part: "test")
+        PartPopUpView(part: "test", nameds: "")
         
     }
 }

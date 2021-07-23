@@ -21,7 +21,7 @@ struct _DComponentPartView : View {
     @State var index = 0
     
     var body: some View{
-        
+        let namedss = "\(parts[index].visual)"
         ZStack {
             
             VStack{
@@ -32,18 +32,26 @@ struct _DComponentPartView : View {
                             Spacer()
                             HStack{
                                 Spacer()
-                                Button(action: {
-                                    withAnimation{
-                                        if index > 0{
-                                            index -= 1
-                                        }
-                                    }
-                                }, label: {
-                                    Image(systemName: "arrow.up.left.and.arrow.down.right")
-                                        .font(.system(size: 30, weight: .bold))
-                                        .opacity(index == 0 ? 0.3: 1)
-                                        .foregroundColor(.black)
-                                })
+//                                Button(action: {
+//                                    withAnimation{
+//                                        if index > 0{
+//                                            index -= 1
+//                                        }
+//                                    }
+//                                }, label: {
+//                                    Image(systemName: "arrow.up.left.and.arrow.down.right")
+//                                        .font(.system(size: 30, weight: .bold))
+//                                        .opacity(index == 0 ? 0.3: 1)
+//                                        .foregroundColor(.black)
+//                                })
+                                NavigationLink(
+                                    destination: PartPopUpView(part: "", nameds: namedss),
+                                    label: {
+                                        Image(systemName: "arrow.up.left.and.arrow.down.right")
+                                            .font(.system(size: 30, weight: .bold))
+                                            .foregroundColor(.black)
+                                                    
+                                    })
                             }
                             .padding(.horizontal,27)
                         }
