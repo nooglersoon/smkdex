@@ -17,6 +17,7 @@ struct _DComponentPartView : View {
     
     var parts: [Part]
     
+    
     @State var index = 0
     
     var body: some View{
@@ -24,11 +25,35 @@ struct _DComponentPartView : View {
         ZStack {
             
             VStack{
-                
+                ZStack{
                 SceneView(scene: SCNScene(named: "\(parts[index].visual).usdz"), options: [.autoenablesDefaultLighting,.allowsCameraControl])
-                    
+                    .overlay(
+                        VStack{
+                            Spacer()
+                            HStack{
+                                Spacer()
+                                Button(action: {
+                                    withAnimation{
+                                        if index > 0{
+                                            index -= 1
+                                        }
+                                    }
+                                }, label: {
+                                    Image(systemName: "arrow.up.left.and.arrow.down.right")
+                                        .font(.system(size: 30, weight: .bold))
+                                        .opacity(index == 0 ? 0.3: 1)
+                                        .foregroundColor(.black)
+                                })
+                            }
+                            .padding(.horizontal,27)
+                        }
+                    )
                     .frame(width: UIScreen.main.bounds.width , height: 250)
-                    .padding(.top, 100)
+                    .padding(.top, 50)
+                    
+                    
+
+                }
                 ZStack{
                     HStack{
                         Button(action: {
@@ -86,21 +111,21 @@ struct _DComponentPartView : View {
                 Spacer(minLength: 0)
             }
          
-            VStack(alignment: .leading){
-                
-                HStack(alignment: .top) {
-                    
-                    ARActionButton(buttonLabel: "chevron.down.circle.fill", action:{
-                        presentationMode.wrappedValue.dismiss()
-                    })
-                    
-                    Spacer()
-                    
-                }
-                
-                Spacer()
-                
-            }
+//            VStack(alignment: .leading){
+//                
+//                HStack(alignment: .top) {
+//                    
+//                    ARActionButton(buttonLabel: "chevron.down.circle.fill", action:{
+//                        presentationMode.wrappedValue.dismiss()
+//                    })
+//                    
+//                    Spacer()
+//                    
+//                }
+//                
+//                Spacer()
+//                
+//            }
             .padding(.top, 50)
             .padding(.horizontal, 30)
             
@@ -115,3 +140,5 @@ struct _DComponentPartView_Previews: PreviewProvider {
         _DComponentPartView(parts: Components().allComponent[0].parts)
     }
 }
+
+

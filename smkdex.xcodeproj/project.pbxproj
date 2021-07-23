@@ -27,6 +27,7 @@
 		01C1771726A3D42800636E0D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1771626A3D42800636E0D /* Model.swift */; };
 		01D317FA269F0043007C0331 /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D317F9269F0043007C0331 /* ComponentView.swift */; };
 		2CBB7EBC26A09D5B003931E7 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */; };
+		A00CCD3B26AAD74E0030415E /* PartPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00CCD3A26AAD74E0030415E /* PartPopUpView.swift */; };
 		A0492BC2269C4C45005DB413 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0492BC1269C4C45005DB413 /* AudioPlayer.swift */; };
 		A0A013C926A1C6BA0047D520 /* ComponentPartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */; };
 		A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */; };
@@ -76,6 +77,7 @@
 		01C1771626A3D42800636E0D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		01D317F9269F0043007C0331 /* ComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
 		2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		A00CCD3A26AAD74E0030415E /* PartPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartPopUpView.swift; sourceTree = "<group>"; };
 		A0492BC1269C4C45005DB413 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPartDetailView.swift; sourceTree = "<group>"; };
 		A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DComponentPartView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				01B6687E269FFF4E00FAE621 /* SimulationView.swift */,
 				2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */,
 				017CF6BE26A1DD5200D91333 /* TestingView.swift */,
+				A00CCD3A26AAD74E0030415E /* PartPopUpView.swift */,
 				0119EFF026A4931B006862D7 /* TroubleshootingView.swift */,
 			);
 			path = smkdex;
@@ -342,6 +345,7 @@
 				017CF6BF26A1DD5200D91333 /* TestingView.swift in Sources */,
 				014AC247269A07A400705994 /* Experience.rcproject in Sources */,
 				01C1771726A3D42800636E0D /* Model.swift in Sources */,
+				A00CCD3B26AAD74E0030415E /* PartPopUpView.swift in Sources */,
 				A0492BC2269C4C45005DB413 /* AudioPlayer.swift in Sources */,
 				01B6687F269FFF4E00FAE621 /* SimulationView.swift in Sources */,
 				0119EFF126A4931B006862D7 /* TroubleshootingView.swift in Sources */,
@@ -503,7 +507,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = CVSRYHR3VR;
+				DEVELOPMENT_TEAM = Z74KUA44R7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -526,7 +530,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = CVSRYHR3VR;
+				DEVELOPMENT_TEAM = Z74KUA44R7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
