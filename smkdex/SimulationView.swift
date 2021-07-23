@@ -98,7 +98,6 @@ struct ImageViewer: View {
                                 currentScale = newScale
                             })
                             .onEnded({ scale in
-                                finalScale = scale
                                 currentScale = 0
                             })
                 )
@@ -304,7 +303,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = .horizontal
-        // arView.session.run(config, options: [])
+        arView.session.run(config, options: [])
         
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)
@@ -367,7 +366,7 @@ extension ARView: ARCoachingOverlayViewDelegate {
         
         let coachingOverlay = ARCoachingOverlayView()
         coachingOverlay.delegate = self
-        // coachingOverlay.session = self.session
+        coachingOverlay.session = self.session
         coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         coachingOverlay.goal = .anyPlane
