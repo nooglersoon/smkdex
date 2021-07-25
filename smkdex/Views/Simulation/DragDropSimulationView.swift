@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MobileCoreServices
 
 struct DragDropSimulationView: View {
    
@@ -13,11 +14,97 @@ struct DragDropSimulationView: View {
     
     var parts: [Part]
     
+    @ObservedObject var delegate = PartsDataObject()
+    
+    
     var body: some View {
             
             VStack{
                 
-    //            GoToARButonView(isARPresented: $isARPresented, actionView: {}, actionName: "Simulasi Rangkaian pada AR")
+                Spacer()
+                
+                // Drop Area
+                
+                GeometryReader{ _ in
+                    
+                    ZStack {
+                        
+                        if delegate.selectedPart.isEmpty {
+                            
+                            Text("Drop Images Here")
+                                .fontWeight(.bold)
+                                .foregroundColor(.blue)
+                            
+                        }
+                        
+                        ScrollView(.horizontal, showsIndicators: false){
+                            
+                            HStack {
+                                
+                                ForEach(delegate.selectedPart, id:\.nama){ image in
+                                    
+                                    if image.visual != ""{
+                                        
+                                        ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top), content: {
+                                            
+                                            Image(image.visual)
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 75, height: 75, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                .cornerRadius(15)
+                                            
+                                            // Remove button
+                                            
+                                            Button(action: {
+                                                
+                                                withAnimation(.easeOut) {
+                                                    self.delegate.selectedPart.removeAll {
+                                                        (check) -> Bool in
+                                                        
+                                                        if check.visual == image.visual {
+                                                            return true
+                                                        } else {
+                                                            return false
+                                                        }
+                                                        
+                                                    }
+                                                }
+                                                
+                                            }, label: {
+                                                Image(systemName: "xmark")
+                                                    .foregroundColor(.white)
+                                                    .padding(10)
+                                                    .background(Color.black)
+                                                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                                            })
+                                            
+                                            
+                                        })
+                                        
+                                    }
+                                    
+                                }
+                                
+                                Spacer(minLength: 0)
+                                
+                            }
+                            
+                        }
+                        .padding(.horizontal)
+                        
+                    }
+                    
+                    .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
+                    .padding(.top,10)
+                    
+                    
+                }
+                .frame(width: UIScreen.main.bounds.width, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .background(Color(.systemGray4).opacity(0.3))
+                // Drop area which to receive provided data
+  
+                // receiving some data type
+                .onDrop(of: [String(kUTTypeURL)], delegate: delegate)
                 
                 Spacer()
                 
@@ -29,6 +116,8 @@ struct DragDropSimulationView: View {
                             .padding(.leading, 20)
                         
                         ScrollView(.horizontal, showsIndicators: false){
+                            
+                            // Draggable Object
                             
                             HStack(alignment: .center, spacing: 5){
                                 
@@ -51,6 +140,11 @@ struct DragDropSimulationView: View {
                                         }
                                     }
                                     .frame(width: 140, height: 140, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .onDrag{
+                                        
+                                        NSItemProvider(item: .some(URL(string: part.visual)! as NSSecureCoding) , typeIdentifier: String(kUTTypeURL))
+                                        
+                                    }
                                     
                                 }
                                 
@@ -73,12 +167,84 @@ struct DragDropSimulationView: View {
                 
             }
             .navigationBarItems(trailing: Button(action: {
-                print("Reset")
+                withAnimation(.easeOut) {
+                    self.delegate.selectedPart.removeAll()
+                }
             }, label: {
                 Text("Reset")
             }))
             .navigationBarTitle("Circuit Simulation",displayMode: .inline)
    
+    }
+    
+}
+
+
+class PartsDataObject: ObservableObject, DropDelegate{
+    
+    @Published var parts: [Part] = [
+        
+        Part(nama: "Klakson", fungsi: "Klakson berfungsi sebagai sumber suara. Saat saklar klakson ditekan, arus dari baterai mengalir melalui baterai, terus ke coil (solenoid), menuju platina dan selanjutnya ke massa. Solenoid menjadi magnet dan menarik armature. Kemudian armature membukakan platina sehingga arus ke massa terputus. Dengan terputusnya arus tersebut, kemagnetan pada solenoid hilang, sehingga armature kembali ke posisi semula. Hal ini menyebabkan platina menutup kembali untuk menghubungkaan arus ke massa. Proses ini berlangsung cepat, dan diafragma membuat armature bergetar lebih cepat lagi, sehingga menghasilkan resonansi suara", visual: "Klakson"),
+        
+        Part(nama: "Fuse", fungsi: "Fuse atau sering disebut sekering merupakan komponen pengaman pada jaringan kelistrikan, termasuk juga pada jaringan kelistrikan klakson. Fuse berfungsi untuk mencegah terjadinya kerusakan pada komponen lainnya bila terjadi hubungan singkat atau kelebihan tegangan. Fuse akan putus jika terjadi hubungan singkat atau beban arus berlebihan sehingga arus tersebut tidak akan mengalir ke komponen kelistrikan lainnya sehingga komponen kelistrikan lainnya akan aman dari kerusakan.", visual: "Fuse"),
+        
+        Part(nama: "Saklar Klakson", fungsi: "Pada dasarnya, sistem klakson menggunakan tipe saklar tekan, yaitu ketika saklar ditekan pada terjadi hubungan antara terminal klakson satu dengan yang lainnya. Pada sistem kelistrikan klakson dengan menggunakan pengendali negatif, saklar diletakkan dibagian jaringan negatif yaitu digunakan untuk memutus kan arus terminal 86 yang menuju ke massa atau negatif baterai.", visual: "TombolKlakson"),
+        
+        Part(nama: "Accu", fungsi: "Baterai (ACCU) pada sistem kelistrikan klakson berfungsi sebagai sumber listrik utama dengan arus DC (Direct Current) atau arus searah. Baterai ini memiliki tegangan sebesar 12 volt dan memiliki dua kutub yaitu positif dan negatif. Bila arus yang ada dibaterai mulai kosong maka akan berdampak pada bunyi klakson yang juga semakin melemah", visual: "Aki"),
+        
+        Part(nama: "Kunci Kontak", fungsi: "Kunci kontak berfungsi untuk memutuskan dan menghubungkan listrik pada rangkaian atau mematikan dan menghidupkan sistem di rangkaian kelistrikan klakson.", visual: "KunciKontak")
+        
+    ]
+    
+    @Published var selectedPart = [Part]()
+
+    
+    func performDrop(info: DropInfo) -> Bool {
+        
+        // Check if its available
+        
+        for provider in info.itemProviders(for: [String(kUTTypeURL)]){
+            
+            print("url loaded")
+            
+            let _ = provider.loadObject(ofClass: URL.self) { (url,error) in
+                
+                print(url!)
+                
+                
+                // Adding to selected array...
+                
+                // checking the array wheter it is already addedd..
+                
+                let status = self.selectedPart.contains { (check) -> Bool in
+                    
+                    if check.visual == "\(url!)" {return true}
+                    
+                    else {return false}
+                }
+                
+                if !status {
+                    
+                    // Add animation
+                    
+                    DispatchQueue.main.async {
+                        withAnimation(.easeOut){
+                            
+                            self.selectedPart.append(Part(nama: "\(url!)", fungsi: "", visual: "\(url!)"))
+                            
+                        }
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        return true
+        
+        
+        
     }
     
 }
