@@ -26,7 +26,12 @@ struct _DComponentPartView : View {
             
             VStack{
                 ZStack{
-                SceneView(scene: SCNScene(named: "\(parts[index].visual).usdz"), options: [.autoenablesDefaultLighting,.allowsCameraControl])
+                Color(.systemBackground)
+                    SceneView(scene: {
+                        let scene = SCNScene(named: "\(parts[index].visual).usdz")!
+                        scene.background.contents = UIColor.systemBackground
+                        return scene
+                    }(), options: [.autoenablesDefaultLighting,.allowsCameraControl])
                     .overlay(
                         VStack{
                             Spacer()
@@ -47,21 +52,29 @@ struct _DComponentPartView : View {
                                 NavigationLink(
                                     destination: PartPopUpView(part: "", nameds: namedss),
                                     label: {
-                                        Image(systemName: "arrow.up.left.and.arrow.down.right")
-                                            .font(.system(size: 30, weight: .bold))
-                                            .foregroundColor(.black)
-                                                    
+                                        
+                                        ZStack{
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                .foregroundColor(Color(.gray))
+                                                .opacity(0.4)
+                                            
+                                            Image(systemName: "arrow.up.left.and.arrow.down.right")
+                                                .font(.system(size: 20, weight: .bold))
+                                                .foregroundColor(Color(.white))
+                                        }
+                                        
                                     })
+                                    .padding()
                             }
                             .padding(.horizontal,27)
                         }
                     )
-                    .frame(width: UIScreen.main.bounds.width , height: 250)
                     .padding(.top, 50)
-                    
-                    
-
                 }
+                .frame(width: UIScreen.main.bounds.width , height: 300)
+                
+                
                 ZStack{
                     HStack{
                         Button(action: {
@@ -93,7 +106,7 @@ struct _DComponentPartView : View {
                     Text(parts[index].nama)
                         .font(.system(size: 30, weight: .bold))
                 }
-                .foregroundColor(.black)
+                .foregroundColor(Color(.black))
                 .padding(.horizontal, 30)
                 .padding(.vertical,30)
                 
@@ -145,7 +158,7 @@ struct _DComponentPartView : View {
 
 struct _DComponentPartView_Previews: PreviewProvider {
     static var previews: some View {
-        _DComponentPartView(parts: Components().allComponent[0].parts)
+        _DComponentPartView(parts: ComponentManager().allComponent[0].parts)
     }
 }
 

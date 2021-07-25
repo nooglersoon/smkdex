@@ -33,7 +33,7 @@ struct TroubleshootingView: View {
                 
                 Spacer()
                 
-                ARButtonView(isARPresented: $isARPresented, actionView: {
+                GoToARButonView(isARPresented: $isARPresented, actionView: {
                     isARPresented.toggle()
                 }, actionName: "Coming Soon")
                 .opacity(0.75)
@@ -53,6 +53,6 @@ struct TroubleshootingView: View {
 
 struct TroubleshootingView_Previews: PreviewProvider {
     static var previews: some View {
-        TroubleshootingView(component: Components().allComponent[0])
+        TroubleshootingView(component: ComponentManager().allComponent[0])
     }
 }

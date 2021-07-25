@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-struct Part: Identifiable {
+struct Part: Identifiable, Hashable {
     
     let id = UUID()
     let nama: String
@@ -47,7 +47,7 @@ struct Component: Identifiable {
     
 }
 
-struct Components {
+struct ComponentManager {
     
     var allComponent = [Component]()
     
@@ -89,12 +89,5 @@ enum Categories: CaseIterable {
         }
         
     }
-    
-}
-
-
-class ComponentManager: ObservableObject {
-    
-    @Published var selectedComponent: Int?
     
 }

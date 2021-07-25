@@ -22,8 +22,11 @@
 		016CADB626A2BFA900577F88 /* TombolKlakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB126A2BFA900577F88 /* TombolKlakson.usdz */; };
 		016CADB726A2BFA900577F88 /* KunciKontak.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB226A2BFA900577F88 /* KunciKontak.usdz */; };
 		016CADB826A2BFA900577F88 /* Klakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB326A2BFA900577F88 /* Klakson.usdz */; };
-		017CF6BF26A1DD5200D91333 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CF6BE26A1DD5200D91333 /* TestingView.swift */; };
+		017CF6BF26A1DD5200D91333 /* DragDropSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CF6BE26A1DD5200D91333 /* DragDropSimulationView.swift */; };
 		01B6687F269FFF4E00FAE621 /* SimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B6687E269FFF4E00FAE621 /* SimulationView.swift */; };
+		01BEC13A26AD890B002D8D04 /* ARSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BEC13926AD890B002D8D04 /* ARSimulationView.swift */; };
+		01BEC13D26AD89BB002D8D04 /* ARExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BEC13C26AD89BB002D8D04 /* ARExtension.swift */; };
+		01BEC13F26AD8A42002D8D04 /* SimulationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BEC13E26AD8A42002D8D04 /* SimulationTest.swift */; };
 		01C1771726A3D42800636E0D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1771626A3D42800636E0D /* Model.swift */; };
 		01D317FA269F0043007C0331 /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D317F9269F0043007C0331 /* ComponentView.swift */; };
 		2CBB7EBC26A09D5B003931E7 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */; };
@@ -71,8 +74,11 @@
 		016CADB126A2BFA900577F88 /* TombolKlakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = TombolKlakson.usdz; sourceTree = "<group>"; };
 		016CADB226A2BFA900577F88 /* KunciKontak.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = KunciKontak.usdz; sourceTree = "<group>"; };
 		016CADB326A2BFA900577F88 /* Klakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Klakson.usdz; sourceTree = "<group>"; };
-		017CF6BE26A1DD5200D91333 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		017CF6BE26A1DD5200D91333 /* DragDropSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropSimulationView.swift; sourceTree = "<group>"; };
 		01B6687E269FFF4E00FAE621 /* SimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationView.swift; sourceTree = "<group>"; };
+		01BEC13926AD890B002D8D04 /* ARSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSimulationView.swift; sourceTree = "<group>"; };
+		01BEC13C26AD89BB002D8D04 /* ARExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARExtension.swift; sourceTree = "<group>"; };
+		01BEC13E26AD8A42002D8D04 /* SimulationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationTest.swift; sourceTree = "<group>"; };
 		01C1771626A3D42800636E0D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		01D317F9269F0043007C0331 /* ComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
 		2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 		014AC241269A07A400705994 /* smkdex */ = {
 			isa = PBXGroup;
 			children = (
+				01BEC13B26AD89AF002D8D04 /* Extension */,
 				01BEC13626AD7A1D002D8D04 /* Assets */,
 				01BEC13226AD793C002D8D04 /* Views */,
 				01C1771526A3D40600636E0D /* Models */,
@@ -169,9 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				01BEC13826AD7A96002D8D04 /* Main */,
-				017CF6BE26A1DD5200D91333 /* TestingView.swift */,
-				2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */,
-				01D317F9269F0043007C0331 /* ComponentView.swift */,
 				01BEC13526AD79B4002D8D04 /* Troubleshoot */,
 				01BEC13426AD79AD002D8D04 /* Simulation */,
 				01BEC13326AD795C002D8D04 /* Parts */,
@@ -192,7 +196,10 @@
 		01BEC13426AD79AD002D8D04 /* Simulation */ = {
 			isa = PBXGroup;
 			children = (
+				017CF6BE26A1DD5200D91333 /* DragDropSimulationView.swift */,
 				01B6687E269FFF4E00FAE621 /* SimulationView.swift */,
+				01BEC13926AD890B002D8D04 /* ARSimulationView.swift */,
+				01BEC13E26AD8A42002D8D04 /* SimulationTest.swift */,
 			);
 			path = Simulation;
 			sourceTree = "<group>";
@@ -227,10 +234,20 @@
 		01BEC13826AD7A96002D8D04 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */,
 				014AC244269A07A400705994 /* ContentView.swift */,
+				01D317F9269F0043007C0331 /* ComponentView.swift */,
 				0139936D269ED5290016A8C2 /* Launch Screen.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		01BEC13B26AD89AF002D8D04 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				01BEC13C26AD89BB002D8D04 /* ARExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		01C1771526A3D40600636E0D /* Models */ = {
@@ -391,11 +408,14 @@
 				A0A013C926A1C6BA0047D520 /* ComponentPartDetailView.swift in Sources */,
 				014AC245269A07A400705994 /* ContentView.swift in Sources */,
 				0135A34226A6D39600D5CFC7 /* SimulasiKlaksonAR.rcproject in Sources */,
+				01BEC13D26AD89BB002D8D04 /* ARExtension.swift in Sources */,
 				A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */,
 				2CBB7EBC26A09D5B003931E7 /* MainMenuView.swift in Sources */,
 				01D317FA269F0043007C0331 /* ComponentView.swift in Sources */,
 				014AC243269A07A400705994 /* AppDelegate.swift in Sources */,
-				017CF6BF26A1DD5200D91333 /* TestingView.swift in Sources */,
+				017CF6BF26A1DD5200D91333 /* DragDropSimulationView.swift in Sources */,
+				01BEC13A26AD890B002D8D04 /* ARSimulationView.swift in Sources */,
+				01BEC13F26AD8A42002D8D04 /* SimulationTest.swift in Sources */,
 				014AC247269A07A400705994 /* Experience.rcproject in Sources */,
 				01C1771726A3D42800636E0D /* Model.swift in Sources */,
 				A00CCD3B26AAD74E0030415E /* PartPopUpView.swift in Sources */,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainMenuView: View {
     
-    var components = Components().allComponent
+    var components = ComponentManager().allComponent
     @State private var search: String = ""
     
     var body: some View {

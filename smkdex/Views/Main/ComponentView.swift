@@ -72,7 +72,7 @@ struct ComponentView: View {
                     ComponentMenuView(menu: "Part", menuLogo: "shippingbox.fill")
                 }
                 
-                NavigationLink(destination: SimulationView(component: component)) {
+                NavigationLink(destination: SimulationView(components: component, parts: component.parts)) {
                     ComponentMenuView(menu: "Simulation", menuLogo: "wrench.fill")
                 }
                 
@@ -127,7 +127,7 @@ struct ComponentMenuView: View {
 
 struct ComponentView_Previews: PreviewProvider {
     static var previews: some View {
-        ComponentView(component: Components().allComponent[0])
+        ComponentView(component: ComponentManager().allComponent[0])
             .preferredColorScheme(.dark)
     }
 }
