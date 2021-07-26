@@ -21,8 +21,6 @@ struct DragDropSimulationView: View {
             
             VStack{
                 
-                Spacer()
-                
                 // Drop Area
                 
                 GeometryReader{ _ in
@@ -34,6 +32,7 @@ struct DragDropSimulationView: View {
                             Text("Drop Images Here")
                                 .fontWeight(.bold)
                                 .foregroundColor(.blue)
+                                .padding()
                             
                         }
                         
@@ -91,6 +90,7 @@ struct DragDropSimulationView: View {
                             
                         }
                         .padding(.horizontal)
+                        .padding()
                         
                     }
                     
@@ -99,7 +99,7 @@ struct DragDropSimulationView: View {
                     
                     
                 }
-                .frame(width: UIScreen.main.bounds.width, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: UIScreen.main.bounds.width, height: 430, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .background(Color(.systemGray4).opacity(0.3))
                 // Drop area which to receive provided data
   
@@ -108,9 +108,9 @@ struct DragDropSimulationView: View {
                 
                 Spacer()
                 
-                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
+                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
                     
-                    VStack(alignment: .leading, spacing: 20){
+                    VStack(alignment: .leading){
                         Text("Select Component")
                             .bold()
                             .padding(.leading, 20)
@@ -119,7 +119,7 @@ struct DragDropSimulationView: View {
                             
                             // Draggable Object
                             
-                            HStack(alignment: .center, spacing: 5){
+                            HStack(alignment: .center){
                                 
                                 ForEach(parts, id: \.self){ part in
                                     
@@ -139,11 +139,13 @@ struct DragDropSimulationView: View {
                                                 .bold()
                                         }
                                     }
-                                    .frame(width: 140, height: 140, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .frame(width: 150, height: 180, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     .onDrag{
                                         
-                                        NSItemProvider(item: .some(URL(string: part.visual)! as NSSecureCoding) , typeIdentifier: String(kUTTypeURL))
+                                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                                    impactHeavy.impactOccurred()
                                         
+                                        return NSItemProvider(item: .some(URL(string: part.visual)! as NSSecureCoding) , typeIdentifier: String(kUTTypeURL))
                                     }
                                     
                                 }
@@ -157,7 +159,8 @@ struct DragDropSimulationView: View {
                     GoToARButonView(isARPresented: $isARPresented, actionView: {
                         isARPresented.toggle()
                     }, actionName: "Simulasi Rangkaian pada AR")
-                    
+                    .disabled(delegate.checkButton() ? false : true)
+                    .opacity(delegate.checkButton() ? 1 : 0.5)
                     .padding()
                 }
                 
@@ -174,7 +177,11 @@ struct DragDropSimulationView: View {
                 Text("Reset")
             }))
             .navigationBarTitle("Circuit Simulation",displayMode: .inline)
-   
+            .onDisappear(){
+                
+                self.delegate.selectedPart.removeAll()
+                
+            }
     }
     
 }
@@ -198,6 +205,15 @@ class PartsDataObject: ObservableObject, DropDelegate{
     
     @Published var selectedPart = [Part]()
 
+    func checkButton() -> Bool{
+        
+        if selectedPart.count == 5 {
+            
+            return true
+            
+        }
+        return false
+    }
     
     func performDrop(info: DropInfo) -> Bool {
         

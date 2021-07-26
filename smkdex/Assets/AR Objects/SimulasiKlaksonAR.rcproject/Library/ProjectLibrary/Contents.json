@@ -58,5 +58,10 @@
     "libraryIdentifier" : "e9a91c6ca3d7413f83b66a63563646c0",
     "format" : "model",
     "displayName" : "TombolKlakson.usdz"
+  },
+  {
+    "libraryIdentifier" : "3d96a33df561965c1a8cfe1dbd450fd7",
+    "format" : "audio",
+    "displayName" : "mixkit-small-car-horn-717.wav"
   }
 ]
