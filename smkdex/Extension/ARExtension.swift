@@ -15,7 +15,7 @@ extension ARView: ARCoachingOverlayViewDelegate {
         
         let coachingOverlay = ARCoachingOverlayView()
         coachingOverlay.delegate = self
-        // coachingOverlay.session = self.session
+        coachingOverlay.session = self.session
         coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         coachingOverlay.goal = .anyPlane

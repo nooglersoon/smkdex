@@ -136,11 +136,11 @@ struct ARViewContainer: UIViewRepresentable {
         
         // Load the "Box" scene from the "Experience" Reality File
         let boxAnchor = try! SimulasiKlaksonAR.loadScene()
-        // arView.addCoaching()
+        arView.addCoaching()
         
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = .horizontal
-        // arView.session.run(config, options: [])
+        arView.session.run(config, options: [])
         
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)
