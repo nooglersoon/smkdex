@@ -47,10 +47,15 @@ struct PartPopUpView : View {
 //            scene!.rootNode.position = SCNVector3(x: 0, y: 5.5, z: 0)
 //        }
         
+        
+        
         switch named {
         case "Aki":
             scene!.rootNode.scale = SCNVector3(x: 0.5, y: 0.5, z: 0.5)
+           // scene!.rootNode.position = SCNVector3(x: -5, y: 30, z: 0)
             scene!.rootNode.position = SCNVector3(x: -5, y: 30, z: 0)
+            scene?.rootNode.lookAt(SCNVector3(0,5,0))
+            
         case "Klakson":
             scene!.rootNode.scale = SCNVector3(x: 0.5, y: 0.5, z: 0.5)
             scene!.rootNode.position = SCNVector3(x: 3, y: 30, z: 0)
@@ -97,5 +102,31 @@ struct PartPopUpView_Previews: PreviewProvider {
     static var previews: some View {
         PartPopUpView(part: "test", nameds: "")
         
+    }
+}
+
+extension Float {
+    /// Convert degrees to radians
+    func asRadians() -> Float {
+        return self * Float.pi / 180
+    }
+}
+
+extension SCNNode {
+    /// Look at a SCNVector3 point
+    func lookAt(_ point: SCNVector3) {
+        // Find change in positions
+        let changeX = self.position.x - point.x // Change in X position
+        let changeY = self.position.y - point.y // Change in Y position
+        let changeZ = self.position.z - point.z // Change in Z position
+
+        // Calculate the X and Y angles
+        let angleX = atan2(changeZ, changeY) * (changeZ > 0 ? -1 : 1)
+        let angleY = atan2(changeZ, changeX)
+
+        // Calculate the X and Y rotations
+        let xRot = Float(-90).asRadians() - angleX // X rotation
+        let yRot = Float(90).asRadians() - angleY // Y rotation
+        self.eulerAngles = SCNVector3(CGFloat(xRot), CGFloat(yRot), 0) // Rotate
     }
 }
