@@ -191,88 +191,6 @@
                     }
                   ],
                   "__version" : 3
-                },
-                {
-                  "__content" : [
-                    {
-                      "accessibility" : {
-                        "__content" : [
-                          {
-                            "isEnabled" : false
-                          }
-                        ],
-                        "__version" : 1
-                      },
-                      "actionGroups" : [
-                        {
-                          "__content" : [
-                            {
-                              "configurations" : [
-                                {
-                                  "__content" : [
-                                    {
-                                      "configurationBox" : {
-                                        "configuration" : {
-                                          "audioType" : "play",
-                                          "filePath" : "audio:3d96a33df561965c1a8cfe1dbd450fd7\/mixkit-small-car-horn-717.wav",
-                                          "loops" : false,
-                                          "multiplePerformType" : "ignore request",
-                                          "target" : [
-                                            "BD1BD0BA-84FE-4107-87ED-3AD07DD30F42"
-                                          ],
-                                          "volume" : 0.89436657796770136
-                                        },
-                                        "name" : {
-                                          "type" : "audio"
-                                        }
-                                      },
-                                      "identifier" : "28F71BE9-82B9-43C8-B8F8-39895C74C612",
-                                      "isEnabled" : true
-                                    }
-                                  ],
-                                  "__version" : 1
-                                }
-                              ],
-                              "identifier" : "62FB9A3E-A031-409E-8F07-37175E2E246F",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        }
-                      ],
-                      "color" : [
-                        0.49019607901573181,
-                        0.7450980544090271,
-                        0.94901961088180542,
-                        1
-                      ],
-                      "identifier" : "27D1BF7A-AB1A-4F12-A36E-3E586FC575CF",
-                      "isEnabled" : true,
-                      "isLooping" : false,
-                      "isModal" : false,
-                      "name" : "Behavior 2",
-                      "triggers" : [
-                        {
-                          "__content" : [
-                            {
-                              "configurationBox" : {
-                                "configuration" : {
-                                  "target" : [
-                                    "BD1BD0BA-84FE-4107-87ED-3AD07DD30F42"
-                                  ]
-                                },
-                                "name" : "tapTarget"
-                              },
-                              "identifier" : "41BCEE3B-61BC-41D4-B31D-EE8861BC349B",
-                              "isEnabled" : true
-                            }
-                          ],
-                          "__version" : 1
-                        }
-                      ]
-                    }
-                  ],
-                  "__version" : 3
                 }
               ],
               "gravity" : [
@@ -922,17 +840,17 @@
               "title" : "Scene",
               "viewTransform" : {
                 "cameraTransform" : [
-                  -0.91814756393432617,
-                  -4.4703490686970326e-08,
-                  -0.39623865485191345,
+                  -0.9181475043296814,
+                  -4.4703487134256648e-08,
+                  -0.39623862504959106,
                   0,
-                  -0.1562577486038208,
-                  0.91895896196365356,
-                  0.36207449436187744,
+                  -0.15625773370265961,
+                  0.91895890235900879,
+                  0.36207446455955505,
                   0,
                   0.36412632465362549,
-                  0.39435270428657532,
-                  -0.84374046325683594,
+                  0.39435273408889771,
+                  -0.84374052286148071,
                   0,
                   0.30429577827453613,
                   0.45725101232528687,
