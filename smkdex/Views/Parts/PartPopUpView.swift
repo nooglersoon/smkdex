@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-
-import SwiftUI
 import SceneKit
 
 struct PartPopUpView : View {
@@ -51,10 +49,13 @@ struct PartPopUpView : View {
         
         switch named {
         case "Aki":
-            scene!.rootNode.scale = SCNVector3(x: 0.5, y: 0.5, z: 0.5)
-           // scene!.rootNode.position = SCNVector3(x: -5, y: 30, z: 0)
-            scene!.rootNode.position = SCNVector3(x: -5, y: 30, z: 0)
-            scene?.rootNode.lookAt(SCNVector3(0,5,0))
+            scene!.rootNode.scale = SCNVector3(x: 0.3, y: 0.3, z: 0.3)
+            scene!.rootNode.position = SCNVector3(x: -8, y: 45, z: 0)
+            
+            let action = SCNAction.rotate(by: 360 * CGFloat(Double.pi / 180), around: SCNVector3(x: 0, y: 0.5, z: 0), duration: 8)
+            let repeatAction = SCNAction.repeatForever(action)
+            scene!.rootNode.runAction(repeatAction)
+          
             
         case "Klakson":
             scene!.rootNode.scale = SCNVector3(x: 0.5, y: 0.5, z: 0.5)
@@ -105,28 +106,6 @@ struct PartPopUpView_Previews: PreviewProvider {
     }
 }
 
-extension Float {
-    /// Convert degrees to radians
-    func asRadians() -> Float {
-        return self * Float.pi / 180
-    }
-}
 
-extension SCNNode {
-    /// Look at a SCNVector3 point
-    func lookAt(_ point: SCNVector3) {
-        // Find change in positions
-        let changeX = self.position.x - point.x // Change in X position
-        let changeY = self.position.y - point.y // Change in Y position
-        let changeZ = self.position.z - point.z // Change in Z position
 
-        // Calculate the X and Y angles
-        let angleX = atan2(changeZ, changeY) * (changeZ > 0 ? -1 : 1)
-        let angleY = atan2(changeZ, changeX)
 
-        // Calculate the X and Y rotations
-        let xRot = Float(-90).asRadians() - angleX // X rotation
-        let yRot = Float(90).asRadians() - angleY // Y rotation
-        self.eulerAngles = SCNVector3(CGFloat(xRot), CGFloat(yRot), 0) // Rotate
-    }
-}
