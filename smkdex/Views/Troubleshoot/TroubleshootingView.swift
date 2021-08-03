@@ -33,15 +33,13 @@ struct TroubleshootingView: View {
                 
                 Spacer()
                 
-                GoToARButonView(isARPresented: $isARPresented, actionView: {
+                GoToARButtonView(isARPresented: $isARPresented, actionView: {
                     isARPresented.toggle()
                 }, actionName: "Coming Soon")
-                .opacity(0.75)
-                .disabled(true)
                 
             }
             .fullScreenCover(isPresented: $isARPresented){
-                ARSimulationView()
+                ARTroubleShootView()
             }
             
         }

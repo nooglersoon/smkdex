@@ -1,31 +1,33 @@
 //
-//  ARSimulationView.swift
+//  ARTroubleShootView.swift
 //  smkdex
 //
-//  Created by Fauzi Achmad B D on 25/07/21.
+//  Created by Fauzi Achmad B D on 02/08/21.
 //
 
 import SwiftUI
-import ARKit
 import RealityKit
+import ARKit
+import AVFoundation
 
-
-struct ARSimulationView: View {
-    
+struct ARTroubleShootView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var soundIsPlayed = true
     @State private var speakingIsPlayed = false
     @State private var infoIsShowed = false
+    @State private var isArClosed = false
+    
+    @StateObject var arManager = ARTroubleShootManager()
     
     let synthesizer = AVSpeechSynthesizer()
-    let utterance = AVSpeechUtterance(string: "Ini adalah simulasi rangkaian kelistrikan untuk komponen klakson. Rangkaian ini terdiri dari aki, main fuse, kunci kontak, tombol klakson dan klakson. Semua komponen dapat dihubungan menggunakan kabel secara seri dengan aki sumber tegangan nya. Pada bagian bawah terdapat cetakan biru yang menunjukan bagaimana setiap komponen terhubung untuk membunyikan klakson. Untuk bentuk nyata dari setiap komponennya, terletak tepat diatas masing-masing simbol.")
+    let utterance = AVSpeechUtterance(string: "Masih dalam pengembangan")
     
     
     var body: some View {
         
         ZStack {
             
-            ARSimulationViewContainer().edgesIgnoringSafeArea(.all)
+            ARTroubleShootViewContainer(arView: arManager.arView).edgesIgnoringSafeArea(.all)
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                 
@@ -33,6 +35,7 @@ struct ARSimulationView: View {
                     
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
+                        arManager.killAR()
                     }, label: {
                         RoundedRectangle(cornerRadius: 15)
                             .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -58,43 +61,85 @@ struct ARSimulationView: View {
                                 .overlay(Text(speakingIsPlayed ? "Berhenti":"Mulai")
                                             .foregroundColor(.white))
                         })
-                        .padding(.bottom, 25)
-                        
-                        ARActionButtonView(buttonLabel: "info.circle.fill", action: {
-                            infoIsShowed.toggle()
-                            showInfo()
-                        })
-                        
-                        ARActionButtonView(buttonLabel:
-                                        soundIsPlayed ? "speaker.wave.2.circle.fill" : "speaker.slash.circle.fill", action: {
-                                            soundIsPlayed.toggle()
-                                        })
-                        
                     }
                 }
                 
                 Spacer()
                 
-                if infoIsShowed {
-                    
-                    withAnimation(.easeIn) {
-                        ARSimulationInfoView(title: "Selamat Datang di \nSimulasi Rangkaian Kelistrikan ⚡️", bodyInfo: "Dekatkan iPhone mu dengan object, lalu tekan mulai untuk mendengarkan materi dan visualisasi menggunakan AR!")
-                    }
-                    
-                }
                 
             })
             .padding(.top, 30)
             .padding(.horizontal, 25)
             
+            
+            VStack{
+                
+                Spacer()
+                
+                ZStack {
+                    
+                    Rectangle()
+                        .frame(width: UIScreen.main.bounds.width, height: 175, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.gray)
+                        .opacity(0.3)
+                        .overlay(
+                        
+                            VStack {
+                                
+                                HStack {
+                                    
+                                    Text("Test Klakson")
+                                        .foregroundColor(.gray)
+                                        .bold()
+                                    Spacer()
+                                    
+                                }
+                                .padding()
+                                
+                                Spacer()
+                                
+                                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                    Rectangle()
+                                        .foregroundColor(.orange)
+                                        .frame(width: 250, height: 75, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .cornerRadius(15)
+                                        .overlay(
+                                        
+                                            HStack{
+                                                Text("Coba Bunyikan")
+                                                Image(systemName: "megaphone.fill")
+                                            }
+                                            .foregroundColor(.white)
+                                            
+                                        )
+                                })
+                                .padding(.bottom, 15)
+                                
+                                Spacer()
+                                
+                                
+                            }
+                            
+                        )
+                    
+                    
+                    
+                }
+                
+            }
+            .edgesIgnoringSafeArea(.bottom)
+            
+            
+            
         }
         .onAppear(perform: {
             infoIsShowed = true
-            showInfo()
+            
             
         })
         .onDisappear(perform: {
             if soundIsPlayed {stopSound()}
+            isArClosed.toggle()
         })
         
         
@@ -116,24 +161,17 @@ struct ARSimulationView: View {
         synthesizer.stopSpeaking(at: .immediate)
         
     }
-    
-    func showInfo(){
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+7.5) {
-            
-            infoIsShowed = false
-            
-        }
-        
-    }
-    
+
 }
 
-struct ARSimulationViewContainer: UIViewRepresentable {
+
+
+
+struct ARTroubleShootViewContainer: UIViewRepresentable {
+    
+    var arView: ARView
     
     func makeUIView(context: Context) -> ARView {
-        
-        let arView = ARView(frame: .zero)
         
         // Load the "Box" scene from the "Experience" Reality File
         let boxAnchor = try! SimulasiKlaksonAR.loadScene()
@@ -152,17 +190,27 @@ struct ARSimulationViewContainer: UIViewRepresentable {
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
+    
+    
+}
+
+struct ARTroubleShootView_Previews: PreviewProvider {
+    static var previews: some View {
+        ARTroubleShootView()
+    }
 }
 
 
-struct ARViewContainer_Previews: PreviewProvider {
+class ARTroubleShootManager: ObservableObject {
     
-    static var previews: some View {
+    @Published var arView = ARView(frame: .zero)
+    
+    func killAR(){
         
-        ARSimulationView()
-
+        print("AR Killed")
+        // arView.session.pause()
+        arView.removeFromSuperview()
+        
     }
     
 }
-
-

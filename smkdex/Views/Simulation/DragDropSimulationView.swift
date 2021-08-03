@@ -156,7 +156,7 @@ struct DragDropSimulationView: View {
                     }
                    
                     
-                    GoToARButonView(isARPresented: $isARPresented, actionView: {
+                    GoToARButtonView(isARPresented: $isARPresented, actionView: {
                         isARPresented.toggle()
                     }, actionName: "Simulasi Rangkaian pada AR")
                     .disabled(delegate.checkButton() ? false : true)

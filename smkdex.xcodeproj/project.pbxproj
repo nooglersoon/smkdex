@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0119EFF126A4931B006862D7 /* TroubleshootingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119EFF026A4931B006862D7 /* TroubleshootingView.swift */; };
+		012273D826B7FB7C000EB4CD /* ARTroubleShootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012273D726B7FB7C000EB4CD /* ARTroubleShootView.swift */; };
+		012273DB26B7FC0D000EB4CD /* GoToARButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012273DA26B7FC0D000EB4CD /* GoToARButtonView.swift */; };
+		012273DD26B7FC9A000EB4CD /* ARActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012273DC26B7FC9A000EB4CD /* ARActionButtonView.swift */; };
 		0135A34226A6D39600D5CFC7 /* SimulasiKlaksonAR.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 0135A34126A6D39400D5CFC7 /* SimulasiKlaksonAR.rcproject */; };
 		0139936E269ED5290016A8C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0139936D269ED5290016A8C2 /* Launch Screen.storyboard */; };
 		014AC243269A07A400705994 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC242269A07A400705994 /* AppDelegate.swift */; };
@@ -54,6 +57,9 @@
 
 /* Begin PBXFileReference section */
 		0119EFF026A4931B006862D7 /* TroubleshootingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleshootingView.swift; sourceTree = "<group>"; };
+		012273D726B7FB7C000EB4CD /* ARTroubleShootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTroubleShootView.swift; sourceTree = "<group>"; };
+		012273DA26B7FC0D000EB4CD /* GoToARButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToARButtonView.swift; sourceTree = "<group>"; };
+		012273DC26B7FC9A000EB4CD /* ARActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARActionButtonView.swift; sourceTree = "<group>"; };
 		0135A34126A6D39400D5CFC7 /* SimulasiKlaksonAR.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = SimulasiKlaksonAR.rcproject; sourceTree = "<group>"; };
 		0139936D269ED5290016A8C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		014AC23F269A07A400705994 /* smkdex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smkdex.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +118,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		012273D926B7FBE6000EB4CD /* ARComponentView */ = {
+			isa = PBXGroup;
+			children = (
+				012273DA26B7FC0D000EB4CD /* GoToARButtonView.swift */,
+				012273DC26B7FC9A000EB4CD /* ARActionButtonView.swift */,
+			);
+			path = ARComponentView;
+			sourceTree = "<group>";
+		};
 		014AC236269A07A400705994 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +190,7 @@
 		01BEC13226AD793C002D8D04 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				012273D926B7FBE6000EB4CD /* ARComponentView */,
 				01BEC13826AD7A96002D8D04 /* Main */,
 				01BEC13526AD79B4002D8D04 /* Troubleshoot */,
 				01BEC13426AD79AD002D8D04 /* Simulation */,
@@ -208,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				0119EFF026A4931B006862D7 /* TroubleshootingView.swift */,
+				012273D726B7FB7C000EB4CD /* ARTroubleShootView.swift */,
 			);
 			path = Troubleshoot;
 			sourceTree = "<group>";
@@ -406,14 +423,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0A013C926A1C6BA0047D520 /* ComponentPartDetailView.swift in Sources */,
+				012273D826B7FB7C000EB4CD /* ARTroubleShootView.swift in Sources */,
 				014AC245269A07A400705994 /* ContentView.swift in Sources */,
 				0135A34226A6D39600D5CFC7 /* SimulasiKlaksonAR.rcproject in Sources */,
 				01BEC13D26AD89BB002D8D04 /* ARExtension.swift in Sources */,
 				A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */,
+				012273DD26B7FC9A000EB4CD /* ARActionButtonView.swift in Sources */,
 				2CBB7EBC26A09D5B003931E7 /* MainMenuView.swift in Sources */,
 				01D317FA269F0043007C0331 /* ComponentView.swift in Sources */,
 				014AC243269A07A400705994 /* AppDelegate.swift in Sources */,
 				017CF6BF26A1DD5200D91333 /* DragDropSimulationView.swift in Sources */,
+				012273DB26B7FC0D000EB4CD /* GoToARButtonView.swift in Sources */,
 				01BEC13A26AD890B002D8D04 /* ARSimulationView.swift in Sources */,
 				01BEC13F26AD8A42002D8D04 /* SimulationTest.swift in Sources */,
 				014AC247269A07A400705994 /* Experience.rcproject in Sources */,
