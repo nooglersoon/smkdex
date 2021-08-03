@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-
-import SwiftUI
 import SceneKit
 
 struct PartPopUpView : View {
@@ -47,10 +45,18 @@ struct PartPopUpView : View {
 //            scene!.rootNode.position = SCNVector3(x: 0, y: 5.5, z: 0)
 //        }
         
+        
+        
         switch named {
         case "Aki":
-            scene!.rootNode.scale = SCNVector3(x: 0.5, y: 0.5, z: 0.5)
-            scene!.rootNode.position = SCNVector3(x: -5, y: 30, z: 0)
+            scene!.rootNode.scale = SCNVector3(x: 0.3, y: 0.3, z: 0.3)
+            scene!.rootNode.position = SCNVector3(x: -8, y: 45, z: 0)
+            
+            let action = SCNAction.rotate(by: 360 * CGFloat(Double.pi / 180), around: SCNVector3(x: 0, y: 0.5, z: 0), duration: 8)
+            let repeatAction = SCNAction.repeatForever(action)
+            scene!.rootNode.runAction(repeatAction)
+          
+            
         case "Klakson":
             scene!.rootNode.scale = SCNVector3(x: 0.5, y: 0.5, z: 0.5)
             scene!.rootNode.position = SCNVector3(x: 3, y: 30, z: 0)
@@ -99,3 +105,7 @@ struct PartPopUpView_Previews: PreviewProvider {
         
     }
 }
+
+
+
+

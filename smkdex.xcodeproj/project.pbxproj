@@ -34,6 +34,7 @@
 		01D317FA269F0043007C0331 /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D317F9269F0043007C0331 /* ComponentView.swift */; };
 		2CBB7EBC26A09D5B003931E7 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */; };
 		A00CCD3B26AAD74E0030415E /* PartPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00CCD3A26AAD74E0030415E /* PartPopUpView.swift */; };
+		A06D7C1326B7E0D1003C037D /* Drag&DropSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06D7C1226B7E0D1003C037D /* Drag&DropSimulationView.swift */; };
 		A0A013C926A1C6BA0047D520 /* ComponentPartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */; };
 		A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		01D317F9269F0043007C0331 /* ComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
 		2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		A00CCD3A26AAD74E0030415E /* PartPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartPopUpView.swift; sourceTree = "<group>"; };
+		A06D7C1226B7E0D1003C037D /* Drag&DropSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drag&DropSimulationView.swift"; sourceTree = "<group>"; };
 		A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPartDetailView.swift; sourceTree = "<group>"; };
 		A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DComponentPartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +214,7 @@
 		01BEC13426AD79AD002D8D04 /* Simulation */ = {
 			isa = PBXGroup;
 			children = (
+				A06D7C1226B7E0D1003C037D /* Drag&DropSimulationView.swift */,
 				017CF6BE26A1DD5200D91333 /* DragDropSimulationView.swift */,
 				01B6687E269FFF4E00FAE621 /* SimulationView.swift */,
 				01BEC13926AD890B002D8D04 /* ARSimulationView.swift */,
@@ -426,6 +429,7 @@
 				012273D826B7FB7C000EB4CD /* ARTroubleShootView.swift in Sources */,
 				014AC245269A07A400705994 /* ContentView.swift in Sources */,
 				0135A34226A6D39600D5CFC7 /* SimulasiKlaksonAR.rcproject in Sources */,
+				A06D7C1326B7E0D1003C037D /* Drag&DropSimulationView.swift in Sources */,
 				01BEC13D26AD89BB002D8D04 /* ARExtension.swift in Sources */,
 				A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */,
 				012273DD26B7FC9A000EB4CD /* ARActionButtonView.swift in Sources */,
@@ -599,7 +603,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = CVSRYHR3VR;
+				DEVELOPMENT_TEAM = Z74KUA44R7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -623,7 +627,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = CVSRYHR3VR;
+				DEVELOPMENT_TEAM = Z74KUA44R7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

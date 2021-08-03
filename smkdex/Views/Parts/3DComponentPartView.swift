@@ -16,7 +16,11 @@ struct _DComponentPartView : View {
     @Environment(\.presentationMode) var presentationMode
     
     var parts: [Part]
-    
+    func addAnimation(node: SCNNode) {
+        let rotateOne = SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 5.0)
+        let repeatForever = SCNAction.repeatForever(rotateOne)
+            node.runAction(repeatForever)
+    }
     
     @State var index = 0
     
@@ -28,7 +32,36 @@ struct _DComponentPartView : View {
                 ZStack{
                 Color(.systemBackground)
                     SceneView(scene: {
-                        let scene = SCNScene(named: "\(parts[index].visual).usdz")!
+                        let scene = SCNScene(named: "\(namedss).usdz")!
+                        
+                        switch namedss{
+                        case "Aki":
+                            let action = SCNAction.rotate(by: CGFloat(Float.pi), around: SCNVector3(x: 0, y: 1, z: 0), duration: 8)
+                            let repeatAction = SCNAction.repeatForever(action)
+                            scene.rootNode.runAction(repeatAction)
+                        case "Klakson":
+                            if let node = scene.rootNode.childNodes.first {
+                                let action = SCNAction.rotate(by: CGFloat(Float.pi), around: SCNVector3(x: 0, y: 0.1, z: 0), duration: 2)
+                                let repeatAction = SCNAction.repeatForever(action)
+                                node.runAction(repeatAction)
+                            }
+
+                        case "KunciKontak":
+                            let action = SCNAction.rotate(by: 360 * CGFloat(Double.pi / 180), around: SCNVector3(x: 0, y: 0.01, z: 0), duration: 8)
+                            let repeatAction = SCNAction.repeatForever(action)
+                            scene.rootNode.runAction(repeatAction)
+                        case "Fuse":
+                            let action = SCNAction.rotate(by: 360 * CGFloat(Double.pi / 180), around: SCNVector3(x: 0, y: 0.01, z: 0), duration: 8)
+                            let repeatAction = SCNAction.repeatForever(action)
+                            scene.rootNode.runAction(repeatAction)
+                        case "TombolKlakson":
+                            let action = SCNAction.rotate(by: 360 * CGFloat(Double.pi / 180), around: SCNVector3(x: 0, y: 0.01, z: 0), duration: 8)
+                            let repeatAction = SCNAction.repeatForever(action)
+                            scene.rootNode.runAction(repeatAction)
+                        
+                        default:
+                            break
+                        }
                         scene.background.contents = UIColor.systemBackground
                         return scene
                     }(), options: [.autoenablesDefaultLighting,.allowsCameraControl])
