@@ -20,21 +20,25 @@
 		014AC24C269A07A600705994 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 014AC24B269A07A600705994 /* Preview Assets.xcassets */; };
 		014AC257269A07A600705994 /* smkdexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC256269A07A600705994 /* smkdexTests.swift */; };
 		014AC262269A07A600705994 /* smkdexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC261269A07A600705994 /* smkdexUITests.swift */; };
+		01513AA926BA7BC900DED0A3 /* horn_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01513AA826BA7BC900DED0A3 /* horn_sound.wav */; };
 		016CADB426A2BFA900577F88 /* Aki.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADAF26A2BFA900577F88 /* Aki.usdz */; };
 		016CADB526A2BFA900577F88 /* Fuse.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB026A2BFA900577F88 /* Fuse.usdz */; };
 		016CADB626A2BFA900577F88 /* TombolKlakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB126A2BFA900577F88 /* TombolKlakson.usdz */; };
 		016CADB726A2BFA900577F88 /* KunciKontak.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB226A2BFA900577F88 /* KunciKontak.usdz */; };
 		016CADB826A2BFA900577F88 /* Klakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB326A2BFA900577F88 /* Klakson.usdz */; };
-		017CF6BF26A1DD5200D91333 /* DragDropSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CF6BE26A1DD5200D91333 /* DragDropSimulationView.swift */; };
+		017B5D2C26B9B3E300985004 /* CableDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017B5D2B26B9B3E300985004 /* CableDropView.swift */; };
+		017CF6BF26A1DD5200D91333 /* DragTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CF6BE26A1DD5200D91333 /* DragTestView.swift */; };
 		01B6687F269FFF4E00FAE621 /* SimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B6687E269FFF4E00FAE621 /* SimulationView.swift */; };
 		01BEC13A26AD890B002D8D04 /* ARSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BEC13926AD890B002D8D04 /* ARSimulationView.swift */; };
 		01BEC13D26AD89BB002D8D04 /* ARExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BEC13C26AD89BB002D8D04 /* ARExtension.swift */; };
 		01BEC13F26AD8A42002D8D04 /* SimulationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BEC13E26AD8A42002D8D04 /* SimulationTest.swift */; };
 		01C1771726A3D42800636E0D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1771626A3D42800636E0D /* Model.swift */; };
 		01D317FA269F0043007C0331 /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D317F9269F0043007C0331 /* ComponentView.swift */; };
+		01EE385326BBC6D0001B5CD5 /* Troubleshot.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 01EE385226BBC6D0001B5CD5 /* Troubleshot.rcproject */; };
+		01EE385526BBCD69001B5CD5 /* TroubleshootTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EE385426BBCD69001B5CD5 /* TroubleshootTestView.swift */; };
 		2CBB7EBC26A09D5B003931E7 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */; };
 		A00CCD3B26AAD74E0030415E /* PartPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00CCD3A26AAD74E0030415E /* PartPopUpView.swift */; };
-		A06D7C1326B7E0D1003C037D /* Drag&DropSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06D7C1226B7E0D1003C037D /* Drag&DropSimulationView.swift */; };
+		A06D7C1326B7E0D1003C037D /* DragDropSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06D7C1226B7E0D1003C037D /* DragDropSimulationView.swift */; };
 		A0A013C926A1C6BA0047D520 /* ComponentPartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */; };
 		A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */; };
 /* End PBXBuildFile section */
@@ -76,21 +80,25 @@
 		014AC25D269A07A600705994 /* smkdexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = smkdexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		014AC261269A07A600705994 /* smkdexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smkdexUITests.swift; sourceTree = "<group>"; };
 		014AC263269A07A600705994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01513AA826BA7BC900DED0A3 /* horn_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn_sound.wav; sourceTree = "<group>"; };
 		016CADAF26A2BFA900577F88 /* Aki.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Aki.usdz; sourceTree = "<group>"; };
 		016CADB026A2BFA900577F88 /* Fuse.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Fuse.usdz; sourceTree = "<group>"; };
 		016CADB126A2BFA900577F88 /* TombolKlakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = TombolKlakson.usdz; sourceTree = "<group>"; };
 		016CADB226A2BFA900577F88 /* KunciKontak.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = KunciKontak.usdz; sourceTree = "<group>"; };
 		016CADB326A2BFA900577F88 /* Klakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Klakson.usdz; sourceTree = "<group>"; };
-		017CF6BE26A1DD5200D91333 /* DragDropSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropSimulationView.swift; sourceTree = "<group>"; };
+		017B5D2B26B9B3E300985004 /* CableDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CableDropView.swift; sourceTree = "<group>"; };
+		017CF6BE26A1DD5200D91333 /* DragTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragTestView.swift; sourceTree = "<group>"; };
 		01B6687E269FFF4E00FAE621 /* SimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationView.swift; sourceTree = "<group>"; };
 		01BEC13926AD890B002D8D04 /* ARSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSimulationView.swift; sourceTree = "<group>"; };
 		01BEC13C26AD89BB002D8D04 /* ARExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARExtension.swift; sourceTree = "<group>"; };
 		01BEC13E26AD8A42002D8D04 /* SimulationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationTest.swift; sourceTree = "<group>"; };
 		01C1771626A3D42800636E0D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		01D317F9269F0043007C0331 /* ComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
+		01EE385226BBC6D0001B5CD5 /* Troubleshot.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Troubleshot.rcproject; sourceTree = "<group>"; };
+		01EE385426BBCD69001B5CD5 /* TroubleshootTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleshootTestView.swift; sourceTree = "<group>"; };
 		2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		A00CCD3A26AAD74E0030415E /* PartPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartPopUpView.swift; sourceTree = "<group>"; };
-		A06D7C1226B7E0D1003C037D /* Drag&DropSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drag&DropSimulationView.swift"; sourceTree = "<group>"; };
+		A06D7C1226B7E0D1003C037D /* DragDropSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropSimulationView.swift; sourceTree = "<group>"; };
 		A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPartDetailView.swift; sourceTree = "<group>"; };
 		A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DComponentPartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +197,14 @@
 			path = smkdexUITests;
 			sourceTree = "<group>";
 		};
+		01513AA726BA7BB200DED0A3 /* Sound File */ = {
+			isa = PBXGroup;
+			children = (
+				01513AA826BA7BC900DED0A3 /* horn_sound.wav */,
+			);
+			path = "Sound File";
+			sourceTree = "<group>";
+		};
 		01BEC13226AD793C002D8D04 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,11 +230,12 @@
 		01BEC13426AD79AD002D8D04 /* Simulation */ = {
 			isa = PBXGroup;
 			children = (
-				A06D7C1226B7E0D1003C037D /* Drag&DropSimulationView.swift */,
-				017CF6BE26A1DD5200D91333 /* DragDropSimulationView.swift */,
+				A06D7C1226B7E0D1003C037D /* DragDropSimulationView.swift */,
+				017CF6BE26A1DD5200D91333 /* DragTestView.swift */,
 				01B6687E269FFF4E00FAE621 /* SimulationView.swift */,
 				01BEC13926AD890B002D8D04 /* ARSimulationView.swift */,
 				01BEC13E26AD8A42002D8D04 /* SimulationTest.swift */,
+				017B5D2B26B9B3E300985004 /* CableDropView.swift */,
 			);
 			path = Simulation;
 			sourceTree = "<group>";
@@ -228,6 +245,7 @@
 			children = (
 				0119EFF026A4931B006862D7 /* TroubleshootingView.swift */,
 				012273D726B7FB7C000EB4CD /* ARTroubleShootView.swift */,
+				01EE385426BBCD69001B5CD5 /* TroubleshootTestView.swift */,
 			);
 			path = Troubleshoot;
 			sourceTree = "<group>";
@@ -235,6 +253,7 @@
 		01BEC13626AD7A1D002D8D04 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				01513AA726BA7BB200DED0A3 /* Sound File */,
 				A0B8291E269EDD08001914EF /* 3D Part */,
 				01BEC13726AD7A3E002D8D04 /* AR Objects */,
 				014AC248269A07A600705994 /* Assets.xcassets */,
@@ -245,6 +264,7 @@
 		01BEC13726AD7A3E002D8D04 /* AR Objects */ = {
 			isa = PBXGroup;
 			children = (
+				01EE385226BBC6D0001B5CD5 /* Troubleshot.rcproject */,
 				0135A34126A6D39400D5CFC7 /* SimulasiKlaksonAR.rcproject */,
 				014AC246269A07A400705994 /* Experience.rcproject */,
 			);
@@ -394,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0139936E269ED5290016A8C2 /* Launch Screen.storyboard in Resources */,
+				01513AA926BA7BC900DED0A3 /* horn_sound.wav in Resources */,
 				016CADB426A2BFA900577F88 /* Aki.usdz in Resources */,
 				016CADB526A2BFA900577F88 /* Fuse.usdz in Resources */,
 				016CADB826A2BFA900577F88 /* Klakson.usdz in Resources */,
@@ -425,18 +446,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01EE385326BBC6D0001B5CD5 /* Troubleshot.rcproject in Sources */,
 				A0A013C926A1C6BA0047D520 /* ComponentPartDetailView.swift in Sources */,
 				012273D826B7FB7C000EB4CD /* ARTroubleShootView.swift in Sources */,
 				014AC245269A07A400705994 /* ContentView.swift in Sources */,
 				0135A34226A6D39600D5CFC7 /* SimulasiKlaksonAR.rcproject in Sources */,
-				A06D7C1326B7E0D1003C037D /* Drag&DropSimulationView.swift in Sources */,
+				A06D7C1326B7E0D1003C037D /* DragDropSimulationView.swift in Sources */,
 				01BEC13D26AD89BB002D8D04 /* ARExtension.swift in Sources */,
 				A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */,
 				012273DD26B7FC9A000EB4CD /* ARActionButtonView.swift in Sources */,
 				2CBB7EBC26A09D5B003931E7 /* MainMenuView.swift in Sources */,
+				01EE385526BBCD69001B5CD5 /* TroubleshootTestView.swift in Sources */,
 				01D317FA269F0043007C0331 /* ComponentView.swift in Sources */,
 				014AC243269A07A400705994 /* AppDelegate.swift in Sources */,
-				017CF6BF26A1DD5200D91333 /* DragDropSimulationView.swift in Sources */,
+				017CF6BF26A1DD5200D91333 /* DragTestView.swift in Sources */,
+				017B5D2C26B9B3E300985004 /* CableDropView.swift in Sources */,
 				012273DB26B7FC0D000EB4CD /* GoToARButtonView.swift in Sources */,
 				01BEC13A26AD890B002D8D04 /* ARSimulationView.swift in Sources */,
 				01BEC13F26AD8A42002D8D04 /* SimulationTest.swift in Sources */,
@@ -603,7 +627,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = Z74KUA44R7;
+				DEVELOPMENT_TEAM = CVSRYHR3VR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -627,7 +651,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = Z74KUA44R7;
+				DEVELOPMENT_TEAM = CVSRYHR3VR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

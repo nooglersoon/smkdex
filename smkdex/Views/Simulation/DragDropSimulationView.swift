@@ -1,274 +1,338 @@
 //
-//  TestingView.swift
+//  Drag&DropSimulationView.swift
 //  smkdex
 //
-//  Created by Fauzi Achmad B D on 16/07/21.
+//  Created by Muhammad Gilang Nursyahroni on 02/08/21.
 //
 
 import SwiftUI
-import MobileCoreServices
+import AVKit
 
 struct DragDropSimulationView: View {
-   
-    @State private var isARPresented = false
     
     var parts: [Part]
+    @State private var isARPresented = false
+    @State private var switchPlayed = false
     
-    @ObservedObject var delegate = PartsDataObject()
+    @StateObject var simulationManager = DragDropSimulationManager()
+    
+    
+    let negativeAki = CGPoint(x: 130, y: 165)
+    let negativeSekering = CGPoint(x: 260, y: 130)
+    let negativeTombol = CGPoint(x: 260, y: 260)
+    let negativeKontak = CGPoint(x: 260, y: 390)
+    let negativeKlakson = CGPoint(x: 130, y: 425)
+    
+    
+    @State private var pathwayAki = CGPoint(x: 130, y: 105)
+    @State private var dragAki = false
+    @State private var isAkiTapped = false
+    
+    @State private var pathwaySekring = CGPoint(x: 260, y: 165)
+    @State private var dragSekring = false
+    @State private var isSekringTapped = false
+    
+    @State private var pathwayTombol = CGPoint(x: 260, y: 295)
+    @State private var dragTombol = false
+    @State private var isTombolTapped = false
+    
+    @State private var pathwayKontak = CGPoint(x: 260, y: 425)
+    @State private var dragKontak = false
+    @State private var isKontakTapped = false
+    
+    @State private var pathwayKlakson = CGPoint(x: 130, y: 390)
+    @State private var dragKlakson = false
+    @State private var isKlaksonTapped = false
+    
+    @State var audioPlayer: AVAudioPlayer!
+    
     
     
     var body: some View {
+        
+        
+        ZStack {
             
-            VStack{
-                
-                // Drop Area
-                
-                GeometryReader{ _ in
-                    
-                    ZStack {
-                        
-                        if delegate.selectedPart.isEmpty {
-                            
-                            Text("Drop Images Here")
-                                .fontWeight(.bold)
-                                .foregroundColor(.blue)
-                                .padding()
-                            
-                        }
-                        
-                        ScrollView(.horizontal, showsIndicators: false){
-                            
-                            HStack {
-                                
-                                ForEach(delegate.selectedPart, id:\.nama){ image in
-                                    
-                                    if image.visual != ""{
-                                        
-                                        ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top), content: {
-                                            
-                                            Image(image.visual)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(width: 75, height: 75, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                                .cornerRadius(15)
-                                            
-                                            // Remove button
-                                            
-                                            Button(action: {
-                                                
-                                                withAnimation(.easeOut) {
-                                                    self.delegate.selectedPart.removeAll {
-                                                        (check) -> Bool in
-                                                        
-                                                        if check.visual == image.visual {
-                                                            return true
-                                                        } else {
-                                                            return false
-                                                        }
-                                                        
-                                                    }
-                                                }
-                                                
-                                            }, label: {
-                                                Image(systemName: "xmark")
-                                                    .foregroundColor(.white)
-                                                    .padding(10)
-                                                    .background(Color.black)
-                                                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                                            })
-                                            
-                                            
-                                        })
-                                        
-                                    }
-                                    
-                                }
-                                
-                                Spacer(minLength: 0)
-                                
-                            }
-                            
-                        }
-                        .padding(.horizontal)
-                        .padding()
-                        
-                    }
-                    
-                    .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
-                    .padding(.top,10)
-                    
-                    
-                }
-                .frame(width: UIScreen.main.bounds.width, height: 430, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .background(Color(.systemGray4).opacity(0.3))
-                // Drop area which to receive provided data
-  
-                // receiving some data type
-                .onDrop(of: [String(kUTTypeURL)], delegate: delegate)
+            VStack(spacing:30) {
                 
                 Spacer()
                 
-                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
+                ZStack {
                     
-                    VStack(alignment: .leading){
-                        Text("Select Component")
-                            .bold()
-                            .padding(.leading, 20)
+                    VStack {
                         
-                        ScrollView(.horizontal, showsIndicators: false){
+                        Text("Rangkaian Klakson")
+                            .font(.headline)
+                        Text("Sambungkan Rangkaian dari Titik ke Titik!")
+                            .font(.body)
+                            .foregroundColor(.secondary)
+                        
+                        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
                             
-                            // Draggable Object
-                            
-                            HStack(alignment: .center){
+                            HStack(alignment: .center) {
                                 
-                                ForEach(parts, id: \.self){ part in
-                                    
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .foregroundColor(Color(.systemBackground))
-                                            .frame(width: 120, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            .shadow(color: Color(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.1)), radius: 4, x: 3, y: 3)
-                                        VStack(spacing: 5){
-                                            Image(uiImage: UIImage(named: part.visual)!)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                                
-                                            Text(part.nama)
-                                                .font(.system(size: 13))
-                                                .bold()
-                                        }
-                                    }
-                                    .frame(width: 150, height: 180, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .onDrag{
-                                        
-                                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                                                    impactHeavy.impactOccurred()
-                                        
-                                        return NSItemProvider(item: .some(URL(string: part.visual)! as NSSecureCoding) , typeIdentifier: String(kUTTypeURL))
-                                    }
-                                    
-                                }
+                                PartView(part: parts[0])
+                                Spacer()
+                                PartView(part: parts[1])
+                                
+                            }
+                            
+                            HStack(alignment: .center) {
+                                
+                                Spacer()
+                                PartView(part: parts[2])
+                                
+                            }
+                            
+                            HStack(alignment: .center) {
+                                
+                                PartView(part: parts[4])
+                                Spacer()
+                                PartView(part: parts[3])
                                 
                             }
                             
                         }
+                        .padding(.horizontal,20)
+                        
                     }
-                   
                     
-                    GoToARButtonView(isARPresented: $isARPresented, actionView: {
-                        isARPresented.toggle()
-                    }, actionName: "Simulasi Rangkaian pada AR")
-                    .disabled(delegate.checkButton() ? false : true)
-                    .opacity(delegate.checkButton() ? 1 : 0.5)
-                    .padding()
+                    
                 }
+                .background(Color(.systemBackground))
                 
-                .fullScreenCover(isPresented: $isARPresented){
-                    ARSimulationView()
+                
+                GeometryReader { _ in
+                    
+                    VStack {
+                        
+                        HStack {
+                            
+                            Text("Coba Rangkaian")
+                                .foregroundColor(.gray)
+                                .bold()
+                            Spacer()
+                            
+                        }
+                        .padding()
+                        
+                        
+                        HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
+                            
+                            Button(action: {
+                                
+                                switchPlayed.toggle()
+                                
+                            }, label: {
+                                Rectangle()
+                                    .frame(width: 88, height: 88, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .cornerRadius(14)
+                                    .foregroundColor(switchPlayed ? .red : .green)
+                                    .overlay(
+                                    
+                                        Text(switchPlayed ? "OFF" : "ON")
+                                            .bold()
+                                            .foregroundColor(.white)
+                                        
+                                    )
+                                    
+                            })
+                            .opacity(wireIsDone() ? 1 : 0.5)
+                            .disabled(wireIsDone() ? false : true)
+                            
+                            Button(action: {
+                                
+                                audioPlayer.play()
+                                
+                            }, label: {
+                                Rectangle()
+                                    .frame(width: 88, height: 88, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .cornerRadius(14)
+                                    .foregroundColor(switchPlayed ? .orange : .gray)
+                                    .overlay(
+                                    
+                                        Image(systemName: "speaker.wave.2.fill")
+                                            .resizable()
+                                            .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            .foregroundColor(.white)
+                                        
+                                    )
+                                    
+                            })
+                            .opacity(switchPlayed ? 1 : 0.5)
+                            .disabled(switchPlayed ? false : true)
+                            
+                            
+                        }
+
+                        GoToARButtonView(isARPresented: $isARPresented, actionView: {
+                            isARPresented.toggle()
+                        }, actionName: "Simulasi Rangkaian pada AR")
+                        .padding()
+                        .disabled(wireIsDone() ? false : true)
+                        .opacity(wireIsDone() ? 1 : 0.5)
+                        
+                        
+                    }
+
+                    
                 }
+                .frame(width: UIScreen.main.bounds.width, height: 280, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .background(Color(.systemGray5))
+                
                 
             }
-            .navigationBarItems(trailing: Button(action: {
-                withAnimation(.easeOut) {
-                    self.delegate.selectedPart.removeAll()
+            
+            ZStack {
+                
+                Group {
+                    
+                    ZStack {
+                        
+                        Circle()
+                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.blue)
+                            .position(x: 130, y: 130)
+                        
+                        BulletPositif(position: CGPoint(x: 130, y: 130), pathway: $pathwayAki, isDrag: $dragAki, isTapped: $isSekringTapped, dropPoint: negativeSekering)
+                        
+                    }
+                    
+                    ZStack {
+                        
+                        Circle()
+                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.red)
+                            .position(negativeAki)
+                        
+                        BulletNegatif(isTapped: $isAkiTapped)
+                            .position(negativeAki)
+                        
+                    }
+                    
+                    
+                    BulletPositif(position: CGPoint(x: 260, y: 165), pathway: $pathwaySekring, isDrag: $dragSekring, isTapped: $isTombolTapped, dropPoint: negativeTombol)
+                    
+                    BulletNegatif(isTapped: $isSekringTapped)
+                        .position(negativeSekering)
+                    
+                    
+                    BulletPositif(position: CGPoint(x: 260, y: 295), pathway: $pathwayTombol, isDrag: $dragTombol, isTapped: $isKontakTapped, dropPoint: negativeKontak)
+                    
+                    BulletNegatif(isTapped: $isTombolTapped)
+                        .position(negativeTombol)
+                    
+                    
+                    BulletPositif(position: CGPoint(x: 260, y: 425), pathway: $pathwayKontak, isDrag: $dragKontak, isTapped: $isKlaksonTapped, dropPoint: negativeKlakson)
+                    
+                    BulletNegatif(isTapped: $isKontakTapped)
+                        .position(negativeKontak)
+                    
+                    
+                    BulletPositif(position: CGPoint(x: 130, y: 390), pathway: $pathwayKlakson, isDrag: $dragKlakson, isTapped: $isAkiTapped, dropPoint: negativeAki)
+                    
+                    BulletNegatif(isTapped: $isKlaksonTapped)
+                        .position(negativeKlakson)
+                    
                 }
-            }, label: {
-                Text("Reset")
-            }))
-            .navigationBarTitle("Circuit Simulation",displayMode: .inline)
-            .onDisappear(){
-                
-                self.delegate.selectedPart.removeAll()
-                
+            
             }
+            
+            
+        }
+        .fullScreenCover(isPresented: $isARPresented){
+            ARSimulationView()
+        }
+        .edgesIgnoringSafeArea(.bottom)
+        .navigationBarItems(trailing: Button(action: {
+            
+            resetWire()
+            
+        }, label: {
+            Text("Reset")
+        }))
+        
+        .onAppear{
+            
+            let sound = Bundle.main.path(forResource: "horn_sound", ofType: "wav")
+            audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+            
+        }
+        
     }
     
-}
-
-
-class PartsDataObject: ObservableObject, DropDelegate{
+    func resetWire(){
+        
+        isAkiTapped = false
+        dragAki = false
+        
+        isTombolTapped = false
+        dragTombol = false
+        
+        isKontakTapped = false
+        dragKontak = false
+        
+        isSekringTapped = false
+        dragSekring = false
+        
+        isKlaksonTapped = false
+        dragKlakson = false
+        
+        
+    }
     
-    @Published var parts: [Part] = [
+    func wireIsDone() -> Bool {
         
-        Part(nama: "Klakson", fungsi: "Klakson berfungsi sebagai sumber suara. Saat saklar klakson ditekan, arus dari baterai mengalir melalui baterai, terus ke coil (solenoid), menuju platina dan selanjutnya ke massa. Solenoid menjadi magnet dan menarik armature. Kemudian armature membukakan platina sehingga arus ke massa terputus. Dengan terputusnya arus tersebut, kemagnetan pada solenoid hilang, sehingga armature kembali ke posisi semula. Hal ini menyebabkan platina menutup kembali untuk menghubungkaan arus ke massa. Proses ini berlangsung cepat, dan diafragma membuat armature bergetar lebih cepat lagi, sehingga menghasilkan resonansi suara", visual: "Klakson"),
-        
-        Part(nama: "Fuse", fungsi: "Fuse atau sering disebut sekering merupakan komponen pengaman pada jaringan kelistrikan, termasuk juga pada jaringan kelistrikan klakson. Fuse berfungsi untuk mencegah terjadinya kerusakan pada komponen lainnya bila terjadi hubungan singkat atau kelebihan tegangan. Fuse akan putus jika terjadi hubungan singkat atau beban arus berlebihan sehingga arus tersebut tidak akan mengalir ke komponen kelistrikan lainnya sehingga komponen kelistrikan lainnya akan aman dari kerusakan.", visual: "Fuse"),
-        
-        Part(nama: "Saklar Klakson", fungsi: "Pada dasarnya, sistem klakson menggunakan tipe saklar tekan, yaitu ketika saklar ditekan pada terjadi hubungan antara terminal klakson satu dengan yang lainnya. Pada sistem kelistrikan klakson dengan menggunakan pengendali negatif, saklar diletakkan dibagian jaringan negatif yaitu digunakan untuk memutus kan arus terminal 86 yang menuju ke massa atau negatif baterai.", visual: "TombolKlakson"),
-        
-        Part(nama: "Accu", fungsi: "Baterai (ACCU) pada sistem kelistrikan klakson berfungsi sebagai sumber listrik utama dengan arus DC (Direct Current) atau arus searah. Baterai ini memiliki tegangan sebesar 12 volt dan memiliki dua kutub yaitu positif dan negatif. Bila arus yang ada dibaterai mulai kosong maka akan berdampak pada bunyi klakson yang juga semakin melemah", visual: "Aki"),
-        
-        Part(nama: "Kunci Kontak", fungsi: "Kunci kontak berfungsi untuk memutuskan dan menghubungkan listrik pada rangkaian atau mematikan dan menghidupkan sistem di rangkaian kelistrikan klakson.", visual: "KunciKontak")
-        
-    ]
-    
-    @Published var selectedPart = [Part]()
-
-    func checkButton() -> Bool{
-        
-        if selectedPart.count == 5 {
+        if isAkiTapped == true && isTombolTapped == true && isKontakTapped == true && isSekringTapped == true && isKlaksonTapped == true {
             
             return true
             
         }
+        
         return false
-    }
-    
-    func performDrop(info: DropInfo) -> Bool {
-        
-        // Check if its available
-        
-        for provider in info.itemProviders(for: [String(kUTTypeURL)]){
-            
-            print("url loaded")
-            
-            let _ = provider.loadObject(ofClass: URL.self) { (url,error) in
-                
-                print(url!)
-                
-                
-                // Adding to selected array...
-                
-                // checking the array wheter it is already addedd..
-                
-                let status = self.selectedPart.contains { (check) -> Bool in
-                    
-                    if check.visual == "\(url!)" {return true}
-                    
-                    else {return false}
-                }
-                
-                if !status {
-                    
-                    // Add animation
-                    
-                    DispatchQueue.main.async {
-                        withAnimation(.easeOut){
-                            
-                            self.selectedPart.append(Part(nama: "\(url!)", fungsi: "", visual: "\(url!)"))
-                            
-                        }
-                    }
-                    
-                }
-                
-            }
-            
-        }
-        
-        return true
-        
-        
         
     }
     
 }
 
-
-struct DragDropSimulationViews_Previews : PreviewProvider {
+struct Drag_DropSimulationView_Previews: PreviewProvider {
     static var previews: some View {
         DragDropSimulationView(parts: ComponentManager().allComponent.first!.parts)
             
     }
+}
+
+struct PartView : View{
+    
+    var part: Part
+    
+    var body: some View {
+        
+        VStack {
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(Color(.systemBackground))
+                    .frame(width: 70, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .shadow(color: Color(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.1)), radius: 4, x: 3, y: 3)
+                Image(uiImage: UIImage(named: part.visual)!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            }
+            .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            
+            Text(part.nama)
+                .font(.caption2)
+            
+        }
+        
+    }
+}
+
+class DragDropSimulationManager: ObservableObject {
+    
+    @Published var wireIsFinished = false
+    
+    
 }
