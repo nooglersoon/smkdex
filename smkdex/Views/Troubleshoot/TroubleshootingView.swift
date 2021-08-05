@@ -35,7 +35,7 @@ struct TroubleshootingView: View {
                 
                 GoToARButtonView(isARPresented: $isARPresented, actionView: {
                     isARPresented.toggle()
-                }, actionName: "Coming Soon")
+                }, actionName: "Mulai Troubleshoot")
                 
             }
             .fullScreenCover(isPresented: $isARPresented){

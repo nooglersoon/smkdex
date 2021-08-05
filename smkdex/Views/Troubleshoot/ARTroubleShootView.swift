@@ -10,24 +10,33 @@ import RealityKit
 import ARKit
 import AVFoundation
 
+enum TroubleshootPart {
+    
+    case tombolKlakson,kunciKontak, klakson, fuse, aki
+    
+}
+
+
 struct ARTroubleShootView: View {
+    
     @Environment(\.presentationMode) var presentationMode
     @State private var soundIsPlayed = true
     @State private var speakingIsPlayed = false
     @State private var infoIsShowed = false
-    @State private var isArClosed = false
     
     @StateObject var arManager = ARTroubleShootManager()
     
+    
     let synthesizer = AVSpeechSynthesizer()
-    let utterance = AVSpeechUtterance(string: "Masih dalam pengembangan")
+    let utterance = AVSpeechUtterance(string: "Dekatkan device ke tanda spot merah untuk mengidentifikasi jenis pengecekan. Lalu klik tombol untuk mengidentifikasi dan memperbaiki  kerusakan")
     
     
     var body: some View {
         
         ZStack {
             
-            ARTroubleShootViewContainer(arView: arManager.arView).edgesIgnoringSafeArea(.all)
+            ARTroubleShootViewContainer(arManager: arManager)
+                .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                 
@@ -35,7 +44,6 @@ struct ARTroubleShootView: View {
                     
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                        arManager.killAR()
                     }, label: {
                         RoundedRectangle(cornerRadius: 15)
                             .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -53,12 +61,13 @@ struct ARTroubleShootView: View {
                         
                         Button(action: {
                             speakingIsPlayed ? stopSound() : playSound()
+                            
                         }, label: {
                             RoundedRectangle(cornerRadius: 15)
                                 .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(Color(.gray))
                                 .opacity(0.4)
-                                .overlay(Text(speakingIsPlayed ? "Berhenti":"Mulai")
+                                .overlay(Image(systemName: speakingIsPlayed ? "speaker.slash.fill":"speaker.wave.1.fill")
                                             .foregroundColor(.white))
                         })
                     }
@@ -83,67 +92,43 @@ struct ARTroubleShootView: View {
                         .foregroundColor(.gray)
                         .opacity(0.3)
                         .overlay(
-                        
-                            VStack {
-                                
-                                HStack {
-                                    
-                                    Text("Test Klakson")
-                                        .foregroundColor(.gray)
-                                        .bold()
-                                    Spacer()
-                                    
-                                }
-                                .padding()
-                                
-                                Spacer()
-                                
-                                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                                    Rectangle()
-                                        .foregroundColor(.orange)
-                                        .frame(width: 250, height: 75, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        .cornerRadius(15)
-                                        .overlay(
-                                        
-                                            HStack{
-                                                Text("Coba Bunyikan")
-                                                Image(systemName: "megaphone.fill")
-                                            }
-                                            .foregroundColor(.white)
-                                            
-                                        )
-                                })
-                                .padding(.bottom, 15)
-                                
-                                Spacer()
-                                
-                                
-                            }
                             
+                            Text("Dekatkan device ke tanda spot merah untuk mengidentifikasi jenis pengecekan")
+                                .bold()
+                                .multilineTextAlignment(.center)
+                                .font(.caption)
+                                .foregroundColor(.white)
+                                .frame(width:250)
+  
                         )
-                    
-                    
-                    
+
                 }
                 
             }
             .edgesIgnoringSafeArea(.bottom)
-            
-            
-            
+            .sheet(isPresented: $arManager.isGameOpen){
+                TroubleshootTestView(part: "Hello")
+            }
+//            .fullScreenCover(isPresented: $arManager.isGameOpen){
+//
+//                if arManager.selectedPartGame == .tombolKlakson {
+//
+//                    TroubleshootTestView(part: "Tombol Klakson")
+//
+//                }
+//
+//            }
+        
         }
         .onAppear(perform: {
             infoIsShowed = true
             
-            
+
         })
         .onDisappear(perform: {
             if soundIsPlayed {stopSound()}
-            isArClosed.toggle()
         })
-        
-        
-        
+  
     }
     
     func playSound(){
@@ -161,7 +146,7 @@ struct ARTroubleShootView: View {
         synthesizer.stopSpeaking(at: .immediate)
         
     }
-
+    
 }
 
 
@@ -169,26 +154,50 @@ struct ARTroubleShootView: View {
 
 struct ARTroubleShootViewContainer: UIViewRepresentable {
     
-    var arView: ARView
+    @ObservedObject var arManager : ARTroubleShootManager
+    
+    
     
     func makeUIView(context: Context) -> ARView {
         
-        // Load the "Box" scene from the "Experience" Reality File
-        let boxAnchor = try! SimulasiKlaksonAR.loadScene()
+        let arView = ARView()
         arView.addCoaching()
         
-        let config = ARWorldTrackingConfiguration()
-        config.planeDetection = .horizontal
-        // arView.session.run(config, options: [])
+        // uiView.scene.anchors.removeAll()
+        
+        // Load the "Box" scene from the "Experience" Reality File
+        let boxAnchor = try! Troubleshot.loadScene1()
+        
+        
+//        let config = ARWorldTrackingConfiguration()
+//        config.planeDetection = .horizontal
+//        uiView.session.run(config, options: [])
         
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)
+        
         
         return arView
         
     }
     
-    func updateUIView(_ uiView: ARView, context: Context) {}
+    func updateUIView(_ uiView: ARView, context: Context) {
+
+        if let scene = uiView.scene.anchors[0] as? Troubleshot.Scene1 {
+            
+            scene.actions.nexttombolklakson.onAction = reactions(_:)
+            
+        }
+        
+    }
+    
+
+    func reactions(_ entity: Entity?) {
+        self.arManager.selectedPartGame = .tombolKlakson
+        self.arManager.isGameOpen = true
+        print("CHANGEEDDD")
+    }
+    
     
     
     
@@ -203,14 +212,10 @@ struct ARTroubleShootView_Previews: PreviewProvider {
 
 class ARTroubleShootManager: ObservableObject {
     
-    @Published var arView = ARView(frame: .zero)
+    @Published var isGameOpen: Bool  =  false
+    @Published var selectedPartGame: TroubleshootPart = .klakson
     
-    func killAR(){
-        
-        print("AR Killed")
-        // arView.session.pause()
-        arView.removeFromSuperview()
-        
-    }
-    
+
 }
+
+
