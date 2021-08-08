@@ -35,14 +35,10 @@ struct ComponentView: View {
                     
                     ZStack {
                         
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(Color(.systemGray).opacity(0.2))
-                            .frame( height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        
-                        Image(uiImage: UIImage(named: component.visual) ?? #imageLiteral(resourceName: "imagePlaceHolder"))
+                        Image(uiImage: UIImage(named: "3DRangkaianKlakson") ?? #imageLiteral(resourceName: "imagePlaceHolder"))
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: 300, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         
                     }
                 }

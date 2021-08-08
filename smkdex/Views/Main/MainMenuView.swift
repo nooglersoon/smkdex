@@ -19,7 +19,7 @@ struct MainMenuView: View {
                 VStack(alignment: .center, spacing: 30){
                     Spacer()
                     HStack{
-                        Text("Motorcycle Parts")
+                        Text("Kelistrikan Bodi Motor")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .padding(.bottom, 20)
@@ -60,7 +60,7 @@ struct MainMenuView: View {
             }
             .background(Color.background)
             .edgesIgnoringSafeArea(.all)
-            .navigationTitle("Motorcyle Parts")
+            .navigationTitle("Kelistrikan Motor")
             .navigationBarHidden(true)
         }
         

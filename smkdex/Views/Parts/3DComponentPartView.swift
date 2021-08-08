@@ -182,7 +182,7 @@ struct _DComponentPartView : View {
             
         }
         .edgesIgnoringSafeArea(.top)
-        .navigationBarTitle("3D View Part", displayMode: .inline)
+        .navigationBarTitle("Tampilan 3D Komponen", displayMode: .inline)
     }
 }
 

@@ -17,15 +17,11 @@ struct TroubleshootingView: View {
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 40){
                 HStack(alignment: .center, spacing: nil){
-                    Text("Deskripsi Rangkaian")
+                    Text("Perbaikan")
                         .font(.system(size: 15))
                         .bold()
                     Spacer()
-                    Text("AR • 3D •")
-                        .font(.system(size: 15))
-                        .bold()
-                    Image(systemName: "line.3.crossed.swirl.circle")
-                        .font(.system(size: 15, weight: .bold))
+                    
                 }
                 Text(component.longDesc)
                     .multilineTextAlignment(.leading)
@@ -35,7 +31,7 @@ struct TroubleshootingView: View {
                 
                 GoToARButtonView(isARPresented: $isARPresented, actionView: {
                     isARPresented.toggle()
-                }, actionName: "Mulai Troubleshoot")
+                }, actionName: "Mulai Perbaikan")
                 
             }
             .fullScreenCover(isPresented: $isARPresented){
@@ -44,7 +40,7 @@ struct TroubleshootingView: View {
             
         }
         .padding()
-        .navigationBarTitle("Troubleshooting", displayMode: .inline)
+        .navigationBarTitle("Perbaikan", displayMode: .inline)
         
     }
 }

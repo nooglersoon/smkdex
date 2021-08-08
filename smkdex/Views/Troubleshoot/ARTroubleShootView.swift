@@ -106,18 +106,20 @@ struct ARTroubleShootView: View {
                 
             }
             .edgesIgnoringSafeArea(.bottom)
-            .sheet(isPresented: $arManager.isGameOpen){
-                TroubleshootTestView(part: "Hello")
-            }
-            //            .fullScreenCover(isPresented: $arManager.isGameOpen){
-            //
-            //                if arManager.selectedPartGame == .tombolKlakson {
-            //
-            //                    TroubleshootTestView(part: "Tombol Klakson")
-            //
-            //                }
-            //
-            //            }
+
+                        .fullScreenCover(isPresented: $arManager.isGameOpen){
+            
+                            if arManager.selectedPartGame == .tombolKlakson {
+            
+                                TroubleshootTestView(part: "Tombol Klakson")
+            
+                            } else {
+                                
+                                
+                                
+                            }
+            
+                        }
             
         }
         .onAppear(perform: {
