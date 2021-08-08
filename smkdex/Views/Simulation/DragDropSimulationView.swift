@@ -159,8 +159,8 @@ struct DragDropSimulationView: View {
                                     )
                                     
                             })
-                            .opacity(switchPlayed ? 1 : 0.5)
-                            .disabled(switchPlayed ? false : true)
+                            .opacity(switchPlayed && wireIsDone() ? 1 : 0.5)
+                            .disabled(switchPlayed  && wireIsDone()  ? false : true)
                             
                             
                         }
@@ -312,7 +312,7 @@ struct PartView : View{
             
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(Color(.systemBackground))
+                    .foregroundColor(Color(.systemOrange))
                     .frame(width: 70, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .shadow(color: Color(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.1)), radius: 4, x: 3, y: 3)
                 Image(uiImage: UIImage(named: part.visual)!)

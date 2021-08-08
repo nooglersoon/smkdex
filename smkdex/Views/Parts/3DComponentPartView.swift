@@ -30,7 +30,7 @@ struct _DComponentPartView : View {
             
             VStack{
                 ZStack{
-                Color(.systemBackground)
+                    
                     SceneView(scene: {
                         let scene = SCNScene(named: "\(namedss).usdz")!
                         
@@ -62,7 +62,7 @@ struct _DComponentPartView : View {
                         default:
                             break
                         }
-                        scene.background.contents = UIColor.systemBackground
+                        
                         return scene
                     }(), options: [.autoenablesDefaultLighting,.allowsCameraControl])
                     .overlay(
@@ -105,7 +105,7 @@ struct _DComponentPartView : View {
                     )
                     .padding(.top, 50)
                 }
-                .frame(width: UIScreen.main.bounds.width , height: 300)
+                .frame(width: UIScreen.main.bounds.width , height: 350)
                 
                 
                 ZStack{
@@ -120,6 +120,7 @@ struct _DComponentPartView : View {
                             Image(systemName: "chevron.left")
                                 .font(.system(size: 35, weight: .bold))
                                 .opacity(index == 0 ? 0.3: 1)
+                                .foregroundColor(.orange)
                         })
                         .disabled(index == 0 ? true : false)
                         Spacer(minLength: 0)
@@ -133,13 +134,14 @@ struct _DComponentPartView : View {
                             Image(systemName: "chevron.right")
                                 .font(.system(size: 35, weight: .bold))
                                 .opacity(index == parts.count - 1 ? 0.3 : 1)
+                                .foregroundColor(.orange)
                         })
                         .disabled(index == parts.count - 1 ? true : false)
                     }
                     Text(parts[index].nama)
                         .font(.system(size: 30, weight: .bold))
+                        
                 }
-                .foregroundColor(Color(.black))
                 .padding(.horizontal, 30)
                 .padding(.vertical,30)
                 
@@ -151,11 +153,6 @@ struct _DComponentPartView : View {
                                 .font(.system(size: 15))
                                 .bold()
                             Spacer()
-                            Text("AR • 3D •")
-                                .font(.system(size: 15))
-                                .bold()
-                            Image(systemName: "line.3.crossed.swirl.circle")
-                                .font(.system(size: 15, weight: .bold))
                         }
                     
                         Text(parts[index].fungsi)

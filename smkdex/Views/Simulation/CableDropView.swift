@@ -19,38 +19,48 @@ struct BulletPositif: View {
         
         ZStack {
             
-            Circle()
-                .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .position(position)
-                .gesture(
-                    DragGesture()
-                        .onChanged({ value in
-                            pathway = value.location
+            ZStack {
+                
+                Circle()
+                    .frame(width: 18, height: 18, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color.white)
+                
+                Circle()
+                    .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color.black)
+                
+            }
+            .position(position)
+            .gesture(
+                DragGesture()
+                    .onChanged({ value in
+                        pathway = value.location
+                        isDrag = true
+                        isTapped = false
+                    })
+
+                    .onEnded({ value in
+
+                        isDrag = false
+
+                        let distance = calculateDistance(p1: value.location, p2: dropPoint)
+
+                        if distance < 20 {
+
+                            pathway = dropPoint
                             isDrag = true
-                            isTapped = false
-                        })
+                            isTapped.toggle()
+                            
+                        }
 
-                        .onEnded({ value in
-
-                            isDrag = false
-
-                            let distance = calculateDistance(p1: value.location, p2: dropPoint)
-
-                            if distance < 20 {
-
-                                pathway = dropPoint
-                                isDrag = true
-                                isTapped.toggle()
-                                
-                            }
-
-                        })
-                )
+                    })
+            )
+            
             Path { path in
                 path.move(to: position)
                 path.addLine(to: pathway)
             }
-            .stroke(isDrag ? Color.black : Color.clear,lineWidth: 2)
+            .stroke(isDrag ? Color.wire : Color.clear,lineWidth: 3)
         }
         
     }
@@ -76,7 +86,7 @@ struct BulletNegatif: View {
             
             Circle()
                 .frame(width: 18, height: 18, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.white)
+                .foregroundColor(Color.wire)
             
             Circle()
                 .frame(width: 15, height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
