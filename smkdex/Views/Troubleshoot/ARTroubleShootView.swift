@@ -49,7 +49,7 @@ struct ARTroubleShootView: View {
                             .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .foregroundColor(Color(.gray))
                             .opacity(0.4)
-                            .overlay(Image(systemName: "arrow.turn.left.down")
+                            .overlay(Image(systemName: "chevron.left")
                                         .font(.system(size: 20)
                                                 .bold())
                                         .foregroundColor(.white))
@@ -99,36 +99,38 @@ struct ARTroubleShootView: View {
                                 .font(.caption)
                                 .foregroundColor(.white)
                                 .frame(width:250)
-  
+                            
                         )
-
+                    
                 }
                 
             }
             .edgesIgnoringSafeArea(.bottom)
-            .sheet(isPresented: $arManager.isGameOpen){
-                TroubleshootTestView(part: "Hello")
-            }
-//            .fullScreenCover(isPresented: $arManager.isGameOpen){
-//
-//                if arManager.selectedPartGame == .tombolKlakson {
-//
-//                    TroubleshootTestView(part: "Tombol Klakson")
-//
-//                }
-//
-//            }
-        
+
+                        .fullScreenCover(isPresented: $arManager.isGameOpen){
+            
+                            if arManager.selectedPartGame == .tombolKlakson {
+            
+                                TroubleshootTestView(part: "Tombol Klakson")
+            
+                            } else {
+                                
+                                
+                                
+                            }
+            
+                        }
+            
         }
         .onAppear(perform: {
             infoIsShowed = true
             
-
+            
         })
         .onDisappear(perform: {
             if soundIsPlayed {stopSound()}
         })
-  
+        
     }
     
     func playSound(){
@@ -169,9 +171,9 @@ struct ARTroubleShootViewContainer: UIViewRepresentable {
         let boxAnchor = try! Troubleshot.loadScene1()
         
         
-//        let config = ARWorldTrackingConfiguration()
-//        config.planeDetection = .horizontal
-//        uiView.session.run(config, options: [])
+        //        let config = ARWorldTrackingConfiguration()
+        //        config.planeDetection = .horizontal
+        //        uiView.session.run(config, options: [])
         
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)
@@ -182,7 +184,7 @@ struct ARTroubleShootViewContainer: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {
-
+        
         if let scene = uiView.scene.anchors[0] as? Troubleshot.Scene1 {
             
             scene.actions.nexttombolklakson.onAction = reactions(_:)
@@ -191,7 +193,7 @@ struct ARTroubleShootViewContainer: UIViewRepresentable {
         
     }
     
-
+    
     func reactions(_ entity: Entity?) {
         self.arManager.selectedPartGame = .tombolKlakson
         self.arManager.isGameOpen = true
@@ -215,7 +217,7 @@ class ARTroubleShootManager: ObservableObject {
     @Published var isGameOpen: Bool  =  false
     @Published var selectedPartGame: TroubleshootPart = .klakson
     
-
+    
 }
 
 

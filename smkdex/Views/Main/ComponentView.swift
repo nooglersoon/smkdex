@@ -26,19 +26,19 @@ struct ComponentView: View {
         
         VStack(alignment: .center) {
             
+            Text("Rangkaian Klakson")
+                .bold()
+                .font(.title3)
+            
             VStack {
-                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20){
+                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10){
                     
                     ZStack {
                         
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(Color(.systemGray).opacity(0.2))
-                            .frame( height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        
-                        Image(uiImage: UIImage(named: component.visual) ?? #imageLiteral(resourceName: "imagePlaceHolder"))
+                        Image(uiImage: UIImage(named: "3DRangkaianKlakson") ?? #imageLiteral(resourceName: "imagePlaceHolder"))
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: 300, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         
                     }
                 }
@@ -47,15 +47,11 @@ struct ComponentView: View {
                 VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 8){
                     HStack(alignment: .center, spacing: nil){
                         Text("Deskripsi Rangkaian")
-                            .font(.system(size: 15))
+                            .font(.system(size: 16))
                             .bold()
                         Spacer()
-                        Text("AR • 3D •")
-                            .font(.system(size: 15))
-                            .bold()
-                        Image(systemName: "line.3.crossed.swirl.circle")
-                            .font(.system(size: 15, weight: .bold))
                     }
+                    .padding(.bottom, 10)
                     Text(component.longDesc)
                         .multilineTextAlignment(.leading)
                         .font(.body)
@@ -69,15 +65,15 @@ struct ComponentView: View {
             HStack {
                 
                 NavigationLink(destination: _DComponentPartView(parts: component.parts)) {
-                    ComponentMenuView(menu: "Part", menuLogo: "shippingbox.fill")
+                    ComponentMenuView(menu: "Komponen", menuLogo: "shippingbox.fill")
                 }
                 
                 NavigationLink(destination: SimulationView(components: component, parts: component.parts)) {
-                    ComponentMenuView(menu: "Simulation", menuLogo: "wrench.fill")
+                    ComponentMenuView(menu: "Rangkaian\nKelistrikan", menuLogo: "wrench.fill")
                 }
                 
                 NavigationLink(destination: TroubleshootingView(component: component)){
-                    ComponentMenuView(menu: "Troubleshoot", menuLogo: "wrench.and.screwdriver.fill")
+                    ComponentMenuView(menu: "Trouble\nshooting", menuLogo: "wrench.and.screwdriver.fill")
                 }
                 
             }

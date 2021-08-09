@@ -10,6 +10,7 @@ import SwiftUI
 struct TroubleshootTestView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @State private var isMisiOpen = false
     
     let part: String
     var body: some View {
@@ -40,12 +41,14 @@ struct TroubleshootTestView: View {
                         
                         Button(action: {
                             
+                            isMisiOpen.toggle()
+                            
                         }, label: {
                             RoundedRectangle(cornerRadius: 15)
                                 .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(Color(.gray))
                                 .opacity(0.4)
-                                .overlay(Image(systemName: true ? "speaker.slash.fill":"speaker.wave.1.fill")
+                                .overlay(Text("Petunjuk")
                                             .foregroundColor(.white))
                         })
                     }
@@ -61,6 +64,33 @@ struct TroubleshootTestView: View {
             Text("Ini troubleshooting \(part)")
             
         }
+                    .sheet(isPresented: $isMisiOpen){
+                        
+                        ZStack {
+                            
+                            Color.background
+                                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                            
+                            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20) {
+                                
+                                Text("Misi")
+                                    .font(.largeTitle)
+                                    .bold()
+                                    .foregroundColor(.white)
+                                
+                                Text("Periksa sambungan kabel dan perbaiki jika soket lepas dan ada kabel yang putus")
+                                    .padding()
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(.white)
+                                
+                            }
+                            
+                            
+                            
+                        }
+                        
+                        
+                    }
         
         
     }
@@ -69,5 +99,6 @@ struct TroubleshootTestView: View {
 struct TroubleshootTestView_Previews: PreviewProvider {
     static var previews: some View {
         TroubleshootTestView(part: "Tombol Klakson")
+            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
     }
 }

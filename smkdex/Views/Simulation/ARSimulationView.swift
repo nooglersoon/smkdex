@@ -38,7 +38,7 @@ struct ARSimulationView: View {
                             .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .foregroundColor(Color(.gray))
                             .opacity(0.4)
-                            .overlay(Image(systemName: "arrow.turn.left.down")
+                            .overlay(Image(systemName: "chevron.left")
                                         .font(.system(size: 20)
                                                 .bold())
                                         .foregroundColor(.white))
@@ -136,7 +136,7 @@ struct ARSimulationViewContainer: UIViewRepresentable {
         let arView = ARView(frame: .zero)
         
         // Load the "Box" scene from the "Experience" Reality File
-        let boxAnchor = try! SimulasiKlaksonAR.loadScene()
+        let boxAnchor = try! RangkaianKlakson.loadSkenario()
         arView.addCoaching()
         
         let config = ARWorldTrackingConfiguration()

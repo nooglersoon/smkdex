@@ -36,19 +36,15 @@ struct SimulationView: View {
                 
                 
                 HStack(alignment: .center, spacing: nil){
-                    Text("Deskripsi Rangkaian")
+                    Text("Deskripsi Cara Kerja Rangkaian")
                         .font(.system(size: 15))
                         .bold()
                     Spacer()
-                    Text("AR • 3D •")
-                        .font(.system(size: 15))
-                        .bold()
-                    Image(systemName: "line.3.crossed.swirl.circle")
-                        .font(.system(size: 15, weight: .bold))
+                    
                 }
                 .padding(.horizontal)
                 
-                Text(components.longDesc)
+                Text("Baterai (ACCU) pada sistem kelistrikan klakson berfungsi sebagai sumber listrik utama dengan arus DC (Direct Current) atau arus searah. Baterai ini memiliki tegangan sebesar 12 volt dan memiliki dua kutub yaitu positif dan negatif. Bila arus yang ada dibaterai mulai kosong maka akan berdampak pada bunyi klakson yang juga semakin melemah")
                     .multilineTextAlignment(.leading)
                     .font(.body)
                     .padding(.horizontal)
@@ -68,7 +64,7 @@ struct SimulationView: View {
                         .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                                .foregroundColor(.orange)
                         )
                         .padding()
                     })
