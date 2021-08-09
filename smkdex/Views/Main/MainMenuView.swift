@@ -13,60 +13,69 @@ struct MainMenuView: View {
     @State private var search: String = ""
     @State private var isTap: Bool = false
     
+    private var threeColumnsGrid = [GridItem(.flexible()),GridItem(.flexible())]
+    
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading, spacing: 20){
-                VStack(alignment: .center, spacing: 30){
-                    Spacer()
-                    HStack{
-                        Text("Kelistrikan Bodi Motor")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .padding(.bottom, 20)
-                        Spacer()
-                    }
-                    //                    HStack{
-                    //                        Image(systemName: "magnifyingglass")
-                    //                        TextField("What do you want to learn?", text: $search)
-                    //                    }
-                    //                    .padding()
-                    //                    .background(Color(.secondarySystemFill))
-                    //                    .cornerRadius(20.0)
-                }
-                .frame(height: 150, alignment: .center)
-                .padding()
-                .background(Color.navbar)
-                //                .cornerRadius(radius: 20, corners: [.bottomLeft, .bottomRight]
-                //
-                //                )
-                .shadow(radius: 20)
+            
+            ZStack {
+                
+                Color.background
+                    .edgesIgnoringSafeArea(.bottom)
                 
                 VStack(alignment: .leading, spacing:30){
                     
+                    Spacer()
+                    
                     ScrollView(.vertical, showsIndicators: false){
-                        VStack (spacing: 20){
-                            NavigationLink(destination: ComponentView(component: components[0])){
+                        
+                        LazyVGrid(columns: threeColumnsGrid,spacing: 10){
+                            
+                            ForEach(components,id: \.self){ component in
                                 
-                                PartsCardView(isTap: $isTap, partImage: components[0].visual, partName: components[0].nama, partDesc: components[0].shortDesc)
+                                if component.parts.isEmpty {
+                                    
+                                    ZStack {
+                                        
+                                        PartsCardView(isTap: $isTap, partImage: component.visual, partName: component.nama, partDesc: component.shortDesc)
+                                            .disabled(true)
+                                            .opacity(0.3)
+                                        
+                                        Text("Segera Hadir")
+                                            .bold()
+                                            .foregroundColor(.white)
+                                        
+                                    }
+                                    
+                                } else {
+                                    
+                                    NavigationLink(destination: ComponentView(component: component)){
+                                        
+                                        PartsCardView(isTap: $isTap, partImage: component.visual, partName: component.nama, partDesc: component.shortDesc)
+                                    }
+                                    .buttonStyle(PlainButtonStyle())
+                                    
+                                    
+                                }
+                                
                             }
-                            .buttonStyle(PlainButtonStyle())
+                            
                         }
+                        
                     }
+                    .padding(.horizontal,5)
+                    
                 }
-                
-                
-                Spacer()
+                .navigationBarTitle("Kelistrikan Motor")
                 
             }
-            .background(Color.background)
-            .edgesIgnoringSafeArea(.all)
-            .navigationTitle("Kelistrikan Motor")
-            .navigationBarHidden(true)
         }
         
     }
     
 }
+
+
 
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
@@ -123,7 +132,7 @@ struct PartsCardView: View {
                 .padding(.horizontal,20)
                 .padding(.vertical, 10)
                 .shadow(color: Color(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.2)), radius: 5, x: 3, y: 6)
-                
+            
             
             VStack(alignment: .center, spacing: 30){
                 ZStack {
@@ -139,7 +148,7 @@ struct PartsCardView: View {
                 HStack {
                     
                     Text(partName)
-                        .font(.title3)
+                        .font(.headline)
                         .bold()
                     Spacer()
                 }

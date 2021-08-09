@@ -23,7 +23,7 @@ struct TroubleshootingView: View {
                     Spacer()
                     
                 }
-                Text(component.longDesc)
+                Text("Troubleshooting untuk rangkaian klakson meliputi dua anomali, klakson yang terus menyala dan klakson yang tidak bisa menyala. ")
                     .multilineTextAlignment(.leading)
                     .font(.body)
                 

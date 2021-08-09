@@ -73,7 +73,7 @@ struct ComponentView: View {
                 }
                 
                 NavigationLink(destination: TroubleshootingView(component: component)){
-                    ComponentMenuView(menu: "Trouble\nshooting", menuLogo: "wrench.and.screwdriver.fill")
+                    ComponentMenuView(menu: "Perbaikan", menuLogo: "wrench.and.screwdriver.fill")
                 }
                 
             }

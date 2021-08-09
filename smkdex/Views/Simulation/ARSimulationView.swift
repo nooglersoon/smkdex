@@ -18,7 +18,7 @@ struct ARSimulationView: View {
     @State private var infoIsShowed = false
     
     let synthesizer = AVSpeechSynthesizer()
-    let utterance = AVSpeechUtterance(string: "Ini adalah simulasi rangkaian kelistrikan untuk komponen klakson. Rangkaian ini terdiri dari aki, main fuse, kunci kontak, tombol klakson dan klakson. Semua komponen dapat dihubungan menggunakan kabel secara seri dengan aki sumber tegangan nya. Pada bagian bawah terdapat cetakan biru yang menunjukan bagaimana setiap komponen terhubung untuk membunyikan klakson. Untuk bentuk nyata dari setiap komponennya, terletak tepat diatas masing-masing simbol.")
+    let utterance = AVSpeechUtterance(string: "Ini adalah rangkaian klakson, pada rangkaian ini terdiri dari aki, sekring, tombol klakson, kunci kontak dan klakson. pada rangkaian ini kabel dihubungkan secara seri pada setiap komponennya. ketika kunci kontak diposisikan ON dan tombol klakson ditekan maka klakson akan mengeluarkan bunyi.")
     
     
     var body: some View {
@@ -64,11 +64,6 @@ struct ARSimulationView: View {
                             infoIsShowed.toggle()
                             showInfo()
                         })
-                        
-                        ARActionButtonView(buttonLabel:
-                                        soundIsPlayed ? "speaker.wave.2.circle.fill" : "speaker.slash.circle.fill", action: {
-                                            soundIsPlayed.toggle()
-                                        })
                         
                     }
                 }
