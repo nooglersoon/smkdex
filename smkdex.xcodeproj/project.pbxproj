@@ -40,6 +40,10 @@
 		01EE385526BBCD69001B5CD5 /* TroubleshootTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EE385426BBCD69001B5CD5 /* TroubleshootTestView.swift */; };
 		2CBB7EBC26A09D5B003931E7 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */; };
 		A00CCD3B26AAD74E0030415E /* PartPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00CCD3A26AAD74E0030415E /* PartPopUpView.swift */; };
+		A01210FB26C10D9E000F236E /* MiniGameTroubleShootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01210FA26C10D9E000F236E /* MiniGameTroubleShootView.swift */; };
+		A01210FD26C113E5000F236E /* soketKlakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A01210FC26C113E5000F236E /* soketKlakson.usdz */; };
+		A01210FF26C11DEF000F236E /* AlatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01210FE26C11DEF000F236E /* AlatView.swift */; };
+		A012110126C12632000F236E /* ModelAlat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012110026C12632000F236E /* ModelAlat.swift */; };
 		A06D7C1326B7E0D1003C037D /* DragDropSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06D7C1226B7E0D1003C037D /* DragDropSimulationView.swift */; };
 		A0A013C926A1C6BA0047D520 /* ComponentPartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */; };
 		A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */; };
@@ -102,6 +106,10 @@
 		01EE385426BBCD69001B5CD5 /* TroubleshootTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleshootTestView.swift; sourceTree = "<group>"; };
 		2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		A00CCD3A26AAD74E0030415E /* PartPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartPopUpView.swift; sourceTree = "<group>"; };
+		A01210FA26C10D9E000F236E /* MiniGameTroubleShootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameTroubleShootView.swift; sourceTree = "<group>"; };
+		A01210FC26C113E5000F236E /* soketKlakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = soketKlakson.usdz; sourceTree = "<group>"; };
+		A01210FE26C11DEF000F236E /* AlatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlatView.swift; sourceTree = "<group>"; };
+		A012110026C12632000F236E /* ModelAlat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAlat.swift; sourceTree = "<group>"; };
 		A06D7C1226B7E0D1003C037D /* DragDropSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropSimulationView.swift; sourceTree = "<group>"; };
 		A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPartDetailView.swift; sourceTree = "<group>"; };
 		A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DComponentPartView.swift; sourceTree = "<group>"; };
@@ -247,6 +255,8 @@
 		01BEC13526AD79B4002D8D04 /* Troubleshoot */ = {
 			isa = PBXGroup;
 			children = (
+				A01210FA26C10D9E000F236E /* MiniGameTroubleShootView.swift */,
+				A01210FE26C11DEF000F236E /* AlatView.swift */,
 				0119EFF026A4931B006862D7 /* TroubleshootingView.swift */,
 				012273D726B7FB7C000EB4CD /* ARTroubleShootView.swift */,
 				01EE385426BBCD69001B5CD5 /* TroubleshootTestView.swift */,
@@ -300,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				01C1771626A3D42800636E0D /* Model.swift */,
+				A012110026C12632000F236E /* ModelAlat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +323,7 @@
 				016CADB326A2BFA900577F88 /* Klakson.usdz */,
 				016CADB226A2BFA900577F88 /* KunciKontak.usdz */,
 				016CADB126A2BFA900577F88 /* TombolKlakson.usdz */,
+				A01210FC26C113E5000F236E /* soketKlakson.usdz */,
 			);
 			path = "3D Part";
 			sourceTree = "<group>";
@@ -427,6 +439,7 @@
 				016CADB726A2BFA900577F88 /* KunciKontak.usdz in Resources */,
 				014AC24C269A07A600705994 /* Preview Assets.xcassets in Resources */,
 				016CADB626A2BFA900577F88 /* TombolKlakson.usdz in Resources */,
+				A01210FD26C113E5000F236E /* soketKlakson.usdz in Resources */,
 				014AC249269A07A600705994 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +470,7 @@
 				012273D826B7FB7C000EB4CD /* ARTroubleShootView.swift in Sources */,
 				013DA47926BD401100DAA486 /* ColorExtension.swift in Sources */,
 				014AC245269A07A400705994 /* ContentView.swift in Sources */,
+				A012110126C12632000F236E /* ModelAlat.swift in Sources */,
 				0135A34226A6D39600D5CFC7 /* SimulasiKlaksonAR.rcproject in Sources */,
 				A06D7C1326B7E0D1003C037D /* DragDropSimulationView.swift in Sources */,
 				01BEC13D26AD89BB002D8D04 /* ARExtension.swift in Sources */,
@@ -465,11 +479,13 @@
 				2CBB7EBC26A09D5B003931E7 /* MainMenuView.swift in Sources */,
 				01EE385526BBCD69001B5CD5 /* TroubleshootTestView.swift in Sources */,
 				01D317FA269F0043007C0331 /* ComponentView.swift in Sources */,
+				A01210FB26C10D9E000F236E /* MiniGameTroubleShootView.swift in Sources */,
 				014AC243269A07A400705994 /* AppDelegate.swift in Sources */,
 				01D28E2A26C24B2600EA7E7F /* RangkaianKlakson.rcproject in Sources */,
 				017CF6BF26A1DD5200D91333 /* DragTestView.swift in Sources */,
 				017B5D2C26B9B3E300985004 /* CableDropView.swift in Sources */,
 				012273DB26B7FC0D000EB4CD /* GoToARButtonView.swift in Sources */,
+				A01210FF26C11DEF000F236E /* AlatView.swift in Sources */,
 				01BEC13A26AD890B002D8D04 /* ARSimulationView.swift in Sources */,
 				01BEC13F26AD8A42002D8D04 /* SimulationTest.swift in Sources */,
 				014AC247269A07A400705994 /* Experience.rcproject in Sources */,
@@ -635,7 +651,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = CVSRYHR3VR;
+				DEVELOPMENT_TEAM = Z74KUA44R7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -659,7 +675,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = CVSRYHR3VR;
+				DEVELOPMENT_TEAM = Z74KUA44R7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
