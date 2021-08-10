@@ -22,8 +22,7 @@
 		014AC257269A07A600705994 /* smkdexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC256269A07A600705994 /* smkdexTests.swift */; };
 		014AC262269A07A600705994 /* smkdexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC261269A07A600705994 /* smkdexUITests.swift */; };
 		01513AA926BA7BC900DED0A3 /* horn_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01513AA826BA7BC900DED0A3 /* horn_sound.wav */; };
-		01681FC026C294CD00C70869 /* soketKlakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 01681FBF26C294CC00C70869 /* soketKlakson.usdz */; };
-		016CADB426A2BFA900577F88 /* Aki.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADAF26A2BFA900577F88 /* Aki.usdz */; };
+		016CADB426A2BFA900577F88 /* Aki2.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADAF26A2BFA900577F88 /* Aki2.usdz */; };
 		016CADB526A2BFA900577F88 /* Fuse.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB026A2BFA900577F88 /* Fuse.usdz */; };
 		016CADB626A2BFA900577F88 /* TombolKlakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB126A2BFA900577F88 /* TombolKlakson.usdz */; };
 		016CADB726A2BFA900577F88 /* KunciKontak.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB226A2BFA900577F88 /* KunciKontak.usdz */; };
@@ -48,6 +47,8 @@
 		A0A013C926A1C6BA0047D520 /* ComponentPartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */; };
 		A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */; };
 		A0F1C22026C2F93A003C9C91 /* tombolKotor.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A0F1C21F26C2F93A003C9C91 /* tombolKotor.usdz */; };
+		A0F1C22226C30B56003C9C91 /* soketKlakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A0F1C22126C30B56003C9C91 /* soketKlakson.usdz */; };
+		A0F1C22426C30F10003C9C91 /* Aki.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A0F1C22326C30F10003C9C91 /* Aki.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,8 +90,7 @@
 		014AC261269A07A600705994 /* smkdexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smkdexUITests.swift; sourceTree = "<group>"; };
 		014AC263269A07A600705994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01513AA826BA7BC900DED0A3 /* horn_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn_sound.wav; sourceTree = "<group>"; };
-		01681FBF26C294CC00C70869 /* soketKlakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = soketKlakson.usdz; sourceTree = "<group>"; };
-		016CADAF26A2BFA900577F88 /* Aki.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Aki.usdz; sourceTree = "<group>"; };
+		016CADAF26A2BFA900577F88 /* Aki2.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Aki2.usdz; sourceTree = "<group>"; };
 		016CADB026A2BFA900577F88 /* Fuse.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Fuse.usdz; sourceTree = "<group>"; };
 		016CADB126A2BFA900577F88 /* TombolKlakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = TombolKlakson.usdz; sourceTree = "<group>"; };
 		016CADB226A2BFA900577F88 /* KunciKontak.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = KunciKontak.usdz; sourceTree = "<group>"; };
@@ -115,6 +115,8 @@
 		A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPartDetailView.swift; sourceTree = "<group>"; };
 		A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DComponentPartView.swift; sourceTree = "<group>"; };
 		A0F1C21F26C2F93A003C9C91 /* tombolKotor.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tombolKotor.usdz; sourceTree = "<group>"; };
+		A0F1C22126C30B56003C9C91 /* soketKlakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = soketKlakson.usdz; sourceTree = "<group>"; };
+		A0F1C22326C30F10003C9C91 /* Aki.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Aki.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,12 +322,13 @@
 		A0B8291E269EDD08001914EF /* 3D Part */ = {
 			isa = PBXGroup;
 			children = (
-				016CADAF26A2BFA900577F88 /* Aki.usdz */,
+				016CADAF26A2BFA900577F88 /* Aki2.usdz */,
 				016CADB026A2BFA900577F88 /* Fuse.usdz */,
 				016CADB326A2BFA900577F88 /* Klakson.usdz */,
 				016CADB226A2BFA900577F88 /* KunciKontak.usdz */,
 				016CADB126A2BFA900577F88 /* TombolKlakson.usdz */,
-				01681FBF26C294CC00C70869 /* soketKlakson.usdz */,
+				A0F1C22126C30B56003C9C91 /* soketKlakson.usdz */,
+				A0F1C22326C30F10003C9C91 /* Aki.usdz */,
 				A0F1C21F26C2F93A003C9C91 /* tombolKotor.usdz */,
 			);
 			path = "3D Part";
@@ -436,14 +439,15 @@
 			files = (
 				A0F1C22026C2F93A003C9C91 /* tombolKotor.usdz in Resources */,
 				0139936E269ED5290016A8C2 /* Launch Screen.storyboard in Resources */,
+				A0F1C22426C30F10003C9C91 /* Aki.usdz in Resources */,
 				01513AA926BA7BC900DED0A3 /* horn_sound.wav in Resources */,
-				016CADB426A2BFA900577F88 /* Aki.usdz in Resources */,
+				016CADB426A2BFA900577F88 /* Aki2.usdz in Resources */,
 				016CADB526A2BFA900577F88 /* Fuse.usdz in Resources */,
 				016CADB826A2BFA900577F88 /* Klakson.usdz in Resources */,
 				016CADB726A2BFA900577F88 /* KunciKontak.usdz in Resources */,
 				014AC24C269A07A600705994 /* Preview Assets.xcassets in Resources */,
+				A0F1C22226C30B56003C9C91 /* soketKlakson.usdz in Resources */,
 				016CADB626A2BFA900577F88 /* TombolKlakson.usdz in Resources */,
-				01681FC026C294CD00C70869 /* soketKlakson.usdz in Resources */,
 				014AC249269A07A600705994 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

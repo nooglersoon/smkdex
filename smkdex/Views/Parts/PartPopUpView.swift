@@ -50,7 +50,7 @@ struct PartPopUpView : View {
         switch named {
         case "Aki":
             scene!.rootNode.scale = SCNVector3(x: 0.3, y: 0.3, z: 0.3)
-            scene!.rootNode.position = SCNVector3(x: -8, y: 45, z: 0)
+            scene!.rootNode.position = SCNVector3(x: 7, y: 15, z: 0)
 
         case "Klakson":
             scene!.rootNode.scale = SCNVector3(x: 0.5, y: 0.5, z: 0.5)
@@ -80,15 +80,29 @@ struct PartPopUpView : View {
     
     
     var body: some View{
+        ZStack{
+            VStack(alignment: .leading, spacing: 15, content: {
+                SceneView(scene: generateScene(named: "\(nameds)"), options: [.autoenablesDefaultLighting,.allowsCameraControl])
+                    
+                    
+                    
+                    .ignoresSafeArea()
+                    .frame(width: UIScreen.main.bounds.width , height: UIScreen.main.bounds.height)
+            })
+            VStack{
+                Spacer()
+                HStack{
+                    Spacer()
+                    Image(systemName: "rotate.3d")
+                        .font(.system(size: 50))
+                        .padding()
+                }.padding(.bottom,70)
+                
+            }
+            
+                
+        }
         
-        VStack(alignment: .leading, spacing: 15, content: {
-            SceneView(scene: generateScene(named: "\(nameds)"), options: [.autoenablesDefaultLighting,.allowsCameraControl])
-                
-                
-                
-                .ignoresSafeArea()
-                .frame(width: UIScreen.main.bounds.width , height: UIScreen.main.bounds.height)
-        })
         
     }
     

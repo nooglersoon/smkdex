@@ -18,7 +18,7 @@ struct ContentView : View {
 
         MainMenuView()
             .accentColor(Color(.systemOrange))
-                    
+//                MiniGameTroubleShootView()
         
     }
 }

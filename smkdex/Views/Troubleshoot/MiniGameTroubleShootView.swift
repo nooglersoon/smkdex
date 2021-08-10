@@ -56,7 +56,7 @@ struct MiniGameTroubleShootView: View {
                     }
                     
                 }
-                .padding(.top, 120)
+                .padding(.top, 100)
                 
                 Spacer()
                 
@@ -159,7 +159,7 @@ struct KlaksonSceneView: UIViewRepresentable {
         
         let klaksonView = SCNView(frame: .zero)
         
-        let tombolKlaksonNode = SCNScene(named: "TombolKlakson.usdz")!.rootNode.childNode(withName: "tmb_klakson",
+        let tombolKotorNode = SCNScene(named: "tombolKotor.usdz")!.rootNode.childNode(withName: "tombol_kotor",
                                                                                           recursively: true)!
         
         let soketKlaksonNode = SCNScene(named: "soketKlakson.usdz")!.rootNode.childNode(withName: "soket_klakson",
@@ -169,17 +169,17 @@ struct KlaksonSceneView: UIViewRepresentable {
         klaksonView.autoenablesDefaultLighting = true
         klaksonView.scene = SCNScene()
         
-        tombolKlaksonNode.position.x = 0
-        tombolKlaksonNode.position.y = 0
-        tombolKlaksonNode.position.z = 0
-        tombolKlaksonNode.scale = SCNVector3(x: 1, y: 1, z: 1)
+        tombolKotorNode.position.x = 0
+        tombolKotorNode.position.y = 0
+        tombolKotorNode.position.z = 0
+        tombolKotorNode.scale = SCNVector3(x: 1, y: 1, z: 1)
         
-        soketKlaksonNode.position.x = 0
-        soketKlaksonNode.position.y = 0
-        soketKlaksonNode.position.z = 0
+        soketKlaksonNode.position.x = -2
+        soketKlaksonNode.position.y = -10
+        soketKlaksonNode.position.z = 2
         soketKlaksonNode.scale = SCNVector3(x: 1, y: 1, z: 1)
         
-        klaksonView.scene?.rootNode.addChildNode(tombolKlaksonNode)
+        klaksonView.scene?.rootNode.addChildNode(tombolKotorNode)
         klaksonView.scene?.rootNode.addChildNode(soketKlaksonNode)
         
         return klaksonView
@@ -189,7 +189,7 @@ struct KlaksonSceneView: UIViewRepresentable {
         
         
         let soketKlaksonNode = uiView.scene?.rootNode.childNode(withName: "soket_klakson", recursively: true)!
-        let tombolKlaksonNode = uiView.scene?.rootNode.childNode(withName: "tmb_klakson", recursively: true)!
+        let tombolKotorNode = uiView.scene?.rootNode.childNode(withName: "tombol_kotor", recursively: true)!
         
         switch index {
         case 0:
@@ -217,7 +217,7 @@ struct KlaksonSceneView: UIViewRepresentable {
             
             let actionRotate = SCNAction.rotateBy(x: CGFloat(GLKMathDegreesToRadians(-90)), y: 0, z: 0, duration: 1)
             actionRotate.timingMode = .easeInEaseOut
-            tombolKlaksonNode?.runAction(actionRotate)
+            tombolKotorNode?.runAction(actionRotate)
             
             print("case2")
             break
