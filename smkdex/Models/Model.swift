@@ -24,7 +24,7 @@ struct Part: Identifiable, Hashable {
     
 }
 
-struct Component: Identifiable {
+struct Component: Identifiable, Hashable {
     
     let id = UUID()
     let nama: String
@@ -70,7 +70,16 @@ struct ComponentManager {
         
         let klakson = Component(nama: "Klakson", shortDesc: "A horn is a sound-making device that can be equipped to motor vehicles", longDesc: "Rangkaian klakson terdiri dari accu, klakson, saklae klakson, sekering, dan kunci kontak. rangkaian ini berfungsi untuk menghasilkan suara sebagai penanda atau isyarat saat berkendara.", visual: "Klakson", category: .electricity, parts: klaksonPart)
         
-        allComponent.append(klakson)
+        let lampuKepala = Component(nama: "Lampu Kepala", shortDesc: "", longDesc: "", visual: "LampuKepala", category: .electricity, parts: [])
+        
+        let lampuSein = Component(nama: "Lampu Sein", shortDesc: "", longDesc: "", visual: "LampuSein", category: .electricity, parts: [])
+        
+        let lampuRem = Component(nama: "Lampu Rem", shortDesc: "", longDesc: "", visual: "LampuRem", category: .electricity, parts: [])
+        
+        let lampuNetral = Component(nama: "Lampu Netral", shortDesc: "", longDesc: "", visual: "LampuNetral", category: .electricity, parts: [])
+        
+        allComponent = [klakson,lampuKepala,lampuSein,lampuRem,lampuNetral]
+        
         
     }
     

@@ -35,6 +35,7 @@ extension Color {
 }
 
 extension Color {
+    
     static let navbar = Color("navbar")
     static let background = Color("background")
     static let wire = Color("wire")

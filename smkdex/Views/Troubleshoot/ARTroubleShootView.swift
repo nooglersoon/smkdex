@@ -28,7 +28,7 @@ struct ARTroubleShootView: View {
     
     
     let synthesizer = AVSpeechSynthesizer()
-    let utterance = AVSpeechUtterance(string: "Dekatkan device ke tanda spot merah untuk mengidentifikasi jenis pengecekan. Lalu klik tombol untuk mengidentifikasi dan memperbaiki  kerusakan")
+    let utterance = AVSpeechUtterance(string: "Pada bagian ini kamu diminta untuk melakukan pengecekan dan perbaikan pada setiap komponen kelistrikan body motor. jika ingin memulai, dekatkan kamera ke tanda spot merah untuk melakukan identifikasi jenis pengecekan dan perbaikan.")
     
     
     var body: some View {
@@ -67,7 +67,7 @@ struct ARTroubleShootView: View {
                                 .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(Color(.gray))
                                 .opacity(0.4)
-                                .overlay(Image(systemName: speakingIsPlayed ? "speaker.slash.fill":"speaker.wave.1.fill")
+                                .overlay(Image(systemName: speakingIsPlayed ? "speaker.slash.fill":"speaker.wave.2.fill")
                                             .foregroundColor(.white))
                         })
                     }
@@ -93,7 +93,7 @@ struct ARTroubleShootView: View {
                         .opacity(0.3)
                         .overlay(
                             
-                            Text("Dekatkan device ke tanda spot merah untuk mengidentifikasi jenis pengecekan")
+                            Text("Dekatkan perangkat ke tanda titik merah untuk mengidentifikasi jenis pengecekan")
                                 .bold()
                                 .multilineTextAlignment(.center)
                                 .font(.caption)

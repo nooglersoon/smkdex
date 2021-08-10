@@ -22,7 +22,6 @@
 		014AC257269A07A600705994 /* smkdexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC256269A07A600705994 /* smkdexTests.swift */; };
 		014AC262269A07A600705994 /* smkdexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC261269A07A600705994 /* smkdexUITests.swift */; };
 		01513AA926BA7BC900DED0A3 /* horn_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01513AA826BA7BC900DED0A3 /* horn_sound.wav */; };
-		0159580826BFDA8B00F86633 /* RangkaianKlakson.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 0159580726BFDA8B00F86633 /* RangkaianKlakson.rcproject */; };
 		016CADB426A2BFA900577F88 /* Aki.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADAF26A2BFA900577F88 /* Aki.usdz */; };
 		016CADB526A2BFA900577F88 /* Fuse.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB026A2BFA900577F88 /* Fuse.usdz */; };
 		016CADB626A2BFA900577F88 /* TombolKlakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB126A2BFA900577F88 /* TombolKlakson.usdz */; };
@@ -35,6 +34,7 @@
 		01BEC13D26AD89BB002D8D04 /* ARExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BEC13C26AD89BB002D8D04 /* ARExtension.swift */; };
 		01BEC13F26AD8A42002D8D04 /* SimulationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BEC13E26AD8A42002D8D04 /* SimulationTest.swift */; };
 		01C1771726A3D42800636E0D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1771626A3D42800636E0D /* Model.swift */; };
+		01D28E2A26C24B2600EA7E7F /* RangkaianKlakson.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 01D28E2926C24B2600EA7E7F /* RangkaianKlakson.rcproject */; };
 		01D317FA269F0043007C0331 /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D317F9269F0043007C0331 /* ComponentView.swift */; };
 		01EE385326BBC6D0001B5CD5 /* Troubleshot.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 01EE385226BBC6D0001B5CD5 /* Troubleshot.rcproject */; };
 		01EE385526BBCD69001B5CD5 /* TroubleshootTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EE385426BBCD69001B5CD5 /* TroubleshootTestView.swift */; };
@@ -88,7 +88,6 @@
 		014AC261269A07A600705994 /* smkdexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smkdexUITests.swift; sourceTree = "<group>"; };
 		014AC263269A07A600705994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01513AA826BA7BC900DED0A3 /* horn_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn_sound.wav; sourceTree = "<group>"; };
-		0159580726BFDA8B00F86633 /* RangkaianKlakson.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = RangkaianKlakson.rcproject; sourceTree = "<group>"; };
 		016CADAF26A2BFA900577F88 /* Aki.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Aki.usdz; sourceTree = "<group>"; };
 		016CADB026A2BFA900577F88 /* Fuse.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Fuse.usdz; sourceTree = "<group>"; };
 		016CADB126A2BFA900577F88 /* TombolKlakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = TombolKlakson.usdz; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		01BEC13C26AD89BB002D8D04 /* ARExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARExtension.swift; sourceTree = "<group>"; };
 		01BEC13E26AD8A42002D8D04 /* SimulationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationTest.swift; sourceTree = "<group>"; };
 		01C1771626A3D42800636E0D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		01D28E2926C24B2600EA7E7F /* RangkaianKlakson.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = RangkaianKlakson.rcproject; sourceTree = "<group>"; };
 		01D317F9269F0043007C0331 /* ComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
 		01EE385226BBC6D0001B5CD5 /* Troubleshot.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Troubleshot.rcproject; sourceTree = "<group>"; };
 		01EE385426BBCD69001B5CD5 /* TroubleshootTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleshootTestView.swift; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 		01BEC13726AD7A3E002D8D04 /* AR Objects */ = {
 			isa = PBXGroup;
 			children = (
-				0159580726BFDA8B00F86633 /* RangkaianKlakson.rcproject */,
+				01D28E2926C24B2600EA7E7F /* RangkaianKlakson.rcproject */,
 				01EE385226BBC6D0001B5CD5 /* Troubleshot.rcproject */,
 				0135A34126A6D39400D5CFC7 /* SimulasiKlaksonAR.rcproject */,
 				014AC246269A07A400705994 /* Experience.rcproject */,
@@ -481,7 +481,7 @@
 				01D317FA269F0043007C0331 /* ComponentView.swift in Sources */,
 				A01210FB26C10D9E000F236E /* MiniGameTroubleShootView.swift in Sources */,
 				014AC243269A07A400705994 /* AppDelegate.swift in Sources */,
-				0159580826BFDA8B00F86633 /* RangkaianKlakson.rcproject in Sources */,
+				01D28E2A26C24B2600EA7E7F /* RangkaianKlakson.rcproject in Sources */,
 				017CF6BF26A1DD5200D91333 /* DragTestView.swift in Sources */,
 				017B5D2C26B9B3E300985004 /* CableDropView.swift in Sources */,
 				012273DB26B7FC0D000EB4CD /* GoToARButtonView.swift in Sources */,
