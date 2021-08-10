@@ -22,6 +22,7 @@
 		014AC257269A07A600705994 /* smkdexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC256269A07A600705994 /* smkdexTests.swift */; };
 		014AC262269A07A600705994 /* smkdexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AC261269A07A600705994 /* smkdexUITests.swift */; };
 		01513AA926BA7BC900DED0A3 /* horn_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01513AA826BA7BC900DED0A3 /* horn_sound.wav */; };
+		01681FC026C294CD00C70869 /* soketKlakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 01681FBF26C294CC00C70869 /* soketKlakson.usdz */; };
 		016CADB426A2BFA900577F88 /* Aki.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADAF26A2BFA900577F88 /* Aki.usdz */; };
 		016CADB526A2BFA900577F88 /* Fuse.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB026A2BFA900577F88 /* Fuse.usdz */; };
 		016CADB626A2BFA900577F88 /* TombolKlakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 016CADB126A2BFA900577F88 /* TombolKlakson.usdz */; };
@@ -41,7 +42,6 @@
 		2CBB7EBC26A09D5B003931E7 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */; };
 		A00CCD3B26AAD74E0030415E /* PartPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00CCD3A26AAD74E0030415E /* PartPopUpView.swift */; };
 		A01210FB26C10D9E000F236E /* MiniGameTroubleShootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01210FA26C10D9E000F236E /* MiniGameTroubleShootView.swift */; };
-		A01210FD26C113E5000F236E /* soketKlakson.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A01210FC26C113E5000F236E /* soketKlakson.usdz */; };
 		A01210FF26C11DEF000F236E /* AlatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01210FE26C11DEF000F236E /* AlatView.swift */; };
 		A012110126C12632000F236E /* ModelAlat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012110026C12632000F236E /* ModelAlat.swift */; };
 		A06D7C1326B7E0D1003C037D /* DragDropSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06D7C1226B7E0D1003C037D /* DragDropSimulationView.swift */; };
@@ -88,6 +88,7 @@
 		014AC261269A07A600705994 /* smkdexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smkdexUITests.swift; sourceTree = "<group>"; };
 		014AC263269A07A600705994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01513AA826BA7BC900DED0A3 /* horn_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn_sound.wav; sourceTree = "<group>"; };
+		01681FBF26C294CC00C70869 /* soketKlakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = soketKlakson.usdz; sourceTree = "<group>"; };
 		016CADAF26A2BFA900577F88 /* Aki.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Aki.usdz; sourceTree = "<group>"; };
 		016CADB026A2BFA900577F88 /* Fuse.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Fuse.usdz; sourceTree = "<group>"; };
 		016CADB126A2BFA900577F88 /* TombolKlakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = TombolKlakson.usdz; sourceTree = "<group>"; };
@@ -107,7 +108,6 @@
 		2CBB7EBB26A09D5B003931E7 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		A00CCD3A26AAD74E0030415E /* PartPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartPopUpView.swift; sourceTree = "<group>"; };
 		A01210FA26C10D9E000F236E /* MiniGameTroubleShootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameTroubleShootView.swift; sourceTree = "<group>"; };
-		A01210FC26C113E5000F236E /* soketKlakson.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = soketKlakson.usdz; sourceTree = "<group>"; };
 		A01210FE26C11DEF000F236E /* AlatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlatView.swift; sourceTree = "<group>"; };
 		A012110026C12632000F236E /* ModelAlat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAlat.swift; sourceTree = "<group>"; };
 		A06D7C1226B7E0D1003C037D /* DragDropSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropSimulationView.swift; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 				016CADB326A2BFA900577F88 /* Klakson.usdz */,
 				016CADB226A2BFA900577F88 /* KunciKontak.usdz */,
 				016CADB126A2BFA900577F88 /* TombolKlakson.usdz */,
-				A01210FC26C113E5000F236E /* soketKlakson.usdz */,
+				01681FBF26C294CC00C70869 /* soketKlakson.usdz */,
 			);
 			path = "3D Part";
 			sourceTree = "<group>";
@@ -439,7 +439,7 @@
 				016CADB726A2BFA900577F88 /* KunciKontak.usdz in Resources */,
 				014AC24C269A07A600705994 /* Preview Assets.xcassets in Resources */,
 				016CADB626A2BFA900577F88 /* TombolKlakson.usdz in Resources */,
-				A01210FD26C113E5000F236E /* soketKlakson.usdz in Resources */,
+				01681FC026C294CD00C70869 /* soketKlakson.usdz in Resources */,
 				014AC249269A07A600705994 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,7 +651,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = Z74KUA44R7;
+				DEVELOPMENT_TEAM = CVSRYHR3VR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -675,7 +675,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = Z74KUA44R7;
+				DEVELOPMENT_TEAM = CVSRYHR3VR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
