@@ -61,7 +61,7 @@ struct TroubleshootTestView: View {
             .padding(.top, 30)
             .padding(.horizontal, 25)
             
-            Text("Ini troubleshooting \(part)")
+           MiniGameTroubleShootView()
             
         }
                     .sheet(isPresented: $isMisiOpen){
