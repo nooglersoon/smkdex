@@ -67,7 +67,7 @@ struct ARTroubleShootView: View {
                                 .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(Color(.gray))
                                 .opacity(0.4)
-                                .overlay(Text( speakingIsPlayed ? "Berhenti":"Mulai")
+                                .overlay(Image(systemName: speakingIsPlayed ? "speaker.slash.fill":"speaker.wave.2.fill")
                                             .foregroundColor(.white))
                         })
                     }
