@@ -70,6 +70,10 @@ struct _DComponentPartView : View {
                             Spacer()
                             HStack{
                                 Spacer()
+                                Image(systemName: "rotate.3d")
+                                    .font(.system(size: 20, weight: .bold))
+                                    .foregroundColor(Color(.black))
+                                
 //                                Button(action: {
 //                                    withAnimation{
 //                                        if index > 0{
@@ -85,22 +89,22 @@ struct _DComponentPartView : View {
                                 NavigationLink(
                                     destination: PartPopUpView(part: "", nameds: namedss),
                                     label: {
-                                        
-                                        ZStack{
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                                .foregroundColor(Color(.gray))
-                                                .opacity(0.4)
-                                            
-                                            Image(systemName: "arrow.up.left.and.arrow.down.right")
-                                                .font(.system(size: 20, weight: .bold))
-                                                .foregroundColor(Color(.white))
-                                        }
+                              
+                                                ZStack{
+                                                    RoundedRectangle(cornerRadius: 10)
+                                                        .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                        .foregroundColor(Color(.gray))
+                                                        .opacity(0.4)
+                                                    
+                                                    Image(systemName: "arrow.up.left.and.arrow.down.right")
+                                                        .font(.system(size: 20, weight: .bold))
+                                                        .foregroundColor(Color(.black))
+                                                }
                                         
                                     })
-                                    .padding()
-                            }
-                            
+                                    
+                            }.padding()
+                           
                         }
                     )
                     .padding(.top, 50)

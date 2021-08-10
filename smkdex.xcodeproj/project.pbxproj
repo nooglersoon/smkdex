@@ -47,6 +47,7 @@
 		A06D7C1326B7E0D1003C037D /* DragDropSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06D7C1226B7E0D1003C037D /* DragDropSimulationView.swift */; };
 		A0A013C926A1C6BA0047D520 /* ComponentPartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */; };
 		A0B8291B269EDC4B001914EF /* 3DComponentPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */; };
+		A0F1C22026C2F93A003C9C91 /* tombolKotor.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A0F1C21F26C2F93A003C9C91 /* tombolKotor.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		A06D7C1226B7E0D1003C037D /* DragDropSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropSimulationView.swift; sourceTree = "<group>"; };
 		A0A013C826A1C6BA0047D520 /* ComponentPartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPartDetailView.swift; sourceTree = "<group>"; };
 		A0B8291A269EDC4B001914EF /* 3DComponentPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DComponentPartView.swift; sourceTree = "<group>"; };
+		A0F1C21F26C2F93A003C9C91 /* tombolKotor.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tombolKotor.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 				016CADB226A2BFA900577F88 /* KunciKontak.usdz */,
 				016CADB126A2BFA900577F88 /* TombolKlakson.usdz */,
 				01681FBF26C294CC00C70869 /* soketKlakson.usdz */,
+				A0F1C21F26C2F93A003C9C91 /* tombolKotor.usdz */,
 			);
 			path = "3D Part";
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F1C22026C2F93A003C9C91 /* tombolKotor.usdz in Resources */,
 				0139936E269ED5290016A8C2 /* Launch Screen.storyboard in Resources */,
 				01513AA926BA7BC900DED0A3 /* horn_sound.wav in Resources */,
 				016CADB426A2BFA900577F88 /* Aki.usdz in Resources */,
@@ -651,7 +655,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = CVSRYHR3VR;
+				DEVELOPMENT_TEAM = Z74KUA44R7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -675,7 +679,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"smkdex/Preview Content\"";
-				DEVELOPMENT_TEAM = CVSRYHR3VR;
+				DEVELOPMENT_TEAM = Z74KUA44R7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = smkdex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
