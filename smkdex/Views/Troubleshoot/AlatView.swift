@@ -17,6 +17,9 @@ struct AlatView: View {
     
     var parts: [Alat]
     
+    @Binding var hasThreeSelected: Bool
+    @Binding var isThreeSelected: Bool
+    
     @State var showingNotice = false
     @State var showingX = false
     @State var selectedAlat: SelectedAlat = .ampelas
@@ -79,6 +82,9 @@ struct AlatView: View {
                                         .onTapGesture {
                                             if part.visual == "Amplas"
                                             {
+                                                self.hasThreeSelected = true
+                                                self.isThreeSelected = false
+                                                
                                                 selectedAlat = .ampelas
                                                 self.showingNotice = true
                                                 print("bisa")
@@ -188,19 +194,18 @@ struct  floatingCompletion:View {
     var body: some View{
         ZStack{
             
-            VStack(alignment: .center, spacing: 8){
-                VStack(){
-                    Text("Misi")
-                    Text("Selesai")
-                }
-                .foregroundColor(.orange)
-                .font(.system(size: 24, weight: .bold))
-                .padding(EdgeInsets(top: 20, leading: 5, bottom: 5, trailing: 5))
+            VStack(alignment: .center, spacing: 1){
+                Text("Misi\nSelesai")
+                    .bold()
+                    .foregroundColor(.orange)
+                    .font(.largeTitle)
+                    .multilineTextAlignment(.center)
+                    .padding(EdgeInsets(top: 20, leading: 5, bottom: 5, trailing: 5))
                 Text("Lempengan pada klaksonmu sudah bersih, kini kamu harus kembali obeservasi dan membenahi kerusakan lainnya agar klaksonmu bisa berbunyi kembali")
                     .frame(width: 343, height: 155)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.black)
-                    .font(.body)
+                    .font(.caption2)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10))
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
@@ -208,14 +213,15 @@ struct  floatingCompletion:View {
                 }, label: {
                     RoundedRectangle(cornerRadius: 15)
                         .frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(Color(.gray))
-                        .opacity(0.4)
+                        .foregroundColor(Color(.systemOrange))
                         .overlay(Text("Perbaikan Selanjutnya")
                                     .font(.system(size: 20)
                                             .bold())
                                     .foregroundColor(.white))
-                })
                     
+                })
+                .padding()
+                
                 
             }
             .background(Color.white.opacity(1))

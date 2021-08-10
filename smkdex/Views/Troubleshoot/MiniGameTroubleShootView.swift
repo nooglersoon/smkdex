@@ -8,62 +8,138 @@
 import SwiftUI
 import SceneKit
 
+
 struct MiniGameTroubleShootView: View {
     
     @State var index = 0
     @State var firstCase0 = true
     @State private var showTools = false
     
+    @State private var isOneSelected = true
+    @State private var hasOneSelected = false
+    @State private var isTwoSelected = false
+    @State private var hasTwoSelected = false
+    @State private var isThreeSelected = false
+    @State private var hasThreeSelected = false
+    
+    var gameInstruction = [
+    
+        "Cabut kabel yang terhubung pada saklar klakson",
+        "Putar saklar klakson untuk melihat lempengan klakson",
+        "Bersihkan lempengan sambungan yang terdapat di klakson "
+        
+    ]
+    
+    
     var body: some View {
-      
+        
         ZStack {
             KlaksonSceneView(index: $index, firstCase0: $firstCase0).ignoresSafeArea()
                 .frame(width: 300, height: 300)
-            HStack{
-                Button(action: {
-                    withAnimation{
-                        if index > 0 || index == 0{
-                            index -= 1
-                        }
-                    }
-                    print("Previous")
-                    firstCase0 = false
-                    
-                }, label: {
-                    Image(systemName: "chevron.left")
-                        .frame(width: 50, height: 50)
-                        .font(.system(size: 35, weight: .bold))
-                        .background(Color(.systemGray4).opacity(0.3))
-                        .clipShape(Circle())
-                        .opacity(index == 0 ? 0.3: 1)
-                        
-                }).disabled(true)
-                Spacer()
-                Button(action: {
-                    withAnimation{
-                        if index >= 0{
-                            index += 1
-                        }
-                    }
-                    print("test")
-                    if index == 2{
-                        showTools = true
-                    }
-                    
-                }, label: {
-                    Image(systemName: "chevron.right")
-                        .frame(width: 50, height: 50)
-                        .font(.system(size: 35, weight: .bold))
-                        .background(Color(.systemGray4).opacity(0.3))
-                        .clipShape(Circle())
-                        .opacity(index == 2 ? 0.3: 1)
-                    
-                })
-            }.foregroundColor(Color(.black))
-            .padding(.horizontal, 30)
-            .padding(.vertical,30)
             
-            AlatView(parts: AlatManager().alatAlat, isShowing: $showTools)
+            VStack {
+                
+                VStack(spacing:10) {
+                    
+                    Text(gameInstruction[index])
+                        .bold()
+                        .font(.title2)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                    
+                    HStack(spacing:30) {
+                        
+                        NumIndicator(isSelected:$isOneSelected , hasSelected: $hasOneSelected, num: 1)
+                        NumIndicator(isSelected: $isTwoSelected, hasSelected: $hasTwoSelected, num: 2)
+                        NumIndicator(isSelected: $isThreeSelected, hasSelected: $hasThreeSelected, num: 3)
+                        
+                    }
+                    
+                }
+                .padding(.top, 120)
+                
+                Spacer()
+                
+                
+                
+            }
+            
+            
+            if index < 2 {
+                
+                VStack {
+                    
+                    Spacer()
+                    
+                    HStack (spacing:30){
+                        Button(action: {
+                            withAnimation{
+                                if index > 0 || index == 0{
+                                    index -= 1
+                                }
+                            }
+                            print("Previous")
+                            firstCase0 = false
+                            
+                        }, label: {
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(Color(.systemOrange))
+                                .frame(width: 147, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .overlay(
+                                    
+                                    Text("PREV")
+                                        .bold()
+                                        .foregroundColor(.white)
+                                    
+                                )
+                                .opacity(index == 0 ? 0.3: 1)
+                            
+                        }).disabled(true)
+                        
+                        Button(action: {
+                            withAnimation{
+                                if index >= 0{
+                                    index += 1
+                                    isOneSelected = false
+                                    hasOneSelected = true
+                                    isTwoSelected = true
+                                }
+                            }
+                            print("test")
+                            if index == 2{
+                                showTools = true
+                                isTwoSelected = false
+                                hasTwoSelected = true
+                                isThreeSelected = true
+                            }
+                            
+                        }, label: {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(Color(.systemOrange))
+                                .frame(width: 147, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .overlay(
+                                    
+                                    Text("NEXT")
+                                        .bold()
+                                        .foregroundColor(.white)
+                                    
+                                )
+                                .opacity(index == 2 ? 0.3: 1)
+                            
+                            
+                        })
+                    }
+                    .foregroundColor(Color(.black))
+                    .padding(.horizontal, 30)
+                    .padding(.vertical,30)
+                    .padding(.bottom,50)
+                    
+                }
+                
+            }
+            
+            AlatView(parts: AlatManager().alatAlat, hasThreeSelected: $hasThreeSelected, isThreeSelected: $isThreeSelected, isShowing: $showTools)
         }
     }
 }
@@ -148,6 +224,25 @@ struct KlaksonSceneView: UIViewRepresentable {
         default:
             break
         }
+    }
+}
+
+
+struct NumIndicator: View {
+    
+    @Binding var isSelected: Bool
+    @Binding var hasSelected: Bool
+    var num: Int
+    
+    var body: some View {
+        
+            
+            Circle()
+                .foregroundColor(hasSelected ? Color(.systemOrange) : Color(.systemGray5))
+                .frame(width: isSelected ? 60 : 40 , height: isSelected ? 60 : 40 , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .overlay(Text("\(num)").foregroundColor(hasSelected ? .white : .black))
+
+        
     }
 }
 
