@@ -9,26 +9,25 @@ import SwiftUI
 import SceneKit
 
 struct MiniGameTroubleShootView: View {
-   
+    
     @State var index = 0
+    @State var firstCase0 = true
+    @State private var showTools = false
     
     var body: some View {
-//        if let node = scene.rootNode.childNodes.first {
-//            let action = SCNAction.rotate(by: CGFloat(Float.pi), around: SCNVector3(x: 0, y: 0.1, z: 0), duration: 2)
-//            let repeatAction = SCNAction.repeatForever(action)
-//            node.runAction(repeatAction)
-//        }
+      
         ZStack {
-            KlaksonSceneView(index: $index).ignoresSafeArea()
+            KlaksonSceneView(index: $index, firstCase0: $firstCase0).ignoresSafeArea()
                 .frame(width: 300, height: 300)
             HStack{
                 Button(action: {
                     withAnimation{
-                        if index > 0{
+                        if index > 0 || index == 0{
                             index -= 1
                         }
                     }
-                        print("Previous")
+                    print("Previous")
+                    firstCase0 = false
                     
                 }, label: {
                     Image(systemName: "chevron.left")
@@ -37,22 +36,19 @@ struct MiniGameTroubleShootView: View {
                         .background(Color(.systemGray4).opacity(0.3))
                         .clipShape(Circle())
                         .opacity(index == 0 ? 0.3: 1)
-                })
+                        
+                }).disabled(true)
                 Spacer()
                 Button(action: {
-//                    if let k = KlaksonSceneView().klaksonView.scene?.rootNode.childNodes.first{
-//                        let action = SCNAction.moveBy(x: 0, y: -10, z: 0, duration: 1)
-//                        action.timingMode = .easeInEaseOut
-//                        k.runAction(action)
-//                    if let k = KlaksonSceneView(soketKlaksonNode: miniManager.soketKlaksonNode)
-//                    }
                     withAnimation{
-                        if index > 0{
+                        if index >= 0{
                             index += 1
                         }
                     }
                     print("test")
-                   
+                    if index == 2{
+                        showTools = true
+                    }
                     
                 }, label: {
                     Image(systemName: "chevron.right")
@@ -60,12 +56,14 @@ struct MiniGameTroubleShootView: View {
                         .font(.system(size: 35, weight: .bold))
                         .background(Color(.systemGray4).opacity(0.3))
                         .clipShape(Circle())
-                        .opacity(index == 3 ? 0.3: 1)
+                        .opacity(index == 2 ? 0.3: 1)
                     
                 })
             }.foregroundColor(Color(.black))
             .padding(.horizontal, 30)
             .padding(.vertical,30)
+            
+            AlatView(parts: AlatManager().alatAlat, isShowing: $showTools)
         }
     }
 }
@@ -77,53 +75,79 @@ struct MiniGameTroubleShootView_Previews: PreviewProvider {
 }
 
 struct KlaksonSceneView: UIViewRepresentable {
-    @Binding var index: Int
     
-    let klaksonView = SCNView(frame: .zero)
-
-     func makeUIView(context: Context) -> SCNView {
+    @Binding var index: Int
+    @Binding var firstCase0: Bool
+    
+    func makeUIView(context: Context) -> SCNView {
         
-        klaksonView.allowsCameraControl = false
+        let klaksonView = SCNView(frame: .zero)
+        
+        let tombolKlaksonNode = SCNScene(named: "TombolKlakson.usdz")!.rootNode.childNode(withName: "tmb_klakson",
+                                                                                          recursively: true)!
+        
+        let soketKlaksonNode = SCNScene(named: "soketKlakson.usdz")!.rootNode.childNode(withName: "soket_klakson",
+                                                                                        recursively: true)!
+        
+        klaksonView.allowsCameraControl = true
         klaksonView.autoenablesDefaultLighting = true
         klaksonView.scene = SCNScene()
-        
-        let scene01 = SCNScene(named: "TombolKlakson.usdz")!
-        let scene02 = SCNScene(named: "soketKlakson.usdz")!
-        
-        let tombolKlaksonNode = scene01.rootNode.childNode(withName: "tmb_klakson",
-                                              recursively: true)!
         
         tombolKlaksonNode.position.x = 0
         tombolKlaksonNode.position.y = 0
         tombolKlaksonNode.position.z = 0
-        
         tombolKlaksonNode.scale = SCNVector3(x: 1, y: 1, z: 1)
         
-        let soketKlaksonNode = scene02.rootNode.childNode(withName: "soket_klakson",
-                                              recursively: true)!
         soketKlaksonNode.position.x = 0
         soketKlaksonNode.position.y = 0
         soketKlaksonNode.position.z = 0
         soketKlaksonNode.scale = SCNVector3(x: 1, y: 1, z: 1)
         
-        
-        
         klaksonView.scene?.rootNode.addChildNode(tombolKlaksonNode)
         klaksonView.scene?.rootNode.addChildNode(soketKlaksonNode)
         
-        switch index {
-        case 0:
-            _ = SCNAction.moveBy(x: 0, y: 0, z: 0, duration: 3)
-        case 1:
-            _ = SCNAction.moveBy(x: 0, y: 100, z: 0, duration: 3)
-        default:
-            break
-        }
         return klaksonView
     }
     func updateUIView(_ uiView: SCNView, context: Context) {
         
+        
+        
+        let soketKlaksonNode = uiView.scene?.rootNode.childNode(withName: "soket_klakson", recursively: true)!
+        let tombolKlaksonNode = uiView.scene?.rootNode.childNode(withName: "tmb_klakson", recursively: true)!
+        
+        switch index {
+        case 0:
+            
+            if firstCase0 == false{
+                let action = SCNAction.moveBy(x: 0, y: -10, z: 0, duration: 1)
+                let reversed = SCNAction.reversed(action)
+                action.timingMode = .easeInEaseOut
+                soketKlaksonNode?.runAction(reversed())
+            }
+            print("case0")
+            break
+        case 1:
+            let action = SCNAction.moveBy(x: 0, y: -10, z: 0, duration: 1)
+            action.timingMode = .easeInEaseOut
+            soketKlaksonNode?.runAction(action)
+            print("case1")
+            
+            break
+        case 2:
+            
+            let actionFadeout = SCNAction.fadeOut(duration: 1)
+            actionFadeout.timingMode = .easeInEaseOut
+            soketKlaksonNode?.runAction(actionFadeout)
+            
+            let actionRotate = SCNAction.rotateBy(x: CGFloat(GLKMathDegreesToRadians(-90)), y: 0, z: 0, duration: 1)
+            actionRotate.timingMode = .easeInEaseOut
+            tombolKlaksonNode?.runAction(actionRotate)
+            
+            print("case2")
+            break
+        default:
+            break
+        }
     }
-    
 }
 
