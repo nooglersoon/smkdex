@@ -63,7 +63,7 @@ struct ComponentManager {
         
             Part(nama: "Kunci Kontak", fungsi: "Kunci kontak berfungsi untuk memutuskan dan menghubungkan listrik pada rangkaian atau mematikan dan menghidupkan sistem di rangkaian kelistrikan klakson.", visual: "KunciKontak"),
             
-            Part(nama: "Klakson", fungsi: "Klakson berfungsi sebagai sumber suara. Saat saklar klakson ditekan, arus dari baterai mengalir melalui baterai, terus ke coil (solenoid), menuju platina dan selanjutnya ke massa. Solenoid menjadi magnet dan menarik armature. Kemudian armature membukakan platina sehingga arus ke massa terputus. Dengan terputusnya arus tersebut, kemagnetan pada solenoid hilang, sehingga armature kembali ke posisi semula. Hal ini menyebabkan platina menutup kembali untuk menghubungkaan arus ke massa. Proses ini berlangsung cepat, dan diafragma membuat armature bergetar lebih cepat lagi, sehingga menghasilkan resonansi suara", visual: "Klakson"),
+            Part(nama: "Klakson", fungsi: "Klakson berfungsi sebagai sumber suara. Saat saklar klakson ditekan, arus dari baterai mengalir melalui baterai, terus ke coil (solenoid), menuju platina dan selanjutnya ke massa. Solenoid menjadi magnet dan menarik armature. Kemudian armature membukakan platina sehingga arus ke massa terputus. Dengan terputusnya arus tersebut, kemagnetan pada solenoid hilang, sehingga armature kembali ke posisi semula. Hal ini menyebabkan platina menutup kembali untuk menghubungkaan arus ke massa. ", visual: "Klakson"),
  
             
         ]

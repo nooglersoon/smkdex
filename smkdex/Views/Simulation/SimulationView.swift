@@ -11,6 +11,7 @@ import AVFoundation
 struct SimulationView: View {
     
     @State private var isImageViewPresented = false
+    @Environment(\.colorScheme) var colorScheme
     
     let components: Component
     let parts: [Part]
@@ -21,18 +22,38 @@ struct SimulationView: View {
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10){
                 
-                Image(uiImage: UIImage(named: "rangkaianKlakson")!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 200)
-                    .cornerRadius(20)
-                    .onTapGesture {
-                        isImageViewPresented.toggle()
-                    }
-                    .fullScreenCover(isPresented: $isImageViewPresented){
-                        ImageViewer(image: "rangkaianKlakson")
-                    }
-                    .padding()
+                if colorScheme == .light {
+                    
+                    Image(uiImage: UIImage(named: "rangkaianKlaksonLight")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 200)
+                        .cornerRadius(20)
+                        .onTapGesture {
+                            isImageViewPresented.toggle()
+                        }
+                        .fullScreenCover(isPresented: $isImageViewPresented){
+                            ImageViewer(image: "rangkaianKlaksonLight")
+                        }
+                        .padding()
+                    
+                    
+                } else if colorScheme == .dark {
+                    
+                    Image(uiImage: UIImage(named: "rangkaianKlaksonDark")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 200)
+                        .cornerRadius(20)
+                        .onTapGesture {
+                            isImageViewPresented.toggle()
+                        }
+                        .fullScreenCover(isPresented: $isImageViewPresented){
+                            ImageViewer(image: "rangkaianKlaksonDark")
+                        }
+                        .padding()
+                    
+                }
                 
                 
                 HStack(alignment: .center, spacing: nil){
@@ -73,7 +94,7 @@ struct SimulationView: View {
             
         }
         .navigationBarTitle("Rangkaian", displayMode: .inline)
-        
+    
         
     }
     

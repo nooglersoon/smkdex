@@ -28,7 +28,7 @@ struct ARTroubleShootView: View {
     
     
     let synthesizer = AVSpeechSynthesizer()
-    let utterance = AVSpeechUtterance(string: "Pada bagian ini kamu diminta untuk melakukan pengecekan dan perbaikan pada setiap komponen kelistrikan body motor. jika ingin memulai, dekatkan kamera ke tanda spot merah untuk melakukan identifikasi jenis pengecekan dan perbaikan.")
+    let utterance = AVSpeechUtterance(string: "Pada bagian ini, kamu diminta untuk melakukan pengecekan dan perbaikan pada setiap komponen kelistrikan bodi motor. Jika ingin memulai, dekatkan kamera ke tanda spot merah untuk melakukan identifikasi jenis pengecekan dan perbaikan.")
     
     
     var body: some View {
