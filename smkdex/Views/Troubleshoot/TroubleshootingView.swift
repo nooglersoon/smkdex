@@ -15,14 +15,12 @@ struct TroubleshootingView: View {
         
         VStack {
             
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 40){
-                HStack(alignment: .center, spacing: nil){
+            VStack(alignment: .leading, spacing: 10){
+                
                     Text("Perbaikan")
                         .font(.system(size: 15))
                         .bold()
-                    Spacer()
-                    
-                }
+                 
                 Text("Troubleshooting untuk rangkaian klakson meliputi dua anomali, klakson yang terus menyala dan klakson yang tidak bisa menyala. ")
                     .multilineTextAlignment(.leading)
                     .font(.body)

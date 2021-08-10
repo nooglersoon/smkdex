@@ -17,7 +17,7 @@ struct ARActionButtonView: View {
             Image(systemName: buttonLabel)
                 .resizable()
                 .frame(width: 45, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.white)
+                .foregroundColor(Color.arButtonColor)
                 .shadow(color: Color(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.2)), radius: 5, x: 3, y: 3)
         })
         

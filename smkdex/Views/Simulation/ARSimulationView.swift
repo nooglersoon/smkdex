@@ -36,8 +36,8 @@ struct ARSimulationView: View {
                     }, label: {
                         RoundedRectangle(cornerRadius: 15)
                             .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .foregroundColor(Color(.gray))
-                            .opacity(0.4)
+                            .foregroundColor(Color.arButtonColor)
+                            .opacity(0.6)
                             .overlay(Image(systemName: "chevron.left")
                                         .font(.system(size: 20)
                                                 .bold())
@@ -53,8 +53,8 @@ struct ARSimulationView: View {
                         }, label: {
                             RoundedRectangle(cornerRadius: 15)
                                 .frame(width: 90, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .foregroundColor(Color(.gray))
-                                .opacity(0.4)
+                                .foregroundColor(Color.arButtonColor)
+                                .opacity(0.6)
                                 .overlay(Image(systemName: speakingIsPlayed ? "speaker.slash.fill":"speaker.wave.2.fill")
                                             .foregroundColor(.white))
                         })

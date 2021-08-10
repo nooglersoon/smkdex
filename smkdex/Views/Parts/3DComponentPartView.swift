@@ -100,7 +100,7 @@ struct _DComponentPartView : View {
                                     })
                                     .padding()
                             }
-                            .padding(.horizontal,27)
+                            
                         }
                     )
                     .padding(.top, 50)

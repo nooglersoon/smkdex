@@ -19,7 +19,7 @@ struct SimulationView: View {
         
         VStack {
             
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 40){
+            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10){
                 
                 Image(uiImage: UIImage(named: "rangkaianKlakson")!)
                     .resizable()
@@ -44,7 +44,7 @@ struct SimulationView: View {
                 }
                 .padding(.horizontal)
                 
-                Text("Baterai (ACCU) pada sistem kelistrikan klakson berfungsi sebagai sumber listrik utama dengan arus DC (Direct Current) atau arus searah. Baterai ini memiliki tegangan sebesar 12 volt dan memiliki dua kutub yaitu positif dan negatif. Bila arus yang ada dibaterai mulai kosong maka akan berdampak pada bunyi klakson yang juga semakin melemah")
+                Text("Aki pada sistem kelistrikan klakson berfungsi sebagai sumber listrik utama dengan arus DC (Direct Current) atau arus searah. Baterai ini memiliki tegangan sebesar 12 volt dan memiliki dua kutub yaitu positif dan negatif. Bila arus yang ada dibaterai mulai kosong maka akan berdampak pada bunyi klakson yang juga semakin melemah.")
                     .multilineTextAlignment(.leading)
                     .font(.body)
                     .padding(.horizontal)

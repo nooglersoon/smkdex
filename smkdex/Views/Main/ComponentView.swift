@@ -39,19 +39,19 @@ struct ComponentView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 300, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .shadow(color: .orange, radius: 20, x: 0, y: 0)
                         
                     }
                 }
                 .frame(height: UIScreen.main.bounds.height/4, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
-                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 8){
-                    HStack(alignment: .center, spacing: nil){
-                        Text("Deskripsi Rangkaian")
-                            .font(.system(size: 16))
-                            .bold()
-                        Spacer()
-                    }
-                    .padding(.bottom, 10)
+                VStack(alignment: .leading, spacing: 8){
+                    
+                    Text("Deskripsi Rangkaian")
+                        .font(.system(size: 16))
+                        .bold()
+                        
+                        .padding(.bottom, 3)
                     Text(component.longDesc)
                         .multilineTextAlignment(.leading)
                         .font(.body)

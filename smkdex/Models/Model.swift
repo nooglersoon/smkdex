@@ -55,7 +55,7 @@ struct ComponentManager {
         
         let klaksonPart: [Part] = [
             
-            Part(nama: "Aki", fungsi: "Baterai (ACCU) pada sistem kelistrikan klakson berfungsi sebagai sumber listrik utama dengan arus DC (Direct Current) atau arus searah. Baterai ini memiliki tegangan sebesar 12 volt dan memiliki dua kutub yaitu positif dan negatif. Bila arus yang ada dibaterai mulai kosong maka akan berdampak pada bunyi klakson yang juga semakin melemah", visual: "Aki"),
+            Part(nama: "Aki", fungsi: "Baterai (Aki) pada sistem kelistrikan klakson berfungsi sebagai sumber listrik utama dengan arus DC (Direct Current) atau arus searah. Baterai ini memiliki tegangan sebesar 12 volt dan memiliki dua kutub yaitu positif dan negatif. Bila arus yang ada dibaterai mulai kosong maka akan berdampak pada bunyi klakson yang juga semakin melemah", visual: "Aki"),
             
             Part(nama: "Sekring", fungsi: "Fuse atau sering disebut sekering merupakan komponen pengaman pada jaringan kelistrikan, termasuk juga pada jaringan kelistrikan klakson. Fuse berfungsi untuk mencegah terjadinya kerusakan pada komponen lainnya bila terjadi hubungan singkat atau kelebihan tegangan. Fuse akan putus jika terjadi hubungan singkat atau beban arus berlebihan sehingga arus tersebut tidak akan mengalir ke komponen kelistrikan lainnya sehingga komponen kelistrikan lainnya akan aman dari kerusakan.", visual: "Fuse"),
             
@@ -68,7 +68,7 @@ struct ComponentManager {
             
         ]
         
-        let klakson = Component(nama: "Klakson", shortDesc: "A horn is a sound-making device that can be equipped to motor vehicles", longDesc: "Rangkaian klakson terdiri dari accu, klakson, saklae klakson, sekering, dan kunci kontak. rangkaian ini berfungsi untuk menghasilkan suara sebagai penanda atau isyarat saat berkendara.", visual: "Klakson", category: .electricity, parts: klaksonPart)
+        let klakson = Component(nama: "Klakson", shortDesc: "A horn is a sound-making device that can be equipped to motor vehicles", longDesc: "Rangkaian klakson terdiri dari aki, klakson, saklar klakson, sekering, dan kunci kontak. rangkaian ini berfungsi untuk menghasilkan suara sebagai penanda atau isyarat saat berkendara.", visual: "Klakson", category: .electricity, parts: klaksonPart)
         
         let lampuKepala = Component(nama: "Lampu Kepala", shortDesc: "", longDesc: "", visual: "LampuKepala", category: .electricity, parts: [])
         

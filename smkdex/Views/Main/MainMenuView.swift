@@ -23,13 +23,13 @@ struct MainMenuView: View {
                 Color.background
                     .edgesIgnoringSafeArea(.bottom)
                 
-                VStack(alignment: .leading, spacing:30){
+                VStack(alignment: .leading, spacing:10){
                     
                     Spacer()
                     
                     ScrollView(.vertical, showsIndicators: false){
                         
-                        LazyVGrid(columns: threeColumnsGrid,spacing: 10){
+                        LazyVGrid(columns: threeColumnsGrid){
                             
                             ForEach(components,id: \.self){ component in
                                 
