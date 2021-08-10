@@ -15,9 +15,10 @@ struct ContentView : View {
     var body: some View {
         
         
+
         MainMenuView()
             .accentColor(Color(.systemOrange))
-            
+                    
         
     }
 }
@@ -29,7 +30,7 @@ struct ContentView : View {
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
         ContentView()
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
             
     }
 }
